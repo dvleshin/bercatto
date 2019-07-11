@@ -1,6 +1,6 @@
 <template>
   <section>
-    <MainItemPreview v-for="item in items" :item="item" :key="item._id"></MainItemPreview>
+    <MainItemPreview @remove="remove" v-for="item in items" :item="item" :key="item._id"></MainItemPreview>
   </section>
 </template>
 
@@ -15,7 +15,11 @@ export default {
       }
     },
   },
-  methods: {},
+  methods: {
+     remove(itemId) {
+      this.$emit('remove' , itemId)
+    }
+  },
   computed: {},
   data() {
     return {};
