@@ -50,7 +50,17 @@ export default {
         return state.items
       },
      trendingItems(state) {
-        return state.items
+       let copy = [...state.items]
+        let sortedByViews =copy.sort(( b, a )=> {
+          if ( a.views< b.views ){
+            return -1;
+          }
+          if ( a.views > b.views ){
+            return 1;
+          }
+          return 0;
+        })
+        return sortedByViews.splice(0, 11)
       },
     },
   }
