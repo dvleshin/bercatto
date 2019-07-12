@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="cards-container">
     <MainItemPreview @remove="remove" v-for="item in items" :item="item" :key="item._id"></MainItemPreview>
   </section>
 </template>
@@ -29,5 +29,5 @@ export default {
   }
 };
 </script>
-<style>
+<style lang="scss" scoped src="../styles/components/main-list.scss">
 </style>

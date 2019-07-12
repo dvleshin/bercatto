@@ -5,40 +5,41 @@ export default {
     save,
     remove,
     getById,
+    getTrendingItems
     
 }
 
 let items = [{
-    "_id": "5c09",
+    "_id": "i222",
     "name": 'xbox 360',
     "category": 'tech',
-    "owner": 'u101',
-    "imgUrl": 'http://lorem.jpg',
-    "views": 20,
+    "ownerId": 'u102',
+    "imgUrl": 'https://www.ivory.co.il/files/catalog/reg/1550143356e56RM.jpg',
+    "views": 30,
     "description": 'A brand new guitar great condition',
     "condition": 'new',
     "tags": ['tech', 'gaming', 'video game'],
     "uploadedAt": 124325235
 },
 {
-    "_id": "4593",
+    "_id": "i333",
     "name": 'Laptop',
     "category": 'tech',
-    "owner": 'u101',
-    "imgUrl": 'http://lorem.jpg',
-    "views": 20,
+    "ownerId": 'u102',
+    "imgUrl": 'https://www.ivory.co.il/files/catalog/org/1546430132n32Ry.jpg',
+    "views": 1,
     "description": 'A brand new guitar great condition',
     "condition": 'new',
     "tags": ['tech', 'gaming', 'video game'],
     "uploadedAt": 124325235
 },
 {
-    "_id": "5209",
+    "_id": "i444",
     "name": 'xbox 360',
     "category": 'tech',
-    "owner": 'u101',
-    "imgUrl": 'http://lorem.jpg',
-    "views": 20,
+    "ownerId": 'u101',
+    "imgUrl": 'https://www.ivory.co.il/files/catalog/org/1448463991p91MC.jpg',
+    "views": 40,
     "description": 'A brand new guitar great condition',
     "condition": 'new',
     "tags": ['tech', 'gaming', 'video game'],
@@ -46,42 +47,11 @@ let items = [{
 }]
 
 function query() {
-    return Promise.resolve([{
-        "_id": "5c09",
-        "name": 'xbox 360',
-        "category": 'tech',
-        "owner": 'u101',
-        "imgUrl": 'http://lorem.jpg',
-        "views": 30,
-        "description": 'A brand new guitar great condition',
-        "condition": 'new',
-        "tags": ['tech', 'gaming', 'video game'],
-        "uploadedAt": 124325235
-    },
-    {
-        "_id": "4593",
-        "name": 'Laptop',
-        "category": 'tech',
-        "owner": 'u101',
-        "imgUrl": 'http://lorem.jpg',
-        "views": 1,
-        "description": 'A brand new guitar great condition',
-        "condition": 'new',
-        "tags": ['tech', 'gaming', 'video game'],
-        "uploadedAt": 124325235
-    },
-    {
-        "_id": "5209",
-        "name": 'xbox 360',
-        "category": 'tech',
-        "owner": 'u101',
-        "imgUrl": 'http://lorem.jpg',
-        "views": 40,
-        "description": 'A brand new guitar great condition',
-        "condition": 'new',
-        "tags": ['tech', 'gaming', 'video game'],
-        "uploadedAt": 124325235
-    }])
+    return Promise.resolve(items)
+}
+
+function getTrendingItems() {
+    return Promise.resolve(items)
 }
 
 function remove(itemId) {

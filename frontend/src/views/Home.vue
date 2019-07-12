@@ -26,7 +26,7 @@ import MainList from "../components/MainList";
 import itemsService from "../services/ItemService";
 export default {
   created() {
-    this.$store.dispatch({ type: "loadItems" }).then(() => {
+    this.$store.dispatch({ type: "getTrendingItems" }).then(() => {
       this.isLoading = false;
     });
   },
@@ -68,7 +68,7 @@ export default {
     },
     search() {
       this.timeout = setTimeout(() => {
-        this.$router.push(`/item?${this.filter.txt}`);
+        this.$router.push(`item?${this.filter.txt}`);
         this.filter.txt = "";
       }, 2000);
       this.showSearchLoading = true;
