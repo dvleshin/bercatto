@@ -7,6 +7,7 @@ import UserProfile from './views/UserProfile.vue'
 import TradingArena from './views/TradingArena.vue'
 import AddItem from './views/AddItem.vue'
 import SignupPage from './views/SignupPage.vue'
+import UploadImages from './components/UploadImages.vue'
 
 
 Vue.use(Router)
@@ -40,6 +41,10 @@ export default new Router({
     {
       path: '/signup',
       component: SignupPage
+    },
+    {
+      path: '/upload-img',
+      component: UploadImages
     }
   ]
 })

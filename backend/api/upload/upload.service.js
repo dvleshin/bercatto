@@ -11,6 +11,6 @@ module.exports = {
 }
 
 async function add(img){
-    console.log(img);
+    console.log('images from upload service', img);
     
 }

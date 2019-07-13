@@ -55,6 +55,14 @@ export default {
           context.commit({ type: 'saveItem', item: savedItem })
         })
     },
+    uploadImgs(context, {imgs}){
+      const formData = new FormData()
+      for (var i = 0; i < imgs.length; i++) {
+        let imgFile = imgs[i];
+        formData.append(`imgs[${i}]`, imgFile);
+      }
+      return itemService.uploadImage(formData)
+    }
 
   },
   getters: {
