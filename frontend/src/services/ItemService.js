@@ -8,7 +8,6 @@ export default {
     getById,
     getTrendingItems,
     uploadImage
-
 }
 
 let items = [{
