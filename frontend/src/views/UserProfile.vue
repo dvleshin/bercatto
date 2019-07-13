@@ -1,13 +1,17 @@
 <template>
-<section>
-  <h1>UserProfile</h1>
-
-<UserItemList :items="user.items"></UserItemList>
-</section>
+  <section v-if="user" class="user-profile">
+    <div class="user-info">
+    <UserCard class="user-card" :user="user"></UserCard>
+    <UserReviews class="user-reviews" :user="user"></UserReviews>
+    </div>
+    <UserItemList class="user-item-list" :items="user.items"></UserItemList>
+  </section>
 </template>
 
 <script>
-import  UserItemList from '../components/UserItemList.vue'
+import UserItemList from "../components/UserItemList.vue";
+import UserReviews from "../components/UserReviews.vue";
+import UserCard from "../components/UserCard.vue";
 export default {
   created() {
     this.$store
@@ -18,13 +22,15 @@ export default {
   },
   data() {
     return {
-        user: {}
+      user: null
     };
   },
   computed: {},
   methods: {},
   components: {
-      UserItemList
+    UserItemList,
+    UserCard,
+    UserReviews
   }
 };
 </script>

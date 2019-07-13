@@ -23,27 +23,31 @@ export default {
 
   },
   actions: {
-    loadUsers(context, ) {
-      return userService.query()
-        .then(users => {
-          context.commit({ type: 'setUsers', users })
-        })
+    async loadUsers(context, ) {
+     const users = await userService.query()
+       try {
+         context.commit({ type: 'setUsers', users })
+       } catch (err) {console.log(err);
+       }
     },
     getUserById(context, { userId }) {
       return userService.getById(userId)
     },
-    deleteUser(context, { userId }) {
-      return userService.remove(userId)
-        .then(() => context.commit({
+    async deleteUser(context, { userId }) {
+      await userService.remove(userId)
+      try {context.commit({
           type: 'deleteUser',
           userId
-        }))
+        })}
+        catch (err) {console.log(err);
+        }
     },
-    saveUser(context, { user }) {
-      return userService.save(user)
-        .then(savedUser => {
-          context.commit({ type: 'saveUser', user: savedUser })
-        })
+    async saveUser(context, { user }) {
+      const savedUser = await userService.save(user)
+      try{
+        context.commit({ type: 'saveUser', user: savedUser })
+      } catch (err) {console.log(err);
+      }
     },
 
   },

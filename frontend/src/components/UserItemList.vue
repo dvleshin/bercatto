@@ -1,6 +1,5 @@
 <template>
   <section class="cards-container">
-    <h1>OnProfileItemList</h1>
     <UserItemPreview @remove="remove" v-for="item in items" :item="item" :key="item._id"></UserItemPreview>
   </section>
 </template>
