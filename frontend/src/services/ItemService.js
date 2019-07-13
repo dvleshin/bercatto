@@ -69,10 +69,9 @@ function save(item) {
     return Promise.resolve(17)
 }
 
-function uploadImage(formData) {
+async function uploadImage(formData) {
     let endpoint = `upload/img`
-    return httpService.post(endpoint, formData)
-        .then(res => res.data)
+    return await httpService.post(endpoint, formData)
 }
 
 
