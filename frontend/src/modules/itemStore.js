@@ -27,33 +27,38 @@ export default {
 
   },
   actions: {
-    loadItems(context, ) {
-      return itemService.query()
-        .then(items => {
-          context.commit({ type: 'setItems', items })
-        })
+    async loadItems(context, ) {
+      const items = await itemService.query()
+      try {
+        context.commit({ type: 'setItems', items })
+      }
+      catch (err) {
+        console.log(err);
+      }
     },
-    getTrendingItems(context, ) {
-      return itemService.getTrendingItems()
-        .then(items => {
-          context.commit({ type: 'setTrendingItems', items })
-        })
+
+    async getTrendingItems(context, ) {
+      const items = await itemService.getTrendingItems()
+      try {
+        context.commit({ type: 'setTrendingItems', items })
+      }
+      catch (err) {console.log(err)}
+
     },
     getItemById(context, { itemId }) {
       return itemService.getById(itemId)
     },
-    deleteItem(context, { itemId }) {
-      return itemService.remove(itemId)
-        .then(() => context.commit({
-          type: 'deleteItem',
-          itemId
-        }))
+    async deleteItem(context, { itemId }) {
+      await itemService.remove(itemId)
+      try { context.commit({ type: 'deleteItem', itemId }) }
+      catch (err) { console.log(err) }
     },
-    saveItem(context, { item }) {
-      return itemService.save(item)
-        .then(savedItem => {
-          context.commit({ type: 'saveItem', item: savedItem })
-        })
+    async saveItem(context, { item }) {
+      const savedItem = await itemService.save(item)
+      try {
+        context.commit({ type: 'saveItem', item: savedItem })
+      }
+      catch (err) {console.log(err)}
     },
 
   },
