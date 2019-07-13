@@ -60,6 +60,17 @@ export default {
       }
       catch (err) {console.log(err)}
     },
+    uploadImgs(context, {imgs}){    
+      const formData = new FormData()
+      for (var i = 0; i < imgs.length; i++) {
+        let imgFile = imgs[i];
+        formData.append(`imgs`, imgFile);        
+      }      
+      return itemService.uploadImage(formData)
+        .then (uploadedImgs => {
+          return uploadedImgs
+        })
+    }
 
   },
   getters: {
