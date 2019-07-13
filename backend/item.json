@@ -1,0 +1,11 @@
+{
+   "name": "xbox 360",
+   "owner": "u101",
+	"imgUrl": "http://lorem.jpg",
+    "views" : 20,
+	"description": "A brand new guitar great condition",
+	"condition": "new",
+	"tags" : ["tech" , "gaming" , "video game"],
+	"createdAt": 124325235,
+	"isSold": false
+}
