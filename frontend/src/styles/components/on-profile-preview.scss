@@ -1,0 +1,16 @@
+.item {
+    display: flex;
+    border: 1px solid black;
+}
+
+.item img {
+    height: 115px;
+}
+
+.item .info-container {
+    margin: 16px;
+}
+
+.item .info-container h1 {
+    padding-bottom: 14px;
+}

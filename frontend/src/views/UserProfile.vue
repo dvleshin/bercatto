@@ -1,11 +1,13 @@
 <template>
 <section>
   <h1>UserProfile</h1>
-{{user}}
+
+<UserItemList :items="user.items"></UserItemList>
 </section>
 </template>
 
 <script>
+import  UserItemList from '../components/UserItemList.vue'
 export default {
   created() {
     this.$store
@@ -20,7 +22,10 @@ export default {
     };
   },
   computed: {},
-  methods: {}
+  methods: {},
+  components: {
+      UserItemList
+  }
 };
 </script>
 <style lang="scss" scoped src="../styles/views/user-profile.scss">

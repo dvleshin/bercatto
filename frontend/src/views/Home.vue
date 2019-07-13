@@ -17,12 +17,12 @@
        <img class="loader" v-if="showSearchLoading" src="../../public/img/loader.gif" alt="">
       </v-layout>
     </v-parallax>
-    <MainList @remove="remove" :items="itemsToShow"></MainList>
+    <MainItemList @remove="remove" :items="itemsToShow"></MainItemList>
   </section>
 </template>
 
 <script>
-import MainList from "../components/MainList";
+import MainItemList from "../components/MainItemList";
 import itemsService from "../services/ItemService";
 export default {
   created() {
@@ -75,7 +75,7 @@ export default {
     }
   },
   components: {
-    MainList
+    MainItemList
   },
 
   destroyed() {
