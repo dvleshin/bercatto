@@ -1,6 +1,6 @@
 <template>
   <section>
-    <v-parallax dark src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg">
+    <v-parallax :height="500" dark src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg">
       <v-layout align-center column justify-center>
         <h1 class="display-2 font-weight-thin mb-3">Barcatto</h1>
         <h4 class="subheading">Barter, bargain and swap unique items</h4>
