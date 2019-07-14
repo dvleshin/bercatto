@@ -1,16 +1,16 @@
 <template>
 <section>
     <h1>Add/Edit Item</h1>
-    {{this.item}}
     <div class="edit-form">
       <h1>{{item._id ? 'Edit Item' : 'Add Item'}}</h1>
       <div>
         <v-form @submit.prevent="saveItem">
           <v-text-field v-model="item.name" label="Name" required></v-text-field>
           <v-text-field v-model="item.condition" label="condition" required type="text"></v-text-field>
-          <v-select :items="categories" v-model="item.category" label="Type"></v-select>
-          <v-btn color="success" type="submit">{{item._id ? 'Save' : 'Add'}}</v-btn>
-          <v-btn color="success" @click="goBack">
+          <v-text-field v-model="item.description" label="description" required type="text"></v-text-field>
+          <v-select :items="categories" v-model="item.category" label="Categoty"></v-select>
+          <v-btn color="blue" type="submit">{{item._id ? 'Save' : 'Add'}}</v-btn>
+          <v-btn color="red" @click="goBack">
             <v-icon dark left>arrow_back</v-icon>back
           </v-btn>
         </v-form>
@@ -54,7 +54,20 @@ export default {
     methods: {
         goBack() {
             this.$router.go(-1)
-        }
+        },
+          saveItem() {
+      this.item.createdAt = Date.now();
+      this.$store.dispatch({ type: "saveItem", item: this.item }).then(() => {
+        // Swal.fire({
+        //   position: "top-end",
+        //   type: "success",
+        //   title: "The toy is saved",
+        //   showConfirmButton: true,
+        //   timer: 2000
+        // });
+        this.$router.push("/");
+      });
+    }
     },
 }
 </script>

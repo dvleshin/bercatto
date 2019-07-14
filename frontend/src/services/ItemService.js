@@ -67,7 +67,8 @@ function getById(itemId) {
 }
 
 function save(item) {
-    return Promise.resolve(17)
+    items.unshift(item)
+    return Promise.resolve(item)
 }
 
 async function uploadImage(formData) {
