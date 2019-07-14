@@ -46,7 +46,7 @@ async function getById(itemId) {
 async function remove(itemId) {
     const collection = await dbService.getCollection(COLLECTION)
     try {
-        await collection.remove({"_id":ObjectId(itemId)})
+        await collection.deleteOne({"_id":ObjectId(itemId)})
     } catch (err) {
         console.log(`ERROR: cannot remove user ${itemId}`)
         throw err;
@@ -57,6 +57,8 @@ async function update(item) {
 
     const collection = await dbService.getCollection(COLLECTION)
     try {
+        console.log(item);
+        
         const itemId = item._id
         delete item._id
         await collection.replaceOne({"_id":ObjectId(itemId)}, {$set : item})

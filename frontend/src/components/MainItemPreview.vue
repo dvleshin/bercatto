@@ -1,11 +1,10 @@
 <template>
 <section class="item">
     <v-card max-width="300">
-      
         <v-img @click.stop ="seeItem"
           class="white--text card-image"
           height="200px"
-          :src="item.imgUrl"
+          :src="item.imgUrl[0]"
         >
           <v-container fill-height fluid>
             <v-layout fill-height>
