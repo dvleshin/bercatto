@@ -3,33 +3,29 @@
     <v-carousel :cycle="cycle">
       <v-carousel-item v-for="(img,idx) in imgs" :key="idx" :src="img.src"></v-carousel-item>
     </v-carousel>
-  {{compData}}
   </section>
 </template>
 
 <script>
 export default {
   props: ["compData"],
+  created(){
+    this.setImages()
+  },
   data() {
     return {
       cycle: false,
-      imgs: [
-        {
-          src: "http://cdn.vuetifyjs.com/images/carousel/squirrel.jpg"
-        },
-        {
-          src: "http://cdn.vuetifyjs.com/images/carousel/sky.jpg"
-        },
-        {
-          src: "http://cdn.vuetifyjs.com/images/carousel/bird.jpg"
-        },
-        {
-          src: "http://cdn.vuetifyjs.com/images/carousel/planet.jpg"
-        }
-      ]
+      imgs: []
     };
   },
-  
+  methods: {
+    setImages() {
+      this.compData.forEach(img => {
+        let src = {src: `${img}`}
+        this.imgs.push(src)   
+      })
+    }
+  },  
   activated() {
     this.cycle = true;
   },
