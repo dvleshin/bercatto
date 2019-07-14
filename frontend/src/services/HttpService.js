@@ -1,8 +1,8 @@
-import router from '../router'
+//import router from '../router'
 
 const BASE_URL = process.env.NODE_ENV === 'production'
     ? '/api/'
-    : 'http://localhost:3000/api/'
+    : '//localhost:3000/api/'
 
 
 import Axios from 'axios';

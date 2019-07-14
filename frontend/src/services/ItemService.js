@@ -19,6 +19,7 @@ let items = [{
         "views": 30,
         "description": 'A brand new guitar great condition',
         "condition": 'new',
+        "value": 1200, 
         "tags": ['tech', 'gaming', 'video game'],
         "uploadedAt": 124325235
     },

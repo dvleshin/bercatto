@@ -14,37 +14,13 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
-      path: '/',
-      component: HomePage
-    },
-    {
-      path: '/item',
-      component: SearchResults
-    },
-    {
-      path: '/item/:id',
-      component: ItemDetails
-    },
-    {
-      path: '/user/:id',
-      component: UserProfile
-    },
-    {
-      path: '/arena/:trade',
-      component: TradingArena
-    },
-    {
-      path: '/add',
-      component: AddItem
-    },
-    {
-      path: '/signup',
-      component: SignupPage
-    },
-    {
-      path: '/upload-img',
-      component: UploadImages
-    }
+    {path: '/', component: HomePage},
+    {path: '/item', component: SearchResults},
+    {path: '/item/:id', component: ItemDetails},
+    {path: '/user/:id', component: UserProfile},
+    {path: '/arena/:trade', component: TradingArena},
+    {path: '/add', component: AddItem},
+    {path: '/signup', component: SignupPage},
+    {path: '/upload-img', component: UploadImages}
   ]
 })
