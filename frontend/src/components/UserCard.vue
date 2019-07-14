@@ -21,7 +21,7 @@
         {{user.fullName}}'s Rate
         <v-spacer></v-spacer>
         <v-rating
-        :value="3"
+        :value="rating"
           color="yellow darken-3"
           background-color="grey darken-1"
           empty-icon="$vuetify.icons.ratingFull"
@@ -37,7 +37,14 @@
 export default {
   props: ["user"],
   methods: {},
-  computed: {},
+  computed: {
+    rating() {
+      this.user.reviews.reduce((review)=> {
+        return review.rating+acc
+      }
+      , 0);
+    }
+  },
   data() {
     return {};
   }
