@@ -1,8 +1,9 @@
 <template>
 <section>
-  <h1>SearchResults</h1>
-  <FilterSection></FilterSection>
-  <MainItemList @remove="remove" :items="itemsToShow"></MainItemList>
+  <div class="main-container">
+  <FilterSection class="filter-section"></FilterSection>
+  <MainItemList class="item-list" @remove="remove" :items="itemsToShow"></MainItemList>
+  </div>
 </section>
 </template>
 
