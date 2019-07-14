@@ -38,22 +38,24 @@ let users = [
         "adress": { city: "Jerusalem", country: "Israel" }
     }]
 
-function query() {
-    return Promise.resolve(users)
+async function query() {
+    return await httpService.get(_getUrl()) 
 }
 
 
-function remove(userId) {
-    return Promise.resolve(17)
+async function remove(userId) {
+    return await httpService.delete(_getUrl(userId))
 }
 
-function getById(userId) {
-    const user = users.find(user => user._id === userId)
-    return Promise.resolve(user)
+async function getById(userId) {
+    return await httpService.get(_getUrl(userId))
 }
 
-function save(editedUser) {
-    const userIdx = users.findIndex(user => user._id === editedUser._id)
-    users.splice(userIdx , 1 , editedUser)
-    return Promise.resolve(editedUser)
+async function save(editedUser) {
+    return await httpService.post(`/signup`,editedUser )
+}
+
+
+function _getUrl(id = '') {
+    return `user/${id}`
 }
