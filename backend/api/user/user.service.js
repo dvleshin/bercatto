@@ -43,13 +43,14 @@ async function getById(userId) {
         throw err;
     }
 }
-async function getByEmail(email) {
+
+async function getUserItems(userId) {
     const collection = await dbService.getCollection(COLLECTION)
     try {
-        const user = await collection.findOne({email})
+        const user = await collection.findOne({"_id":ObjectId(userId)})
         return user
     } catch (err) {
-        console.log(`ERROR: while finding user ${email}`)
+        console.log(`ERROR: while finding user ${userId}`)
         throw err;
     }
 }
