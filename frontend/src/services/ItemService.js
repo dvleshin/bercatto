@@ -49,33 +49,30 @@ let items = [{
     }
 ]
 
-function query(creteria = { txt: '' }) {
-    
-    const itemsToShow = items.filter(item=> {
-      return item.tags.some(tag=> {
-          return tag===creteria.txt
-      })  
-  })
-    return Promise.resolve(itemsToShow)
+async function query(creteria = { txt: '' }) {
+    return await httpService.get(_getUrl()) 
 }
 
-function getTrendingItems() {
+async function getTrendingItems() {
     // db.collection.find().sort({views:-1}).limit(10)
-    return Promise.resolve(items)
+    return await httpService.get(_getUrl())
 }
 
-function remove(itemId) {
-    return Promise.resolve(17)
+async function remove(itemId) {
+    return await httpService.delete(_getUrl(itemId))
 }
 
-function getById(itemId) {
-    const item = items.find(item => item._id === itemId)
-    return Promise.resolve(item)
+async function getById(itemId) {
+    return await httpService.get(_getUrl(itemId))
 }
 
-function save(item) {
-    items.unshift(item)
-    return Promise.resolve(item)
+async function save(item) {
+   if(!item.id) {
+       return await httpService.post(`item/add`,item )
+   }
+   else {
+       return await httpService.post(`item/update`,item )
+   }
 }
 
 async function uploadImage(formData) {

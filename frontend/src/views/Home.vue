@@ -45,7 +45,6 @@ export default {
   },
   methods: {
     remove(itemId) {
-      console.log("onmain", itemId);
       this.$store
         .dispatch({ type: "deleteItem", itemId })
         .then(() => {
@@ -74,6 +73,7 @@ export default {
         },
         
     search() {
+      if(!this.filter.txt) return
       this.timeout = setTimeout(() => {
         this.$router.push(`item?searchBy=${this.filter.txt}`);
         this.filter.txt = "";

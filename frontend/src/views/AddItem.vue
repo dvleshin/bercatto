@@ -1,6 +1,5 @@
 <template>
 <section>
-    <h1>Add/Edit Item</h1>
     <div class="edit-form">
       <h1>{{item._id ? 'Edit Item' : 'Add Item'}}</h1>
       <div>
