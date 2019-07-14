@@ -8,10 +8,10 @@ export default {
     getById,
     getTrendingItems,
     uploadImage
-
 }
 
 let items = [{
+<<<<<<< HEAD
     "_id": "i222",
     "name": 'xbox 360',
     "category": 'tech',
@@ -47,6 +47,44 @@ let items = [{
     "tags": ['tech', 'gaming', 'video game'],
     "uploadedAt": 124325235
 }
+=======
+        "_id": "i222",
+        "name": 'xbox 360',
+        "category": 'tech',
+        "ownerId": 'u102',
+        "imgUrl": 'https://www.ivory.co.il/files/catalog/reg/1550143356e56RM.jpg',
+        "views": 30,
+        "description": 'A brand new guitar great condition',
+        "condition": 'new',
+        "value": 1200, 
+        "tags": ['tech', 'gaming', 'video game'],
+        "uploadedAt": 124325235
+    },
+    {
+        "_id": "i333",
+        "name": 'Laptop',
+        "category": 'tech',
+        "ownerId": 'u102',
+        "imgUrl": 'https://www.ivory.co.il/files/catalog/org/1546430132n32Ry.jpg',
+        "views": 1,
+        "description": 'A brand new guitar great condition',
+        "condition": 'new',
+        "tags": ['tech', 'gaming', 'video game'],
+        "uploadedAt": 124325235
+    },
+    {
+        "_id": "i444",
+        "name": 'xbox 360',
+        "category": 'tech',
+        "ownerId": 'u101',
+        "imgUrl": 'https://www.ivory.co.il/files/catalog/org/1448463991p91MC.jpg',
+        "views": 40,
+        "description": 'A brand new guitar great condition',
+        "condition": 'new',
+        "tags": ['tech', 'gaming', 'video game'],
+        "uploadedAt": 124325235
+    }
+>>>>>>> b33f6e7aede97265c67b2a64dd531b025de9a023
 ]
 
 function query(creteria = { txt: '' }) {

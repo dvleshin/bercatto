@@ -1,11 +1,126 @@
 {
-   "name": "xbox 360",
-   "owner": "u101",
-	"imgUrl": "http://lorem.jpg",
-    "views" : 20,
-	"description": "A brand new guitar great condition",
-	"condition": "new",
-	"tags" : ["tech" , "gaming" , "video game"],
-	"createdAt": 124325235,
-	"isSold": false
+	"name": "Leather Ottoman",
+	"category": "furniture",
+	"ownerId": "u102",
+	"imgUrl": [
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563088837/barcatto/00808_6drvkg3FRyp_1200x900_csub0s.jpg",
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563088825/barcatto/00d0d_2OYrdZmzc7D_1200x900_fsbam9.jpg",
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563088849/barcatto/00L0L_21e1npkFYre_1200x900_xvx0lj.jpg",
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563088813/barcatto/00n0n_jBRo0lMBl1X_1200x900_aixwh1.jpg",
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563088857/barcatto/00W0W_b1sIkg53Sle_1200x900_bwuwqk.jpg"
+	],
+	"views": 30.0,
+	"description": "Modular Leather Ottoman from restoration hardware - 41½\"W x 35\"D x 16½\"H - Original retail value: $1,595 - Depth: Classic - Leather: Cavalo - Color: Ebony",
+	"condition": "excellent",
+	"value": 1200.0,
+	"tags": [
+		"chair",
+		"leather",
+		"ottoman",
+		"cavalo"
+	],
+	"uploadedAt": 1563089515168.0
+}, {
+	"name": "Antique 1880s ANSONIA Cast Iron Enameled MANTLE CLOCK",
+	"category": "furniture",
+	"ownerId": "u102",
+	"imgUrl": [
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563090094/barcatto/00h0h_aNLD1YbZVgx_1200x900_rtp5va.jpg",
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563090103/barcatto/00e0e_7tA0iBeHZ9I_1200x900_jiwapi.jpg",
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563090118/barcatto/00h0h_jsnTtwxRwjX_1200x900_g2bqxm.jpg",
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563090129/barcatto/00D0D_flUlgmTb9kP_1200x900_o4xexb.jpg",
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563090148/barcatto/00v0v_e2BXe9HGMUq_1200x900_ougfzp.jpg",
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563090166/barcatto/00Z0Z_3yxme1hn5GK_1200x900_qbbb6s.jpg"
+	],
+	"views": 30.0,
+	"description": "Late 1800s ANSONIA Cast Iron Enameled MANTLE CLOCK ~ Beautiful Condition. Glass door, porcelain clock face. Original pendulum included (not shown in photos). Very Nice Condition, very clean inside and out. Please See Photos and feel free to ask questions. Serious Buyers Only. Delivery available.",
+	"condition": "good",
+	"value": 550.0,
+	"tags": [
+		"clock",
+		"antique",
+		"ansonia"
+	],
+	"uploadedAt": 1563089515168.0
+}, {
+	"name": "MacBook Pro (13-inch, 2017)",
+	"category": "computers",
+	"ownerId": "u102",
+	"imgUrl": [
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563090621/barcatto/00808_asyWztCHjB8_1200x900_l4t7f5.jpg",
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563090640/barcatto/00c0c_k233GsvESDS_1200x900_gduddt.jpg",
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563090666/barcatto/00q0q_iwryCcbJqMD_1200x900_iu7vyw.jpg"
+	],
+	"views": 70.0,
+	"description": "2.3GHz dual-core 8th-generation Intel Core i5 processor with Turbo Boost up to 3.6GHz. 8GB 2133MHz LPDDR3 memory. 128GB SSD storage1. Intel UHD Graphics 617. Force Touch trackpad. Two Thunderbolt 3 ports. This device was hardly used. spent most of it's time on a shelf. Comes with original charger. No signs of wear or damage. Warranty is still valid until June 2020\n",
+	"condition": "good",
+	"value": 900.0,
+	"tags": [
+		"computers",
+		"macbook",
+		"apple"
+	],
+	"uploadedAt": 1563089515168.0
+}, {
+	"name": "Sequential DSI Tempest",
+	"category": "instruments",
+	"ownerId": "u102",
+	"imgUrl": [
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563090881/barcatto/00P0P_gx2P1wcaWng_1200x900_ybppfp.jpg",
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563090905/barcatto/00l0l_jBBamvBIuq4_1200x900_srhegj.jpg",
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563090937/barcatto/00707_18UYGofWvP1_1200x900_bfryl6.jpg",
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563090973/barcatto/00C0C_jbGkWcllYLY_1200x900_ylt97c.jpg",
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563091002/barcatto/00E0E_awqC29mrODF_1200x900_izl33f.jpg"
+	],
+	"views": 10.0,
+	"description": "If you’re looking at this, you probably already know: a collaboration between Dave Smith, one of the best analog synth designers of the last forty years, and Roger Linn, designer of the famous Linndrum, another one of the most prolific instrument designers of our time. need the money so make me an offer",
+	"condition": "like new",
+	"value": 1200.0,
+	"tags": [
+		"instrument",
+		"tempest",
+		"dsi"
+	],
+	"uploadedAt": 1563089515168.0
+}, {
+	"name": "Nikon F601 - Mirror reflex camera",
+	"category": "photo",
+	"ownerId": "u102",
+	"imgUrl": [
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563091327/barcatto/00000_bq4mNJS7C8F_1200x900_akdz4i.jpg",
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563091381/barcatto/00N0N_i7o3dOx34B2_1200x900_ngbduy.jpg",
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563091418/barcatto/00L0L_75Le9AWMnKE_1200x900_zshtwj.jpg",
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563091452/barcatto/00y0y_iFBFWbloAkt_1200x900_klw8mc.jpg",
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563091490/barcatto/00l0l_fNSwdMBZP1f_1200x900_myr9zt.jpg"
+	],
+	"views": 50.0,
+	"description": "The Nikon F-601, otherwise known as the Nikon N6006, is a iconic 35mm single-lens reflex film camera that was produced by Nikon in mid 90’s.. It features an improved second-generation autofocus system, motor drive for automatic film advance, a built-in pop-up electronic flash, a top shutter speed of 1/2000 of a second, and a new \"Matrix\" evaluative multi-zone metering program. Comes with a 35-to-70 mm autofocus Nikkor zoom lens. It is compatible with a wide range of Nikon F-mount lenses, including both autofocus and manual focus types. Great camera for a collector. Is sold with lens & camera bag. Works with 35mm film. Perfect for photography students or photo artists or photography expert.",
+	"condition": "like new",
+	"value": 500.0,
+	"tags": [
+		"photo",
+		"nikon",
+		"camera"
+	],
+	"uploadedAt": 1563089515168.0
+}, {
+	"name": "Six $500 Five Hundred Dollar Bills",
+	"category": "money",
+	"ownerId": "u102",
+	"imgUrl": [
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563091721/barcatto/00e0e_8rGhKWd65Us_1200x900_qknskb.jpg",
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563091733/barcatto/00q0q_6StOyq0Nxnz_1200x900_m8gsv2.jpg",
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563091744/barcatto/00H0H_andtYGE9fI7_1200x900_r6bzji.jpg",
+		"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563091756/barcatto/00z0z_9Mc3TBdRFTr_1200x900_ytcygi.jpg"
+	],
+	"views": 45.0,
+	"description": "I have six $500 (Five Hundred) Dollar Bills. Please see Images. Willing to barter for 80's corvette or 70's mercedes 450/560SL",
+	"condition": "good",
+	"value": 1200.0,
+	"tags": [
+		"money",
+		"dollar",
+		"coin"
+	],
+	"uploadedAt": 1563089515168.0
 }
