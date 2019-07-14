@@ -8,6 +8,7 @@
           <v-text-field v-model="item.name" label="Name" required></v-text-field>
           <v-text-field v-model="item.condition" label="condition" required type="text"></v-text-field>
           <v-text-field v-model="item.description" label="description" required type="text"></v-text-field>
+          <v-text-field v-model="item.tags" label="tags" hint="seperade by commas" required type="text"></v-text-field>
           <v-select :items="categories" v-model="item.category" label="Categoty"></v-select>
           <v-btn color="blue" type="submit">{{item._id ? 'Save' : 'Add'}}</v-btn>
           <v-btn color="red" @click="goBack">
@@ -57,7 +58,8 @@ export default {
         },
           saveItem() {
       this.item.createdAt = Date.now();
-      this.$store.dispatch({ type: "saveItem", item: this.item }).then(() => {
+      this.item.tags = this.item.tags.split(',')
+      this.$store.dispatch({ type: "saveItem", item: {...this.item} }).then(() => {
         // Swal.fire({
         //   position: "top-end",
         //   type: "success",

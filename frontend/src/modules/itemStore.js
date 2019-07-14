@@ -27,8 +27,8 @@ export default {
 
   },
   actions: {
-    async loadItems(context, ) {
-      const items = await itemService.query()
+    async loadItems(context,payload ) {
+      const items = await itemService.query(payload.creteria)
       try {
         context.commit({ type: 'setItems', items })
       }

@@ -11,7 +11,7 @@
               <div class="headline">{{user.userName}}</div>
               <div>{{user.fullName}}</div>
               <div>{{user.adress.city}}</div>
-               <v-btn color="red">Report</v-btn>
+              <v-btn color="red">Report</v-btn>
             </div>
           </v-card-title>
         </v-flex>
@@ -21,7 +21,7 @@
         {{user.fullName}}'s Rate
         <v-spacer></v-spacer>
         <v-rating
-        :value="rating"
+          :value="rating"
           color="yellow darken-3"
           background-color="grey darken-1"
           empty-icon="$vuetify.icons.ratingFull"
@@ -39,10 +39,15 @@ export default {
   methods: {},
   computed: {
     rating() {
-      this.user.reviews.reduce((review)=> {
-        return review.rating+acc
-      }
-      , 0);
+      console.log();
+      
+      if(this.user.reviews.length) {
+      const rating = this.user.reviews.reduce((accumulator, review) => {
+        return accumulator + review.rating;
+      }, 0);
+      return rating/ this.user.reviews.length
+    }
+    else return 0
     }
   },
   data() {

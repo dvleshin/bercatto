@@ -2,8 +2,8 @@
 <section class="item">
     <v-card max-width="300">
       
-        <v-img
-          class="white--text"
+        <v-img @click.stop ="seeItem"
+          class="white--text card-image"
           height="200px"
           :src="item.imgUrl"
         >
@@ -36,6 +36,9 @@ export default {
   methods: {
     remove(itemId) {
       this.$emit('remove' , itemId)
+    },
+    seeItem() {
+       this.$router.push(`item/${this.item._id}`)
     },
     goToUserProfile(ownerId){
        this.$router.push(`user/${this.item.ownerId}`);

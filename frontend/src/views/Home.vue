@@ -75,7 +75,7 @@ export default {
         
     search() {
       this.timeout = setTimeout(() => {
-        this.$router.push(`item?${this.filter.txt}`);
+        this.$router.push(`item?searchBy=${this.filter.txt}`);
         this.filter.txt = "";
       }, 2000);
       this.showSearchLoading = true;
