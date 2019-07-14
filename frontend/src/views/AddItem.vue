@@ -57,7 +57,7 @@ export default {
             this.$router.go(-1)
         },
           saveItem() {
-      this.item.createdAt = Date.now();
+      this.item.uploadedAt = Date.now();
       this.item.tags = this.item.tags.split(',')
       this.$store.dispatch({ type: "saveItem", item: {...this.item} }).then(() => {
         // Swal.fire({

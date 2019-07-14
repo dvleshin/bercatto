@@ -3,6 +3,7 @@
   <div class="main-container">
   <FilterSection class="filter-section"></FilterSection>
   <MainItemList class="item-list" @remove="remove" :items="itemsToShow"></MainItemList>
+ 
   </div>
 </section>
 </template>

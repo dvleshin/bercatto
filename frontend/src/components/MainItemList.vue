@@ -1,6 +1,7 @@
 <template>
   <section class="cards-container">
-    <MainItemPreview @remove="remove" v-for="item in items" :item="item" :key="item._id"></MainItemPreview>
+    <MainItemPreview  @remove="remove" v-for="item in items" :item="item" :key="item._id"></MainItemPreview>
+     <h1 v-if="!items.length">  No items to show</h1>
   </section>
 </template>
 
