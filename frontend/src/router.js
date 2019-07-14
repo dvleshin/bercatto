@@ -35,7 +35,7 @@ export default new Router({
       component: TradingArena
     },
     {
-      path: '/add',
+      path: '/add/:id?',
       component: AddItem
     },
     {

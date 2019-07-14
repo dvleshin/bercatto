@@ -62,7 +62,8 @@ function remove(itemId) {
 }
 
 function getById(itemId) {
-    return Promise.resolve(17)
+    const item = items.find(item => item._id === itemId)
+    return Promise.resolve(item)
 }
 
 function save(item) {
