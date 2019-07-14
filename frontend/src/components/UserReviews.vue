@@ -78,7 +78,11 @@ export default {
       this.review = {rating :3}
     }
   },
-  computed: {},
+  computed: {
+    reviewsAmount() {
+      return this.user.reviews.length
+    }
+  },
   data() {
     return {
       review: { rating: 3 },
