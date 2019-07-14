@@ -1,5 +1,5 @@
 <template>
-<section>
+<section v-if="compData">
   <GmapMap
       class="map"
       ref="mapRef"
@@ -14,18 +14,21 @@
         :draggable="true"
       />
     </GmapMap>
-  {{compData}}
+  {{compData.city}}
 </section>
 </template>
 
 <script>
 export default {
-  props: ["compData"],
+  props: {
+    compData: Object,
+  },
   data() {
     return {
       markers: [
         { position: { lat: 32.084701, lng: 34.781793}, city: 'Tel Aviv' },
-      ]
+      ],
+      currentPlace: '',
     };
   }
 };
