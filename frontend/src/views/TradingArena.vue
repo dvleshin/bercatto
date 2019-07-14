@@ -1,5 +1,8 @@
 <template>
+    <section>
     <h1>TradingArena</h1>
+
+    </section>
 </template>
 
 <script>

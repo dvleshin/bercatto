@@ -1,5 +1,5 @@
 <template>
-<section>
+<section class="item">
     <v-card max-width="300">
       
         <v-img
@@ -27,7 +27,7 @@
           <v-btn flat color="orange">Go To Arena!</v-btn>
         </v-card-actions>
       </v-card>
-  <button @click="remove(item._id)">X</button> <!--v-if user is the owner -->
+  <button class="delete" @click="remove(item._id)">X</button> <!--v-if user is the owner -->
 </section>
 </template>
 <script>

@@ -14,12 +14,7 @@ let users = [
         "fullName": "Orly Amdadi",
         "password": "tinkerbell",
         "isAdmin": false,
-        "reviews": [{
-            "fromUser": "u123",
-            "createdAt": 13468129,
-            "txt": "very bad seller",
-            "rate": 5
-        }],
+        "reviews":[],
         "items": [{
             itemId: "i333", name: "Laptop", imgUrl: 'https://www.ivory.co.il/files/catalog/org/1448463991p91MC.jpg',
             description: 'A brand new pc great condition'
@@ -35,12 +30,7 @@ let users = [
         "fullName": "Orly Amdadi",
         "password": "tinkerbell",
         "isAdmin": true,
-        "reviews": [{
-            "fromUser": "u123",
-            "createdAt": 13468129,
-            "txt": "very bad seller",
-            "rate": 5
-        }],
+        "reviews":[],
         "items": [{
             itemId: "i444", name: "Laptop", imgUrl: 'https://www.ivory.co.il/files/catalog/org/1448463991p91MC.jpg',
             description: 'A brand new pc great condition'
@@ -62,6 +52,8 @@ function getById(userId) {
     return Promise.resolve(user)
 }
 
-function save(user) {
-    return Promise.resolve(17)
+function save(editedUser) {
+    const userIdx = users.findIndex(user => user._id === editedUser._id)
+    users.splice(userIdx , 1 , editedUser)
+    return Promise.resolve(editedUser)
 }
