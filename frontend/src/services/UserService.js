@@ -1,4 +1,5 @@
 'use strict'
+import httpService from './HttpService';
 
 export default {
     query,

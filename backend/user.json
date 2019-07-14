@@ -1,0 +1,16 @@
+{
+"userName": "DimaLeshin",
+"fullName": "dima san",
+"password": "tinkerbell",
+"isAdmin": false,
+"reviews":[],
+"adress": { "city": "Jerusalem", "country": "Israel" }
+},
+{
+"userName": "Yossi1",
+"fullName": "dima gop",
+"password": "tinkerbell",
+"isAdmin": true,
+"reviews":[],
+"adress": { "city": "tel aviv", "country": "Israel" }
+},
