@@ -1,8 +1,13 @@
 <template>
-    <h1>SignupPage</h1>
+   <section>
+   <!-- <img src="http://wallpaperping.com/wp-content/uploads/2018/05/704532.jpg"> -->
+<signUp></signUp>
+
+   </section>
 </template>
 
 <script>
+import signUp from "../components/signUp"
 export default {
     data() {
         return {
@@ -15,6 +20,9 @@ export default {
     methods: {
         
     },
+    components:{
+        signUp
+    }
 }
 </script>
 <style lang="scss" scoped src="../styles/views/signup-page.scss">
