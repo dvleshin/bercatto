@@ -9,7 +9,12 @@
     <div class="buyer-section">
     <h1>buyer: {{loggedInUser.fullName}}</h1>
     <div class="user-items-container">
-      <img :class="{active: item.isPicked}" @click="togglePickItem(item)"  v-for="item in userItems" :src="item.imgUrl[0]" alt="">
+    
+      <img v-for="item in userItems" :class="{active: item.isPicked}" @click="togglePickItem(item)" :src="item.imgUrl[0]" alt="">
+      
+      
+    
+      
     </div>
     </div>
     </div>

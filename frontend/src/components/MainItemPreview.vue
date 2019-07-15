@@ -26,12 +26,20 @@
           <v-btn flat color="orange" @click="goToArena(item.Id)">Go To Arena!</v-btn>
         </v-card-actions>
       </v-card>
-  <button class="delete" @click="remove(item._id)">X</button> <!--v-if user is the owner -->
+  <button v-if="loggedInUser._id===item.ownerId" class="delete" @click="remove(item._id)">X</button> <!--v-if user is the owner -->
 </section>
 </template>
 <script>
 export default {
   props: ["item"],
+  created() {
+    this.loggedInUser = JSON.parse(sessionStorage.loggedInUser).user
+  },
+  data() {
+    return {
+      loggedInUser:null
+    }
+  },
   methods: {
     remove(itemId) {
       this.$emit('remove' , itemId)
