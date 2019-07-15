@@ -1,13 +1,19 @@
 <template>
+ <section>
+  <heads></heads>
   <router-view></router-view>
+
+ </section>
 </template>
 
 <script>
 import Home from './views/Home.vue'
+import Heads from './components/Header.vue'
 export default {
   name: 'App',
   components: {
-    Home
+    Home,
+    Heads
   },
   data () {
     return {
