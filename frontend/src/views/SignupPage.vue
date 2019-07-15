@@ -1,6 +1,6 @@
 <template>
    <section>
-   <!-- <img src="http://wallpaperping.com/wp-content/uploads/2018/05/704532.jpg"> -->
+  
 <signUp></signUp>
 
    </section>
