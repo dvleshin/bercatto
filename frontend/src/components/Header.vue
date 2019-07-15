@@ -37,7 +37,7 @@ import userService from '../services/UserService.js'
 export default {
  created(){
   this.loggedInUser = this.$store.getters.loggedInUser
-  console.log(this.loggedInUser);
+  console.log('dfdf',this.loggedInUser);
  },
 
  data() {

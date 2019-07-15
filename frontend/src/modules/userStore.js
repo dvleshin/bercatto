@@ -87,7 +87,7 @@ export default {
       return state.users
     },
     loggedInUser(state) {
-return state.loggedInUser
+    return state.loggedInUser
     }
   },
 }
