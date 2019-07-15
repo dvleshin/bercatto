@@ -9,6 +9,10 @@ const getUsers = async (req, res) => {
     const users = await userService.query()
     res.send(users)
 }
+const getUserItems = async (req, res) => {
+    const items = await userService.getUserItems(req.params.id)
+    res.send(items)
+}
 
 async function deleteUser(req, res) {
     await userService.remove(req.params.id)
@@ -18,5 +22,6 @@ async function deleteUser(req, res) {
 module.exports = {
     getUser,
     getUsers,
-    deleteUser
+    deleteUser,
+    getUserItems
 }

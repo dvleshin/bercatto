@@ -80,8 +80,8 @@
 // };
 </script>
 
-<style>
-body {
+<style scoped>
+body{
   background-image: url("http://wallpaperping.com/wp-content/uploads/2018/05/704532.jpg");
   background-size: cover;
 }

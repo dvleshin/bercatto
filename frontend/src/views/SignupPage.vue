@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import signUp from "../components/signUp"
+import SignUp from "../components/SignUp"
 export default {
     data() {
         return {
@@ -21,7 +21,7 @@ export default {
         
     },
     components:{
-        signUp
+        SignUp
     }
 }
 </script>
