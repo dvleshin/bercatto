@@ -34,6 +34,9 @@ export default {
     getUserById(context, { userId }) {
       return userService.getById(userId)
     },
+    getUserItems(context, { userId }) {
+      return userService.getUserItems(userId)
+    },
     async deleteUser(context, { userId }) {
       await userService.remove(userId)
       try {context.commit({

@@ -19,10 +19,15 @@ export default {
       .then(user => {
         this.user = user;
       });
+     this.$store.dispatch({ type: "getUserItems", userId: this.$route.params.id })
+      .then(items => {
+        this.userItems = items;
+      });
   },
   data() {
     return {
-      user: null
+      user: null,
+      userItems:[]
     };
   },
   computed: {},

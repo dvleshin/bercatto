@@ -45,24 +45,28 @@ async function getById(userId) {
 }
 
 async function getUserItems(userId) {
-    const collection = await dbService.getCollection(item)
+    const id = new ObjectId(userId)
+    const collection = await dbService.getCollection('item')
     try {
-        return collection.aggregate([
+        const output =  collection.aggregate([
             {
-                $match: { onwerId: userId }
+                $match: { ownerId: id }
             },
             {
                 $lookup:
                 {
-                    from: 'user',
-                    localField: 'userId',
+                    from: 'items',
+                    localField: 'itemId',
                     foreignField: '_id',
-                    as: 'user'
+                    as: 'item'
                 }
             }, {
-                $unwind: '$user'
+                $unwind: '$item'
             }
         ]).toArray()
+       output.then (res=>console.log(res)
+       )
+        
     } catch (err) {
         console.log(`ERROR: while finding user ${userId}`)
         throw err;
