@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import SignUp from "../components/SignUp"
+import SignUp from "../components/signUp.vue"
 export default {
     data() {
         return {

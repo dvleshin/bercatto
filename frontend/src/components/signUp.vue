@@ -10,57 +10,38 @@
         <v-card>
           <v-card-text class="pt-4">
             <div>
-              <v-form v-model="valid" ref="form">
+              <v-form ref="form">
                 <v-text-field
                   label="Enter your full name"
-                  v-model="fullName"
-                  :rules="fullNameRules"
+                  v-model="user.fullName"
                   required
                 ></v-text-field>
                 <v-text-field
                   label="Enter your e-mail address"
-                  v-model="email"
-                  :rules="emailRules"
+                  v-model="user.email"
                   required
                 ></v-text-field>
                 <v-text-field
                   label="Country"
-                  v-model="country"
-                  :rules="countryRules"
+                  v-model="user.country"
                   required
                 ></v-text-field>
 <v-text-field
                   label="City"
-                  v-model="city"
-                  :rules="cityRules"
+                  v-model="user.city"
                   required
                 ></v-text-field>
                 <v-text-field
                   label="Enter your password"
-                  v-model="password"
+                  v-model="user.password"
                   min="8"
-                  :append-icon="e1 ? 'visibility' : 'visibility_off'"
-                  :append-icon-cb="() => (e1 = !e1)"
-                  :type="e1 ? 'password' : 'text'"
-                  :rules="passwordRules"
                   counter
                   required
                 ></v-text-field>
-                <!-- <v-container fluid grid-list-xl>
-                  <v-layout wrap align-center>
-                    <v-flex xs12 sm6 d-flex>
-                      <v-select :items="items" label="Country"></v-select>
-                    </v-flex>
-                    <v-flex xs12 sm6 d-flex>
-                      <v-select :items="items" label="City"></v-select>
-                    </v-flex>
-                  </v-layout>
-                </v-container> -->
-
                 <v-layout justify-space-between>
                   <v-btn
-                    @click="submit"
-                    :class=" { 'blue darken-4 white--text' : valid, disabled: !valid }"
+                    @click.prevent="submit"
+                
                   >SignUp</v-btn>
                 </v-layout>
               </v-form>
@@ -73,11 +54,31 @@
 </template>
 
 <script>
-// export default {
-//   data: () => ({
-//     items: ["Foo", "Bar", "Fizz", "Buzz"]
-//   })
-// };
+export default {
+  data() {
+    return {
+      user: {}
+    }
+  },
+
+  methods: {
+    submit() {
+      const user = this.user
+      user.reviews = []
+        this.$store.dispatch({ type: "signup", userCred: {user} }).then(() => {
+        // Swal.fire({
+        //   position: "top-end",
+        //   type: "success",
+        //   title: "The toy is saved",
+        //   showConfirmButton: true,
+        //   timer: 2000
+        // });
+        this.$router.push("/");
+    })
+  },
+}
+}
+
 </script>
 
 <style scoped>
