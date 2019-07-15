@@ -1,6 +1,6 @@
 <template>
     <div class="item">
-      <img :src="item.imgUrl" alt="">
+      <img :src="item.imgUrl[0]" alt="">
       <div class="info-container">
           <h1>{{item.name}}</h1>
           <p>{{item.description}}</p>

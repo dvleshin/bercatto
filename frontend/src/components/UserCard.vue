@@ -8,9 +8,9 @@
         <v-flex xs7>
           <v-card-title primary-title>
             <div>
-              <div class="headline">{{user.userName}}</div>
-              <div>{{user.fullName}}</div>
-              <div>{{user.adress.city}}</div>
+              <div class="headline">{{user.fullName}}</div>
+              <!-- <div>{{user.fullName}}</div>
+              <div>{{user.adress.city}}</div> -->
               <v-btn color="red">Report</v-btn>
             </div>
           </v-card-title>
@@ -35,6 +35,10 @@
 
 <script>
 export default {
+  created() {
+    console.log('kjh');
+    
+  },
   props: ["user"],
   methods: {},
   computed: {

@@ -1,3 +1,24 @@
 img {
     height: 200px;
 }
+
+section {
+    display: flex;
+}
+
+.users-section {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+
+.owner-section , .buyer-section {
+    border: 1px solid black;
+    height: 300px;
+   
+}
+
+.chat {
+    border: 1px solid black; 
+    flex: 1; 
+}

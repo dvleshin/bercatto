@@ -46,6 +46,8 @@ export default {
        }
     },
     getUserById(context, { userId }) {
+      
+      
       return userService.getById(userId)
     },
     getUserItems(context, { userId }) {

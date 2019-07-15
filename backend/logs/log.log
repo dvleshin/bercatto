@@ -110,3 +110,39 @@ Mon, 15 Jul 2019 10:19:47 GMT - Debug - auth.service - signup with email: undefi
 Mon, 15 Jul 2019 10:19:47 GMT - Debug - auth.route - new user created: {"user":{"fullName":"Smadar Shnitzer","email":"alondai1@gmail.com","country":"Israel","city":"Givon Hahadasha","password":"lklk","reviews":[],"_id":"5d2c534331237926a84f8a34"}}
 Mon, 15 Jul 2019 10:20:26 GMT - Debug - auth.service - signup with email: undefined, username: undefined
 Mon, 15 Jul 2019 10:20:26 GMT - Debug - auth.route - new user created: {"user":{"fullName":"Smadar Shnitzer","email":"alondai1@gmail.com","country":"Israel","city":"Givon Hahadasha","password":"lk","reviews":[],"_id":"5d2c536a31237926a84f8a35"}}
+Mon, 15 Jul 2019 10:41:13 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 10:42:25 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 10:48:11 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 10:48:48 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 10:49:10 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 10:50:38 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 10:59:44 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Mon, 15 Jul 2019 10:59:44 GMT - Debug - auth.route - new user created: {"user":{"adress":{"country":"Israel","city":"Givon Hahadasha"},"fullName":"Smadar Shnitzer","email":"alondai1@gmail.com","password":"lkj","reviews":[],"_id":"5d2c5ca0d5d6bb1de08bde3d"}}
+Mon, 15 Jul 2019 11:14:31 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:19:36 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:20:28 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:21:11 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:22:31 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:23:01 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:23:20 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:24:58 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:25:44 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:34:25 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:35:22 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:35:38 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:35:51 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:37:19 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:37:35 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:37:38 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:39:07 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:41:42 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:44:16 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:46:43 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:47:01 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:48:09 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:48:55 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:48:58 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:50:53 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 11:53:21 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 12:17:50 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Mon, 15 Jul 2019 12:17:50 GMT - Debug - auth.route - new user created: {"user":{"adress":{"country":"Israel","city":"Givon Hahadasha"},"fullName":"Smadar Shnitzer","email":"alondai1@gmail.com","password":"a;","reviews":[],"_id":"5d2c6eeed1afff29a8fc5b0b"}}

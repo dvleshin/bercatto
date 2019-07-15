@@ -42,7 +42,6 @@ export default {
     return {
       loggedInUser: null,
       item: {
-        _id: "",
         name: "",
         category: "",
         ownerId: "",
