@@ -151,3 +151,17 @@ Mon, 15 Jul 2019 12:17:50 GMT - Debug - auth.route - new user created: {"user":{
 Mon, 15 Jul 2019 10:40:08 GMT - Info - Server is running on port: 3000
 Mon, 15 Jul 2019 11:42:49 GMT - Info - Server is running on port: 3000
 >>>>>>> bb078617c1d453ed26aa2cb8f830092807046836
+
+Mon, 15 Jul 2019 12:29:17 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Mon, 15 Jul 2019 12:29:17 GMT - Debug - auth.route - new user created: {"user":{"adress":{"country":"Israel","city":"Givon Hahadasha"},"fullName":"Smadar Shnitzer","email":"alondai1@gmail.com","password":"f","reviews":[],"_id":"5d2c719dd1afff29a8fc5b0d"}}
+Mon, 15 Jul 2019 12:33:00 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Mon, 15 Jul 2019 12:33:00 GMT - Debug - auth.route - new user created: {"user":{"adress":{},"reviews":[],"_id":"5d2c727cd1afff29a8fc5b0e"}}
+Mon, 15 Jul 2019 12:36:03 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Mon, 15 Jul 2019 12:36:03 GMT - Debug - auth.route - new user created: {"user":{"adress":{},"reviews":[],"_id":"5d2c7333d1afff29a8fc5b0f"}}
+Mon, 15 Jul 2019 12:45:55 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Mon, 15 Jul 2019 12:45:55 GMT - Debug - auth.route - new user created: {"user":{"adress":{"country":"Israel","city":"Givon Hahadasha"},"fullName":"Smadar Shnitzer","email":"alondai1@gmail.com","password":",jh","reviews":[],"_id":"5d2c7583d1afff29a8fc5b10"}}
+Mon, 15 Jul 2019 13:42:43 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 13:48:17 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Mon, 15 Jul 2019 13:48:17 GMT - Error - [SIGNUP] TypeError: Cannot read property '_id' of undefined
+Mon, 15 Jul 2019 13:59:12 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Mon, 15 Jul 2019 13:59:12 GMT - Debug - auth.route - new user created: {"user":{"adress":{"country":"Israel","city":"Givon Hahadasha"},"fullName":"Smadar Shnitzer","email":"alondai1@gmail.com","password":"dd","reviews":[],"_id":"5d2c86b0a800a038605e4bfe"}}

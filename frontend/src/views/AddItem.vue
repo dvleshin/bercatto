@@ -16,6 +16,7 @@
             type="text"
           ></v-text-field>
           <v-select :items="categories" v-model="item.category" label="Categoty"></v-select>
+          <UploadImages @uploadedImgs="uploadedImgs"></UploadImages>
           <v-btn color="blue" type="submit">{{item._id ? 'Save' : 'Add'}}</v-btn>
           <v-btn color="red" @click="goBack">
             <v-icon dark left>arrow_back</v-icon>back
@@ -27,6 +28,7 @@
 </template>
 
 <script>
+import UploadImages from "../components/UploadImages.vue";
 export default {
   created() {
     const itemId = this.$route.params.id;
@@ -70,6 +72,11 @@ export default {
     goBack() {
       this.$router.go(-1);
     },
+    uploadedImgs(imgs) {
+this.item.imgUrl = [imgs[0].url]
+console.log(this.item.imgUrl);
+
+    },
     saveItem() {
       console.log("sd");
 
@@ -83,6 +90,9 @@ export default {
           this.$router.push("/");
         });
     }
+  },
+  components: {
+    UploadImages
   }
 };
 </script>

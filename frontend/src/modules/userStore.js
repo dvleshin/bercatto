@@ -15,6 +15,8 @@ export default {
 
     setLoggedInUser(state, { user }) {
       state.loggedInUser = user
+      console.log('in the store',state.loggedInUser);
+      
     },
    
     deleteUser(state, { userId }) {
@@ -84,5 +86,8 @@ export default {
     usersToshow(state) {
       return state.users
     },
+    loggedInUser(state) {
+return state.loggedInUser
+    }
   },
 }

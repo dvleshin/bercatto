@@ -22,3 +22,11 @@ section {
     border: 1px solid black; 
     flex: 1; 
 }
+
+.user-items-container {
+    display: flex;
+}
+
+.user-items-container img {
+    height: 200px;
+}

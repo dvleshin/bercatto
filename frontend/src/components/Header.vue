@@ -1,7 +1,7 @@
 <template>
  
   <v-toolbar>
-    <v-form>
+    <v-form class="form">
     <v-toolbar-items v-if="!loggedInUser" class="hidden-sm-and-down">
     
       <v-text-field
@@ -36,7 +36,8 @@
 import userService from '../services/UserService.js'
 export default {
  created(){
-  this.$store.state.loggedInUser
+  this.loggedInUser = this.$store.getters.loggedInUser
+  console.log(this.loggedInUser);
  },
 
  data() {

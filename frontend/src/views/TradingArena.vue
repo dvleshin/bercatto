@@ -7,9 +7,8 @@
     </div>
     <div class="buyer-section">
     <h1>buyer: {{loggedInUser.fullName}}</h1>
-    <div v-for="item in userItems">
-{{item.imgUrl[0]}}
-{{item}}
+    <div class="user-items-container">
+      <img  v-for="item in userItems" :src="item.imgUrl[0]" alt="">
     </div>
     </div>
     </div>
