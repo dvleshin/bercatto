@@ -1,4 +1,5 @@
 import userService from '../services/UserService.js'
+import utilsService from '../services/UtilsService.js'
 
 
 export default {
@@ -49,6 +50,15 @@ export default {
       } catch (err) {console.log(err);
       }
     },
+    async getCordsByName(context, {location}) {
+    const cords = await utilsService.getCordsByName(location)
+      try {
+        return cords
+      } catch (err) {
+        console.log(err);
+        
+      }
+    }
 
   },
   getters: {

@@ -8,7 +8,7 @@
 
             <v-tab v-for="(tab, idx) in tabs" :key="idx">
               <span>{{ tab.label }}</span>
-              <v-icon>{{tab.icon}}</v-icon>
+              <v-icon>{{ tab.icon }}</v-icon>
             </v-tab>
           </v-tabs>
         </template>
@@ -40,8 +40,13 @@ export default {
           .dispatch({ type: "getUserById", userId: this.item.ownerId })
           .then(user => {
             this.user = user;
-            this.tabs[1].data = user.adress
 
+          this.$store
+          .dispatch({ type: "getCordsByName", location: this.user.adress.city })
+          .then(cords => {
+            console.log('Item Details', cords);
+            this.tabs[1].data = cords
+          })
           });
       });
   },

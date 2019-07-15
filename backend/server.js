@@ -14,7 +14,7 @@ const itemRoutes = require('./api/item/item.routes')
 const uploadRoutes = require('./api/upload/upload.routes')
 
 const logger = require('./services/logger.service')
-// const socketService = require('./services/socket.service')
+//const socketService = require('./services/socket.service')
 
 
 app.use(cookieParser())
@@ -41,7 +41,7 @@ app.use('/api/user', userRoutes)
 app.use('/api/item', itemRoutes)
 app.use('/api/upload', uploadRoutes)
 
-// socketService.setup(http);
+//socketService.setup(http);
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.resolve(__dirname, 'public')));

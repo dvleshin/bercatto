@@ -5,9 +5,10 @@ const ObjectId = require('mongodb').ObjectId
 module.exports = {
     query,
     getById,
+    getUserItems,
     remove,
     update,
-    add
+    add,
 }
 const COLLECTION = 'user'
 
