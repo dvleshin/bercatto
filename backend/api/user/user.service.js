@@ -49,18 +49,20 @@ async function getById(userId) {
 }
 
 async function getUserItems(userId) {
-    const id = new ObjectId(userId)
+    console.log(userId);
+    
+    // const id = new ObjectId(userId)
     const collection = await dbService.getCollection('item')
     try {
         const output =  collection.aggregate([
             {
-                $match: { ownerId: id }
+                $match: { ownerId: userId }
             },
             {
                 $lookup:
                 {
-                    from: 'items',
-                    localField: 'itemId',
+                    from: 'user',
+                    localField: 'ownerId',
                     foreignField: '_id',
                     as: 'item'
                 }
@@ -99,9 +101,11 @@ async function update(user) {
 }
 
 async function add(user) {
+    
+    
     const collection = await dbService.getCollection(COLLECTION)
     try {
-        await collection.insertOne(user);
+        await collection.insertOne(user.user);
         return user;
     } catch (err) {
         console.log(`ERROR: cannot insert user`)

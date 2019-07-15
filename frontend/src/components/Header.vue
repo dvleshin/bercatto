@@ -4,15 +4,13 @@
       <v-text-field
                   label="User Name"
                   v-model="userName"
-                  :rules="userNameRules"
                   required
                   
                 ></v-text-field>
       
     <v-text-field
                   label="Password"
-                  v-model="Password"
-                  :rules="passwordRules"
+                  v-model="password"
                   required
                   
                 ></v-text-field>
@@ -33,8 +31,16 @@
 <script>
 export default {
  created(){
-   this.loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser').user)
- }
+  
+ },
+
+ data() {
+   return {
+     password: '',
+     userName: '',
+     loggedInUser: null
+   }
+ },
 };
 </script>
 

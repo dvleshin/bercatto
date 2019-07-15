@@ -6,10 +6,15 @@ export default {
   state: {
     users: [],
     filterBy: null,
+    loggedInUser: null
   },
   mutations: {
     setUsers(state, { users }) {
       state.users = users
+    },
+
+    setLoggedInUser(state, { user }) {
+      state.loggedInUser = user
     },
    
     deleteUser(state, { userId }) {
@@ -24,6 +29,15 @@ export default {
 
   },
   actions: {
+
+    async signup(context, {userCred}) {
+      const user = await userService.save(userCred)
+      try {
+        context.commit({ type: 'setLoggedInUser', user })
+      } catch (err) {console.log(err);
+      }
+    },
+
     async loadUsers(context, ) {
      const users = await userService.query()
        try {

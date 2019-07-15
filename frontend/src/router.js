@@ -31,7 +31,7 @@ export default new Router({
       component: UserProfile
     },
     {
-      path: '/arena/:trade',
+      path: '/arena',
       component: TradingArena
     },
     {
