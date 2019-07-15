@@ -1,7 +1,7 @@
 <template>
 <section class="search-container">
   <div class="main-container">
-  <FilterSection class="filter-section"></FilterSection>
+  <FilterSection class="filter-section" style="border: 1px solid #000"></FilterSection>
   <MainItemList class="item-list" @remove="remove" :items="itemsToShow"></MainItemList>
   </div>
 </section>
