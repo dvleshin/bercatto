@@ -28,7 +28,7 @@ async function getById(itemId) {
 }
 
 async function save(item) {
-   if(!item.id) {
+   if(!item._id) {
        return await httpService.post(`item/add`,item )
    }
    else {

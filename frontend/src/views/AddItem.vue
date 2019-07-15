@@ -81,6 +81,8 @@ console.log(this.item.imgUrl);
       console.log("sd");
 
       this.item.uploadedAt = Date.now();
+      this.item.isPicked = false;
+      this.item.isAdmin = false;
       // this.item.tags = this.item.tags.split(',')
       this.item.ownerId = JSON.parse(sessionStorage.loggedInUser).user._id;
       this.item.value = +this.item.value;

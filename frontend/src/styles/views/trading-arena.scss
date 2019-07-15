@@ -30,3 +30,15 @@ section {
 .user-items-container img {
     height: 200px;
 }
+
+.close-deal-btn{
+    height: 50px;
+    width: 80px;
+    background-color: green;
+    color: white;
+}
+
+.active{
+    // opacity: 0.1;
+    border: 10px solid green;
+}

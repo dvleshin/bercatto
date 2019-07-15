@@ -54,6 +54,7 @@ async function remove(itemId) {
 }
 
 async function update(item) {
+console.log('got to update#####');
 
     const collection = await dbService.getCollection(COLLECTION)
     try {
@@ -71,6 +72,8 @@ async function update(item) {
 }
 
 async function add(item) {
+    console.log('got to add*****');
+    
     const collection = await dbService.getCollection(COLLECTION)
     try {
         await collection.insertOne(item);
