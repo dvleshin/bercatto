@@ -5,7 +5,6 @@ const ObjectId = require('mongodb').ObjectId
 module.exports = {
     query,
     getById,
-    //getByEmail,
     getUserItems,
     remove,
     update,
@@ -46,10 +45,24 @@ async function getById(userId) {
 }
 
 async function getUserItems(userId) {
-    const collection = await dbService.getCollection(COLLECTION)
+    const collection = await dbService.getCollection(item)
     try {
-        const user = await collection.findOne({"_id":ObjectId(userId)})
-        return user
+        return collection.aggregate([
+            {
+                $match: { onwerId: userId }
+            },
+            {
+                $lookup:
+                {
+                    from: 'user',
+                    localField: 'userId',
+                    foreignField: '_id',
+                    as: 'user'
+                }
+            }, {
+                $unwind: '$user'
+            }
+        ]).toArray()
     } catch (err) {
         console.log(`ERROR: while finding user ${userId}`)
         throw err;
