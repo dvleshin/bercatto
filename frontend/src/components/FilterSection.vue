@@ -29,5 +29,3 @@ export default {
   components: {}
 };
 </script>
-<style lang="scss" src="../styles/components/filter-section.scss">
-</style>

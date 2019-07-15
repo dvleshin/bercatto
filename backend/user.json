@@ -1,16 +1,16 @@
 {
-"userName": "DimaLeshin",
+"email": "admin@admin.com",
 "fullName": "Bradley Murphy",
-"password": "tinkerbell",
+"password": "1234",
 "isAdmin": false,
 "reviews":[],
 "profileImg": "https://randomuser.me/api/portraits/men/43.jpg",
 "adress": { "city": "Jerusalem", "country": "Israel" }
 },
 {
-"userName": "Yossi1",
+"email": "admin1@admin.com",
 "fullName": "Brent Anderson",
-"password": "tinkerbell",
+"password": "1234",
 "isAdmin": true,
 "reviews":[],
 "profileImg": "https://randomuser.me/api/portraits/men/51.jpg",

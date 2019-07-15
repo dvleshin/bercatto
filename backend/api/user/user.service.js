@@ -5,6 +5,7 @@ const ObjectId = require('mongodb').ObjectId
 module.exports = {
     query,
     getById,
+    getByEmail,
     getUserItems,
     remove,
     update,
@@ -36,11 +37,7 @@ async function query(filterBy = {}) {
 async function getById(userId) {
     const collection = await dbService.getCollection(COLLECTION)
     try {
-        console.log('1111',userId);
-        
         const user = await collection.findOne({"_id":ObjectId(userId)}) 
-        console.log('2222',user);
-               
         return user
     } catch (err) {
         console.log(`ERROR: while finding user ${userId}`)
@@ -85,12 +82,24 @@ async function update(user) {
     }
 }
 
+async function getByEmail(email) {
+    const collection = await dbService.getCollection(COLLECTION)
+    try {
+        const user = await collection.findOne({email})
+        return user
+    } catch (err) {
+        console.log(`ERROR: while finding user ${email}`)
+        throw err;
+    }
+}
+
 async function add(user) {
-    
+    const userEmail = await getByEmail(user.email)
+    if(userEmail) return Promise.reject('This email is already used')
     
     const collection = await dbService.getCollection(COLLECTION)
     try {
-        await collection.insertOne(user.user);
+        await collection.insertOne(user);
         return user;
     } catch (err) {
         console.log(`ERROR: cannot insert user`)
