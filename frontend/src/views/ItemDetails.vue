@@ -29,7 +29,7 @@
         <div class="v-card-profile">
           <v-avatar slot="offset" class="mx-auto d-block" size="130">
             <img
-              src="https://bookingagentinfo.com/wp-content/uploads/2014/12/Travis-Scott-Contact-Information.jpg"
+              :src="user.profileImg"
             />
           </v-avatar>
           <v-card-text class="text-xs-center">

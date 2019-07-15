@@ -4,7 +4,7 @@
 "password": "tinkerbell",
 "isAdmin": false,
 "reviews":[],
-"img": "https://randomuser.me/api/portraits/men/43.jpg",
+"profileImg": "https://randomuser.me/api/portraits/men/43.jpg",
 "adress": { "city": "Jerusalem", "country": "Israel" }
 },
 {
@@ -13,6 +13,6 @@
 "password": "tinkerbell",
 "isAdmin": true,
 "reviews":[],
-"img": "https://randomuser.me/api/portraits/men/51.jpg",
+"profileImg": "https://randomuser.me/api/portraits/men/51.jpg",
 "adress": { "city": "Tel aviv", "country": "Israel" }
 },
