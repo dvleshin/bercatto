@@ -21,34 +21,47 @@
         </v-tab-item>
       </v-tabs-items>
     </div>
-    <div clas="user-container">
-      {{user}}
+    <div clas="user-container" v-if="user">
+      <material-card class="v-card-profile">
+        <v-avatar slot="offset" class="mx-auto d-block" size="130">
+          <img
+            src="https://bookingagentinfo.com/wp-content/uploads/2014/12/Travis-Scott-Contact-Information.jpg"
+          />
+        </v-avatar>
+        <v-card-text class="text-xs-center">
+            <h6 class="category text-gray font-weight-thin mb-3">{{user.userName}}</h6>
+            <h4 class="card-title font-weight-light">{{user.fullName}}</h4>
+          </v-card-text>
+      </material-card>
     </div>
   </section>
 </template>
 
 <script>
-import UserMap from '../components/UserMap.vue'
-import ImagesCarousel from '../components/ImagesCarousel.vue'
+import UserMap from "../components/UserMap.vue";
+import ImagesCarousel from "../components/ImagesCarousel.vue";
 export default {
   created() {
     this.$store
       .dispatch({ type: "getItemById", itemId: this.$route.params.id })
       .then(item => {
         this.item = item;
-        this.tabs[0].data = item.imgUrl
+        this.tabs[0].data = item.imgUrl;
 
         this.$store
           .dispatch({ type: "getUserById", userId: this.item.ownerId })
           .then(user => {
             this.user = user;
 
-          this.$store
-          .dispatch({ type: "getCordsByName", location: this.user.adress.city })
-          .then(cords => {
-            //console.log('Item Details', cords);
-            this.tabs[1].data = cords
-          })
+            this.$store
+              .dispatch({
+                type: "getCordsByName",
+                location: this.user.adress.city
+              })
+              .then(cords => {
+                //console.log('Item Details', cords);
+                this.tabs[1].data = cords;
+              });
           });
       });
   },
@@ -73,16 +86,16 @@ export default {
       ]
     };
   },
-  components:{
-      UserMap,
-      ImagesCarousel
+  components: {
+    UserMap,
+    ImagesCarousel
   },
   computed: {},
   methods: {}
 };
 </script>
-<style lang="scss" scoped src="../styles/views/item-details.scss">
-
+<style scoped lang="scss">
+@import "../styles/views/item-details.scss";
 </style>
 
 
