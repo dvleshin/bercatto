@@ -3,6 +3,7 @@
     <v-parallax :height="500" dark src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg">
       <v-layout align-center column justify-center>
           <v-icon @click="goToAddPage" class="add-icon">add</v-icon>
+          <v-icon @click="goToSignUpPage" class="signup-icon">remove</v-icon>
         <h1 class="display-2 font-weight-thin mb-3">Barcatto</h1>
         <h4 class="subheading">Barter, bargain and swap unique items</h4>
         <h4 class="subheading">
@@ -70,6 +71,9 @@ export default {
 
       goToAddPage() {
           this.$router.push(`add`)
+        },
+      goToSignUpPage() {
+          this.$router.push(`signup`)
         },
         
     search() {
