@@ -1,68 +1,47 @@
 'use strict'
+import httpService from './HttpService';
 
 export default {
     query,
-    add,
+    save,
     remove,
     getById,
-    update,
+    getTrendingItems,
+    uploadImage
 }
 
-let items = [{
-    "_id": "5c09",
-    "name": 'xbox 360',
-    "category": 'tech',
-    "owner": 'u101',
-    "imgUrl": 'http://lorem.jpg',
-    "views": 20,
-    "description": 'A brand new guitar great condition',
-    "condition": 'new',
-    "tags": ['tech', 'gaming', 'video game'],
-    "uploadedAt": 124325235
-},
-{
-    "_id": "4593",
-    "name": 'Laptop',
-    "category": 'tech',
-    "owner": 'u101',
-    "imgUrl": 'http://lorem.jpg',
-    "views": 20,
-    "description": 'A brand new guitar great condition',
-    "condition": 'new',
-    "tags": ['tech', 'gaming', 'video game'],
-    "uploadedAt": 124325235
-},
-{
-    "_id": "5209",
-    "name": 'xbox 360',
-    "category": 'tech',
-    "owner": 'u101',
-    "imgUrl": 'http://lorem.jpg',
-    "views": 20,
-    "description": 'A brand new guitar great condition',
-    "condition": 'new',
-    "tags": ['tech', 'gaming', 'video game'],
-    "uploadedAt": 124325235
-}]
-
-function query() {
-    return items
+async function query(creteria = { txt: '' }) {
+    return await httpService.get(_getUrl()) 
 }
 
-function add(item) {
-    items.push(item)
+async function getTrendingItems() {
+    // db.collection.find().sort({views:-1}).limit(10)
+    return await httpService.get(_getUrl())
 }
 
-function remove(itemId) {
-    let idx = items.findIndex(item => item._id === itemId)
-    items.splice(idx, 1)
+async function remove(itemId) {
+    return await httpService.delete(_getUrl(itemId))
 }
 
-function getById(itemId) {
-    return items.find(item => item._id === itemId)
+async function getById(itemId) {
+    return await httpService.get(_getUrl(itemId))
 }
 
-function update(item) {
-    let idx = items.findIndex(currItem => currItem._id === item._id)
-    items.splice(idx, 1, item)
+async function save(item) {
+   if(!item.id) {
+       return await httpService.post(`item/add`,item )
+   }
+   else {
+       return await httpService.post(`item/update`,item )
+   }
+}
+
+async function uploadImage(formData) {
+    let endpoint = `upload/img`
+    return await httpService.post(endpoint, formData)
+}
+
+
+function _getUrl(id = '') {
+    return `item/${id}`
 }

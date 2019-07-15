@@ -1,21 +1,38 @@
 <template>
-    <h1>UserProfile</h1>
+  <section v-if="user" class="user-profile">
+    <div class="user-info">
+    <UserCard class="user-card" :user="user"></UserCard>
+    <UserReviews class="user-reviews" :user="user"></UserReviews>
+    </div>
+    <UserItemList class="user-item-list" :items="user.items"></UserItemList>
+  </section>
 </template>
 
 <script>
+import UserItemList from "../components/UserItemList.vue";
+import UserReviews from "../components/UserReviews.vue";
+import UserCard from "../components/UserCard.vue";
 export default {
-    data() {
-        return {
-            
-        }
-    },
-    computed: {
-        
-    },
-    methods: {
-        
-    },
-}
+  created() {
+    this.$store
+      .dispatch({ type: "getUserById", userId: this.$route.params.id })
+      .then(user => {
+        this.user = user;
+      });
+  },
+  data() {
+    return {
+      user: null
+    };
+  },
+  computed: {},
+  methods: {},
+  components: {
+    UserItemList,
+    UserCard,
+    UserReviews
+  }
+};
 </script>
 <style lang="scss" scoped src="../styles/views/user-profile.scss">
 </style>
