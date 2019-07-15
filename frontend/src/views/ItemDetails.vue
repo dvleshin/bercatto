@@ -1,38 +1,43 @@
 <template>
-  <section v-if="item" class="item-details">
-    <div class="item-container">
-      <v-toolbar color="cyan" dark tabs>
-        <template v-slot:extension>
-          <v-tabs v-model="tab" color="cyan" grow>
-            <v-tabs-slider color="yellow"></v-tabs-slider>
-            <v-tab v-for="(tab, idx) in tabs" :key="idx">
-              <span>{{ tab.label }}</span>
-              <v-icon>{{ tab.icon }}</v-icon>
-            </v-tab>
-          </v-tabs>
-        </template>
-      </v-toolbar>
+  <section v-if="item">
+    <div style="width: 100%; background: #ccc; height: 80px; margin-bottom: 20px;">Header</div>
+      <div class="item-title"><h1>{{item.name}}</h1></div>
+    <div class="item-details">
+      <div class="item-container">
+        <v-toolbar color="cyan" dark tabs height="0">
+          <template v-slot:extension>
+            <v-tabs v-model="tab" color="cyan" grow>
+              <v-tabs-slider color="yellow"></v-tabs-slider>
+              <v-tab v-for="(tab, idx) in tabs" :key="idx">
+                <span>{{ tab.label }}</span>
+                <v-icon>{{ tab.icon }}</v-icon>
+              </v-tab>
+            </v-tabs>
+          </template>
+        </v-toolbar>
 
-      <v-tabs-items v-model="tab">
-        <v-tab-item v-for="(tab, idx) in tabs" :key="idx">
-          <v-card flat>
-            <component :is="tab.comp" :comp-data="tab.data"></component>
-          </v-card>
-        </v-tab-item>
-      </v-tabs-items>
-    </div>
-    <div clas="user-container" v-if="user">
-      <material-card class="v-card-profile">
-        <v-avatar slot="offset" class="mx-auto d-block" size="130">
-          <img
-            src="https://bookingagentinfo.com/wp-content/uploads/2014/12/Travis-Scott-Contact-Information.jpg"
-          />
-        </v-avatar>
-        <v-card-text class="text-xs-center">
+        <v-tabs-items v-model="tab">
+          <v-tab-item v-for="(tab, idx) in tabs" :key="idx">
+            <v-card flat>
+              <component :is="tab.comp" :comp-data="tab.data"></component>
+            </v-card>
+          </v-tab-item>
+        </v-tabs-items>
+        {{item.description}}
+      </div>
+      <div clas="user-container" v-if="user">
+        <div class="v-card-profile">
+          <v-avatar slot="offset" class="mx-auto d-block" size="130">
+            <img
+              src="https://bookingagentinfo.com/wp-content/uploads/2014/12/Travis-Scott-Contact-Information.jpg"
+            />
+          </v-avatar>
+          <v-card-text class="text-xs-center">
             <h6 class="category text-gray font-weight-thin mb-3">{{user.userName}}</h6>
             <h4 class="card-title font-weight-light">{{user.fullName}}</h4>
           </v-card-text>
-      </material-card>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -59,7 +64,6 @@ export default {
                 location: this.user.adress.city
               })
               .then(cords => {
-                //console.log('Item Details', cords);
                 this.tabs[1].data = cords;
               });
           });

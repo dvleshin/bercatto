@@ -6,7 +6,7 @@
       :center="compData"
       :zoom="16"
       map-type-id="terrain"
-      style="width: 100%; height: 400px"
+      style="width: 100%; height: 500px"
     >
       <GmapMarker
         :position="compData"
