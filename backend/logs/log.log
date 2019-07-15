@@ -165,3 +165,138 @@ Mon, 15 Jul 2019 13:48:17 GMT - Debug - auth.service - signup with email: undefi
 Mon, 15 Jul 2019 13:48:17 GMT - Error - [SIGNUP] TypeError: Cannot read property '_id' of undefined
 Mon, 15 Jul 2019 13:59:12 GMT - Debug - auth.service - signup with email: undefined, username: undefined
 Mon, 15 Jul 2019 13:59:12 GMT - Debug - auth.route - new user created: {"user":{"adress":{"country":"Israel","city":"Givon Hahadasha"},"fullName":"Smadar Shnitzer","email":"alondai1@gmail.com","password":"dd","reviews":[],"_id":"5d2c86b0a800a038605e4bfe"}}
+Mon, 15 Jul 2019 16:17:31 GMT - Debug - auth.service - login with email: admin@admin.com
+Mon, 15 Jul 2019 16:21:11 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Mon, 15 Jul 2019 16:21:11 GMT - Debug - auth.route - new user created: {"user":{"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Tomas Deloko","email":"admin2@admin2.com","password":"1234","reviews":[],"_id":"5d2ca7f7eb3811b4d87e162c"}}
+Mon, 15 Jul 2019 16:22:42 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Mon, 15 Jul 2019 16:22:42 GMT - Debug - auth.route - new user created: {"user":{"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Tomash Doliko","email":"admin2@admin2.com","password":"1234","reviews":[],"_id":"5d2ca852eb3811b4d87e162d"}}
+Mon, 15 Jul 2019 16:26:50 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Mon, 15 Jul 2019 16:26:50 GMT - Debug - auth.route - new user created: {"user":{"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"dmitryleshin@gmail.com","password":"1234","reviews":[],"_id":"5d2ca94aeb3811b4d87e162e"}}
+Mon, 15 Jul 2019 17:13:31 GMT - Debug - auth.service - signup with email: admin3@admin.com, username: undefined
+Mon, 15 Jul 2019 17:13:31 GMT - Error - [SIGNUP] TypeError: Cannot read property '_id' of undefined
+Mon, 15 Jul 2019 17:14:11 GMT - Debug - auth.service - signup with email: admin3@admin.com, username: undefined
+Mon, 15 Jul 2019 17:14:11 GMT - Error - [SIGNUP] TypeError: Cannot read property '_id' of undefined
+Mon, 15 Jul 2019 17:14:33 GMT - Debug - auth.service - signup with email: admin3@admin.com, username: undefined
+Mon, 15 Jul 2019 17:14:33 GMT - Error - [SIGNUP] TypeError: Cannot read property '_id' of undefined
+Mon, 15 Jul 2019 17:28:58 GMT - Debug - auth.service - signup with email: admin3@admin.com, username: undefined
+Mon, 15 Jul 2019 17:28:58 GMT - Error - [SIGNUP] TypeError: Cannot read property '_id' of undefined
+Mon, 15 Jul 2019 17:29:02 GMT - Debug - auth.service - signup with email: admin3@admin.com, username: undefined
+Mon, 15 Jul 2019 17:29:02 GMT - Error - [SIGNUP] TypeError: Cannot read property '_id' of undefined
+Mon, 15 Jul 2019 17:30:40 GMT - Debug - auth.service - signup with email: admin3@admin.com, username: undefined
+Mon, 15 Jul 2019 17:30:40 GMT - Error - [SIGNUP] TypeError: Cannot read property '_id' of undefined
+Mon, 15 Jul 2019 17:31:39 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:31:43 GMT - Debug - auth.service - signup with email: admin3@admin.com
+Mon, 15 Jul 2019 17:31:43 GMT - Error - [SIGNUP] TypeError: Cannot read property '_id' of undefined
+Mon, 15 Jul 2019 17:36:29 GMT - Debug - auth.service - signup with email: admin3@admin.com
+Mon, 15 Jul 2019 17:36:29 GMT - Error - [SIGNUP] TypeError: Cannot read property '_id' of undefined
+Mon, 15 Jul 2019 17:37:28 GMT - Debug - auth.service - signup with email: admin3@admin.com
+Mon, 15 Jul 2019 17:37:28 GMT - Error - [SIGNUP] TypeError: Cannot read property '_id' of undefined
+Mon, 15 Jul 2019 17:38:05 GMT - Debug - auth.service - signup with email: admin3@admin.com
+Mon, 15 Jul 2019 17:38:05 GMT - Error - [SIGNUP] TypeError: Cannot read property '_id' of undefined
+Mon, 15 Jul 2019 17:38:29 GMT - Debug - auth.service - signup with email: admin3@admin.com
+Mon, 15 Jul 2019 17:38:29 GMT - Error - [SIGNUP] TypeError: Cannot read property '_id' of undefined
+Mon, 15 Jul 2019 17:38:49 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:38:52 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Mon, 15 Jul 2019 17:38:52 GMT - Error - [SIGNUP] TypeError: Cannot read property '_id' of undefined
+Mon, 15 Jul 2019 17:38:59 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:39:01 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Mon, 15 Jul 2019 17:39:01 GMT - Error - [SIGNUP] TypeError: Cannot read property '_id' of undefined
+Mon, 15 Jul 2019 17:39:43 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:39:48 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Mon, 15 Jul 2019 17:39:48 GMT - Error - [SIGNUP] TypeError: Cannot read property '_id' of undefined
+Mon, 15 Jul 2019 17:40:29 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:40:35 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Mon, 15 Jul 2019 17:40:35 GMT - Error - [SIGNUP] TypeError: Cannot read property '_id' of undefined
+Mon, 15 Jul 2019 17:41:12 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Mon, 15 Jul 2019 17:41:12 GMT - Error - [SIGNUP] TypeError: Cannot read property '_id' of undefined
+Mon, 15 Jul 2019 17:41:53 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:41:57 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Mon, 15 Jul 2019 17:41:58 GMT - Error - [SIGNUP] TypeError: Cannot read property '_id' of undefined
+Mon, 15 Jul 2019 17:42:15 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:42:31 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:43:11 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:43:14 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:43:18 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Mon, 15 Jul 2019 17:43:18 GMT - Error - [SIGNUP] TypeError: Cannot read property '_id' of undefined
+Mon, 15 Jul 2019 17:43:31 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:43:38 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Mon, 15 Jul 2019 17:43:38 GMT - Error - [SIGNUP] TypeError: Cannot read property '_id' of undefined
+Mon, 15 Jul 2019 17:44:26 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:44:30 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Mon, 15 Jul 2019 17:44:31 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563211284/barcatto/noimage_f5sgka.svg","reviews":[],"_id":"5d2cbb7ef8fb69d0614fd667"}
+Mon, 15 Jul 2019 17:45:16 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:46:00 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:46:05 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:46:08 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Mon, 15 Jul 2019 17:46:08 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563211284/barcatto/noimage_f5sgka.svg","reviews":[],"_id":"5d2cbbe085e463d0ab1fd7a2"}
+Mon, 15 Jul 2019 17:46:37 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:47:31 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Mon, 15 Jul 2019 17:47:31 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563211284/barcatto/noimage_f5sgka.svg","reviews":[],"_id":"5d2cbc332151acd0c7617c27"}
+Mon, 15 Jul 2019 17:48:32 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:49:59 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:50:53 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:51:00 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:51:09 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:52:27 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:52:40 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:52:47 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Mon, 15 Jul 2019 17:52:47 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563211284/barcatto/noimage_f5sgka.svg","reviews":[],"_id":"5d2cbd6f77ad11d193bdd5d5"}
+Mon, 15 Jul 2019 17:53:18 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:53:23 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563211284/barcatto/noimage_f5sgka.svg","reviews":[],"_id":"5d2cbd93bf10f2d1b133c763"}
+Mon, 15 Jul 2019 17:53:45 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:54:07 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563211284/barcatto/noimage_f5sgka.svg","reviews":[],"_id":"5d2cbdbf2adefcd1cd711e3b"}
+Mon, 15 Jul 2019 17:54:40 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:54:44 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563211284/barcatto/noimage_f5sgka.svg","reviews":[],"_id":"5d2cbde46d1efad1eddbb717"}
+Mon, 15 Jul 2019 17:55:14 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563211284/barcatto/noimage_f5sgka.svg","reviews":[],"_id":"5d2cbe026d1efad1eddbb718"}
+Mon, 15 Jul 2019 17:55:30 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563211284/barcatto/noimage_f5sgka.svg","reviews":[],"_id":"5d2cbe126d1efad1eddbb719"}
+Mon, 15 Jul 2019 17:56:52 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:57:01 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563211284/barcatto/noimage_f5sgka.svg","reviews":[],"_id":"5d2cbe6d3761c2d22d7d1bc3"}
+Mon, 15 Jul 2019 17:57:07 GMT - Error - [SIGNUP] This email already used
+Mon, 15 Jul 2019 17:57:49 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:58:02 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:58:07 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 17:58:14 GMT - Error - [SIGNUP] This email is already used
+Mon, 15 Jul 2019 17:58:15 GMT - Error - [SIGNUP] This email is already used
+Mon, 15 Jul 2019 17:58:16 GMT - Error - [SIGNUP] This email is already used
+Mon, 15 Jul 2019 17:58:16 GMT - Error - [SIGNUP] This email is already used
+Mon, 15 Jul 2019 17:58:16 GMT - Error - [SIGNUP] This email is already used
+Mon, 15 Jul 2019 17:58:16 GMT - Error - [SIGNUP] This email is already used
+Mon, 15 Jul 2019 17:58:17 GMT - Error - [SIGNUP] This email is already used
+Mon, 15 Jul 2019 17:58:32 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 18:00:47 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563211284/barcatto/noimage_f5sgka.svg","reviews":[],"_id":"5d2cbf4f07669ad28d502bc0"}
+Mon, 15 Jul 2019 18:02:38 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563211284/barcatto/noimage_f5sgka.svg","reviews":[],"_id":"5d2cbfbe07669ad28d502bc1"}
+Mon, 15 Jul 2019 18:03:17 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 18:04:05 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563211284/barcatto/noimage_f5sgka.svg","reviews":[],"_id":"5d2cc015094f03d31004fb49"}
+Mon, 15 Jul 2019 18:05:42 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563211284/barcatto/noimage_f5sgka.svg","reviews":[],"_id":"5d2cc076094f03d31004fb4a"}
+Mon, 15 Jul 2019 18:10:19 GMT - Error - [SIGNUP] This email is already used
+Mon, 15 Jul 2019 18:10:36 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563211284/barcatto/noimage_f5sgka.svg","reviews":[],"_id":"5d2cc19c094f03d31004fb4b"}
+Mon, 15 Jul 2019 18:11:17 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563211284/barcatto/noimage_f5sgka.svg","reviews":[],"_id":"5d2cc1c5094f03d31004fb4c"}
+Mon, 15 Jul 2019 18:14:13 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 18:28:05 GMT - Debug - auth.service - login with email: undefined
+Mon, 15 Jul 2019 18:29:22 GMT - Debug - auth.service - login with email: undefined
+Mon, 15 Jul 2019 18:29:27 GMT - Debug - auth.service - login with email: undefined
+Mon, 15 Jul 2019 18:30:33 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 18:31:17 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 18:31:22 GMT - Debug - auth.service - login with email: undefined
+Mon, 15 Jul 2019 18:31:48 GMT - Debug - auth.service - login with email: undefined
+Mon, 15 Jul 2019 18:32:15 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 18:32:21 GMT - Debug - auth.service - login with email: undefined
+Mon, 15 Jul 2019 18:33:41 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 18:33:46 GMT - Debug - auth.service - login with email: admin3@admin.com
+Mon, 15 Jul 2019 18:34:01 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 18:34:13 GMT - Debug - auth.service - login with email: admin3@admin.com
+Mon, 15 Jul 2019 18:34:24 GMT - Debug - auth.service - login with email: admin3@admin.com
+Mon, 15 Jul 2019 18:35:26 GMT - Debug - auth.service - login with email: admin3@admin.com
+Mon, 15 Jul 2019 18:36:00 GMT - Debug - auth.service - login with email: admin3@admin.com
+Mon, 15 Jul 2019 18:37:19 GMT - Debug - auth.service - login with email: admin3@admin.com
+Mon, 15 Jul 2019 18:38:17 GMT - Debug - auth.service - login with email: admin3@admin.com
+Mon, 15 Jul 2019 18:38:48 GMT - Debug - auth.service - login with email: admin3@admin.com
+Mon, 15 Jul 2019 18:40:43 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 18:40:46 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 18:49:37 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 19:06:34 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 19:22:42 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 19:23:38 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 19:27:14 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 19:35:59 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Mon, 15 Jul 2019 19:35:59 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"_id":"5d2cd59fbb3160dbb6794398"}

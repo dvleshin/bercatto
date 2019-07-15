@@ -11,38 +11,23 @@
           <v-card-text class="pt-4">
             <div>
               <v-form ref="form">
+                <v-text-field label="Enter your full name" v-model="user.fullName" required></v-text-field>
+                <v-text-field label="Enter your e-mail address" v-model="user.email" required></v-text-field>
+                <v-text-field label="Country" v-model="user.adress.country" required></v-text-field>
+                <v-text-field label="City" v-model="user.adress.city" required></v-text-field>
                 <v-text-field
-                  label="Enter your full name"
-                  v-model="user.fullName"
-                  required
-                ></v-text-field>
-                <v-text-field
-                  label="Enter your e-mail address"
-                  v-model="user.email"
-                  required
-                ></v-text-field>
-                <v-text-field
-                  label="Country"
-                  v-model="user.adress.country"
-                  required
-                ></v-text-field>
-<v-text-field
-                  label="City"
-                  v-model="user.adress.city"
-                  required
-                ></v-text-field>
-                <v-text-field
-                  label="Enter your password"
                   v-model="user.password"
-                  min="8"
+                  :append-icon="show1 ? 'visibility' : 'visibility_off'"
+                  :rules="[rules.required, rules.min]"
+                  :type="show1 ? 'text' : 'password'"
+                  name="input-10-1"
+                  label="Enter your password"
+                  hint="At least 8 characters"
                   counter
-                  required
+                  @click:append="show1 = !show1"
                 ></v-text-field>
                 <v-layout justify-space-between>
-                  <v-btn
-                    @click.prevent="submit"
-                
-                  >SignUp</v-btn>
+                  <v-btn @click.prevent="submit">SignUp</v-btn>
                 </v-layout>
               </v-form>
             </div>
@@ -57,32 +42,46 @@
 export default {
   data() {
     return {
-      user: {adress:{}}
-    }
+      user: {
+        adress: {
+          country: "Israel",
+          city: "Tel Aviv"
+        },
+        fullName: "Dmitry Leshin",
+        email: "admin3@admin.com",
+        password: "abcd",
+        isAdmin: false,
+        profileImg: "https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png",
+        reviews: []
+      },
+      rules: {
+        required: value => !!value || "Required.",
+        min: v => v.length >= 4 || "Min 4 characters",
+      },
+      show1: false,
+    };
   },
 
   methods: {
     submit() {
-      const user = this.user
-      user.reviews = []
-        this.$store.dispatch({ type: "signup", userCred: {user} }).then(() => {
+      const user = this.user;
+      this.$store.dispatch({ type: "doSignup", userCred: user }).then(() => {
         // Swal.fire({
         //   position: "top-end",
         //   type: "success",
-        //   title: "The toy is saved",
+        //   title: "Welcome! you have signed up successfully.",
         //   showConfirmButton: true,
         //   timer: 2000
         // });
         this.$router.push("/");
-    })
-  },
-}
-}
-
+      });
+    }
+  }
+};
 </script>
 
 <style scoped>
-body{
+body {
   background-image: url("http://wallpaperping.com/wp-content/uploads/2018/05/704532.jpg");
   background-size: cover;
 }

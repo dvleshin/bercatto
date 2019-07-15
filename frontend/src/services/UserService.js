@@ -6,44 +6,17 @@ export default {
     save,
     remove,
     getById,
-    getUserItems
+    getUserItems,
+    doLogin,
+    doLogout,
+    getLoggedinUser,
 }
 
-let users = [
-    {
-        "_id": "u102",
-        "userName": "DimaLeshin",
-        "fullName": "dima san",
-        "password": "tinkerbell",
-        "isAdmin": false,
-        "reviews":[],
-        "items": [{
-            itemId: "i333", name: 'Galaxy 9', imgUrl: 'https://www.ivory.co.il/files/catalog/org/1546430132n32Ry.jpg',
-            description: 'A brand new cell phone, great condition'
-        }, {
-            itemId: "i222", name: 'Dell Vostro 5000', imgUrl: 'https://www.ivory.co.il/files/catalog/reg/1550143356e56RM.jpg',
-            description: 'my old leptop, bad condition'
-        }],
-        "adress": { city: "Jerusalem", country: "Israel" }
-    },
-    {
-        "_id": "u101",
-        "userName": "orly_amdadi",
-        "fullName": "Orly Amdadi",
-        "password": "tinkerbell",
-        "isAdmin": true,
-        "reviews":[],
-        "items": [{
-            itemId: "i444", name: 'Sony headphones', imgUrl: 'https://www.ivory.co.il/files/catalog/org/1448463991p91MC.jpg',
-            description: 'nice headphones for gameing'
-        }],
-        "adress": { city: "Jerusalem", country: "Israel" }
-    }]
+const KEY = 'loggedInUser'
 
 async function query() {
-    return await httpService.get(_getUrl()) 
+    return await httpService.get(_getUrl())
 }
-
 
 async function remove(userId) {
     return await httpService.delete(_getUrl(userId))
@@ -57,17 +30,52 @@ async function getUserItems(userId) {
     return await httpService.get(`user/items/${userId}`)
 }
 
-    function save(editedUser) {
-    return httpService.post(`auth/signup`,editedUser )
-        .then (user=>_handleSuccessfulRegister(user))
+// function save(editedUser) {
+//     return httpService.post(`auth/signup`,editedUser )
+//         .then (user=>_handleSuccessfulRegister(user))
+// }
+
+async function save(editedUser) {
+    const completeUser = await httpService.post(`auth/signup`, editedUser)
+    try {
+        _handleSuccessfulRegister(completeUser)
+        return completeUser
+    } catch (err) {
+        console.log('User Service save function error:', err);
+        throw err;
+    }
 }
 
+async function doLogin(userCred) {
+    const userLoggedIn = await httpService.post(`auth/login`, userCred)
+    try {
+        //console.log('UserService', userLoggedIn);
+        _handleSuccessfulRegister(userLoggedIn)
+        return userLoggedIn
+    } catch (err) {
+        console.log('User Service save function error:', err);
+        throw err;
+    }
+}
+async function doLogout(){
+    const userLoggetOut = await httpService.post(`auth/logout`)
+    try {
+        sessionStorage.removeItem(KEY)
+    } catch (err) {
+        console.log('User Service Log Out error:', err);
+        throw err;
+    }
+}
 
 function _handleSuccessfulRegister(user) {
-    sessionStorage.setItem('loggedInUser', JSON.stringify(user));
+    sessionStorage.setItem(KEY, JSON.stringify(user));
     return user;
 }
 
+function getLoggedinUser() {
+    var loggedInUser = sessionStorage.getItem(KEY)
+    return JSON.parse(loggedInUser);
+}
 
 function _getUrl(id = '') {
     return `user/${id}`
