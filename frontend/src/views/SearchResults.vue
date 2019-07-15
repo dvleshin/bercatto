@@ -1,7 +1,5 @@
 <template>
 <section class="search-container">
-  <div style="width: 100%; background: #ccc; height: 80px; margin-bottom: 20px;">Header</div>
-
   <div class="main-container">
   <FilterSection class="filter-section"></FilterSection>
   <MainItemList class="item-list" @remove="remove" :items="itemsToShow"></MainItemList>
@@ -12,6 +10,7 @@
 <script>
 import MainItemList from '../components/MainItemList.vue'
 import FilterSection from '../components/FilterSection.vue'
+import Header from '../components/Header.vue'
 export default {
   created() {
     this.filterBy.txt = this.$route.query.searchBy;
