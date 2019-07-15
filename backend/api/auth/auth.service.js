@@ -22,9 +22,9 @@ async function signup(user) {
 
     // const hash = await bcrypt.hash(user.password, saltRounds)
     
-    const user = await userService.add(user)
+    const completeUser = await userService.add(user)
     delete user.password;
-    return user;
+    return completeUser;
 }
 
 module.exports = {

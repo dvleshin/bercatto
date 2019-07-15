@@ -34,3 +34,45 @@ Mon, 15 Jul 2019 07:09:14 GMT - Info - Server is running on port: 3000
 Mon, 15 Jul 2019 07:10:06 GMT - Info - Server is running on port: 3000
 Mon, 15 Jul 2019 07:12:00 GMT - Info - Server is running on port: 3000
 Mon, 15 Jul 2019 07:14:37 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 07:48:22 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 07:49:31 GMT - Error - [SIGNUP] SyntaxError: Identifier 'user' has already been declared
+Mon, 15 Jul 2019 07:50:43 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 07:50:52 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 07:51:03 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Mon, 15 Jul 2019 07:51:04 GMT - Debug - auth.route - new user created: {"user":{"fullName":"Smadar Shnitzer","email":"alondai1@gmail.com","country":"Israel","city":"Givon Hahadasha","password":"d","reviews":[]},"_id":"5d2c3067a8caa23088f7ddd9"}
+Mon, 15 Jul 2019 07:53:02 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 07:53:21 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Mon, 15 Jul 2019 07:53:21 GMT - Error - [SIGNUP] TypeError: Found non-callable @@iterator
+Mon, 15 Jul 2019 07:55:05 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Mon, 15 Jul 2019 07:55:05 GMT - Error - [SIGNUP] TypeError: Found non-callable @@iterator
+Mon, 15 Jul 2019 08:04:31 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 08:04:52 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 08:05:23 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 08:06:13 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 08:39:24 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 08:49:18 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 08:57:09 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Mon, 15 Jul 2019 08:57:09 GMT - Error - [SIGNUP] TypeError: Found non-callable @@iterator
+Mon, 15 Jul 2019 09:17:03 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:22:22 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Mon, 15 Jul 2019 09:22:22 GMT - Error - [SIGNUP] TypeError: Found non-callable @@iterator
+Mon, 15 Jul 2019 09:28:36 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Mon, 15 Jul 2019 09:28:36 GMT - Error - [SIGNUP] TypeError: Found non-callable @@iterator
+Mon, 15 Jul 2019 09:29:20 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:29:29 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:29:35 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:29:41 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:29:48 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Mon, 15 Jul 2019 09:29:49 GMT - Debug - auth.route - new user created: {"user":{"fullName":"Smadar Shnitzer","email":"alondai1@gmail.com","country":"Israel","city":"Givon Hahadasha","password":"f","reviews":[]},"_id":"5d2c478df8736d2d00514f8a"}
+Mon, 15 Jul 2019 09:30:19 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:30:26 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Mon, 15 Jul 2019 09:30:27 GMT - Debug - auth.route - new user created: {"user":{"fullName":"Smadar Shnitzer","email":"alondai1@gmail.com","country":"Israel","city":"Givon Hahadasha","password":"d","reviews":[],"_id":"5d2c47b3b24fb429ec0db30c"}}
+Mon, 15 Jul 2019 09:42:34 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:43:56 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:44:27 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Mon, 15 Jul 2019 09:44:27 GMT - Debug - auth.route - new user created: {"user":{"fullName":"Smadar Shnitzer","email":"alondai1@gmail.com","country":"Israel","city":"Givon Hahadasha","password":"d","reviews":[],"_id":"5d2c4afba761e92ac83d4329"}}
+Mon, 15 Jul 2019 10:00:07 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 10:00:17 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Mon, 15 Jul 2019 10:00:17 GMT - Debug - auth.route - new user created: {"user":{"fullName":"Smadar Shnitzer","email":"alondai1@gmail.com","country":"Israel","city":"Givon Hahadasha","password":"12","reviews":[],"_id":"5d2c4eb12c9f6e21986e9030"}}
+Mon, 15 Jul 2019 10:02:16 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Mon, 15 Jul 2019 10:02:16 GMT - Debug - auth.route - new user created: {"user":{"fullName":"Smadar Shnitzer","email":"alondai1@gmail.com","country":"Israel","city":"Givon Hahadasha","password":",k","reviews":[],"_id":"5d2c4f282c9f6e21986e9031"}}

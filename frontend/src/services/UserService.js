@@ -57,8 +57,8 @@ async function getUserItems(userId) {
 }
 
     function save(editedUser) {
-    return httpService.post(`/signup`,editedUser )
-        .then (_handleSuccessfulRegister(user))
+    return httpService.post(`auth/signup`,editedUser )
+        .then (user=>_handleSuccessfulRegister(user))
 }
 
 

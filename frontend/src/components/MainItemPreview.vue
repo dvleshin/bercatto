@@ -23,7 +23,7 @@
         </v-card-title>
         <v-card-actions>
           <v-btn @click="goToUserProfile(item.ownerId)" flat color="orange">See dealer's profile</v-btn>
-          <v-btn flat color="orange">Go To Arena!</v-btn>
+          <v-btn flat color="orange" @click="goToArena(item.Id)">Go To Arena!</v-btn>
         </v-card-actions>
       </v-card>
   <button class="delete" @click="remove(item._id)">X</button> <!--v-if user is the owner -->
@@ -39,8 +39,11 @@ export default {
     seeItem() {
        this.$router.push(`item/${this.item._id}`)
     },
-    goToUserProfile(ownerId){
+    goToUserProfile(){
        this.$router.push(`user/${this.item.ownerId}`);
+    },
+    goToArena(){
+       this.$router.push(`arena?id=${this.item._id}`);
     }
   },
   
