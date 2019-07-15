@@ -1,9 +1,5 @@
 node_modules
-<<<<<<< HEAD
-
-=======
 /frontend/.git/
 /frontend/node_modules/
 /backend/.git/
 /backend/node_modules/
->>>>>>> 6a66f4491dc02bdf7cf0453e5e8aa7057fc1891a

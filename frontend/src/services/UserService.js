@@ -6,6 +6,7 @@ export default {
     save,
     remove,
     getById,
+    getUserItems
 }
 
 let users = [
@@ -50,6 +51,9 @@ async function remove(userId) {
 
 async function getById(userId) {
     return await httpService.get(_getUrl(userId))
+}
+async function getUserItems(userId) {
+    return await httpService.get(`user/items/${userId}`)
 }
 
 async function save(editedUser) {
