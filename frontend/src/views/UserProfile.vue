@@ -4,7 +4,7 @@
     <UserCard class="user-card" :user="user"></UserCard>
     <UserReviews class="user-reviews" :user="user"></UserReviews>
     </div>
-    <UserItemList class="user-item-list" :items="user.items"></UserItemList>
+    <UserItemList class="user-item-list" :items="userItems"></UserItemList>
   </section>
 </template>
 
@@ -21,6 +21,8 @@ export default {
       });
      this.$store.dispatch({ type: "getUserItems", userId: this.$route.params.id })
       .then(items => {
+        console.log(items);
+        
         this.userItems = items;
       });
   },

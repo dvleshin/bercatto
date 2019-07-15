@@ -43,6 +43,8 @@ export default {
        this.$router.push(`user/${this.item.ownerId}`);
     },
     goToArena(){
+       const loggedInUser = JSON.parse(sessionStorage.loggedInUser).user
+       if(!loggedInUser) return //swal
        this.$router.push(`arena?id=${this.item._id}`);
     }
   },

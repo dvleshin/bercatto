@@ -36,10 +36,10 @@ async function query(filterBy = {}) {
 async function getById(userId) {
     const collection = await dbService.getCollection(COLLECTION)
     try {
-        console.log(userId);
+        console.log('1111',userId);
         
         const user = await collection.findOne({"_id":ObjectId(userId)}) 
-        console.log(user);
+        console.log('2222',user);
                
         return user
     } catch (err) {
@@ -49,29 +49,14 @@ async function getById(userId) {
 }
 
 async function getUserItems(userId) {
-    console.log(userId);
-    
+
     // const id = new ObjectId(userId)
     const collection = await dbService.getCollection('item')
     try {
-        const output =  collection.aggregate([
-            {
-                $match: { ownerId: userId }
-            },
-            {
-                $lookup:
-                {
-                    from: 'user',
-                    localField: 'ownerId',
-                    foreignField: '_id',
-                    as: 'item'
-                }
-            }, {
-                $unwind: '$item'
-            }
-        ]).toArray()
-       output.then (res=>console.log(res)
-       )
+        const items = await collection.find({"ownerId":userId}).toArray()
+        console.log('!!!',items);
+        
+        return items
         
     } catch (err) {
         console.log(`ERROR: while finding user ${userId}`)

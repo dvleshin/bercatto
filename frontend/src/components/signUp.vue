@@ -23,12 +23,12 @@
                 ></v-text-field>
                 <v-text-field
                   label="Country"
-                  v-model="user.country"
+                  v-model="user.adress.country"
                   required
                 ></v-text-field>
 <v-text-field
                   label="City"
-                  v-model="user.city"
+                  v-model="user.adress.city"
                   required
                 ></v-text-field>
                 <v-text-field
@@ -57,7 +57,7 @@
 export default {
   data() {
     return {
-      user: {}
+      user: {adress:{}}
     }
   },
 
