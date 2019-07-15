@@ -56,8 +56,15 @@ async function getUserItems(userId) {
     return await httpService.get(`user/items/${userId}`)
 }
 
-async function save(editedUser) {
-    return await httpService.post(`/signup`,editedUser )
+    function save(editedUser) {
+    return httpService.post(`/signup`,editedUser )
+        .then (_handleSuccessfulRegister(user))
+}
+
+
+function _handleSuccessfulRegister(user) {
+    sessionStorage.setItem('loggedInUser', JSON.stringify(user));
+    return user;
 }
 
 
