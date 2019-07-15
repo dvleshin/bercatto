@@ -112,3 +112,6 @@ Mon, 15 Jul 2019 18:18:44 GMT - Debug - auth.route - new user created: {"user":{
 
 Mon, 15 Jul 2019 19:45:58 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
 Mon, 15 Jul 2019 19:45:58 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"_id":"5d2cd7f6bb3160dbb6794399"}
+Mon, 15 Jul 2019 19:51:51 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 19:53:06 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Mon, 15 Jul 2019 19:53:06 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"_id":"5d2cd9a271adef351cef4c04"}

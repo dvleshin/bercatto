@@ -33,7 +33,7 @@
 export default {
   props: ["item"],
   created() {
-    this.loggedInUser = JSON.parse(sessionStorage.loggedInUser).user
+    this.loggedInUser = JSON.parse(sessionStorage.loggedInUser)
   },
   data() {
     return {
@@ -51,7 +51,7 @@ export default {
        this.$router.push(`user/${this.item.ownerId}`);
     },
     goToArena(){
-       const loggedInUser = JSON.parse(sessionStorage.loggedInUser).user
+       const loggedInUser = JSON.parse(sessionStorage.loggedInUser)
        if(!loggedInUser) return //swal
        this.$router.push(`arena?id=${this.item._id}`);
     }

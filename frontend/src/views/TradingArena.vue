@@ -27,7 +27,7 @@
 
 export default {
   created() { 
-    this.loggedInUser = JSON.parse(sessionStorage.loggedInUser).user;
+    this.loggedInUser = JSON.parse(sessionStorage.loggedInUser);
     this.$store
       .dispatch({ type: "getItemById", itemId: this.$route.query.id })
       .then(item => {
