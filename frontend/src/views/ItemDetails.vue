@@ -1,11 +1,10 @@
 <template>
-  <section v-if="item">
-    <div>
+  <section v-if="item" class="item-details">
+    <div class="item-container">
       <v-toolbar color="cyan" dark tabs>
         <template v-slot:extension>
           <v-tabs v-model="tab" color="cyan" grow>
             <v-tabs-slider color="yellow"></v-tabs-slider>
-
             <v-tab v-for="(tab, idx) in tabs" :key="idx">
               <span>{{ tab.label }}</span>
               <v-icon>{{ tab.icon }}</v-icon>
@@ -21,6 +20,9 @@
           </v-card>
         </v-tab-item>
       </v-tabs-items>
+    </div>
+    <div clas="user-container">
+      {{user}}
     </div>
   </section>
 </template>
@@ -44,7 +46,7 @@ export default {
           this.$store
           .dispatch({ type: "getCordsByName", location: this.user.adress.city })
           .then(cords => {
-            console.log('Item Details', cords);
+            //console.log('Item Details', cords);
             this.tabs[1].data = cords
           })
           });
@@ -80,6 +82,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped src="../styles/views/item-details.scss">
+
 </style>
 
 
