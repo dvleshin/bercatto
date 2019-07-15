@@ -22,6 +22,7 @@ Mon, 15 Jul 2019 06:31:33 GMT - Info - Server is running on port: 3000
 Mon, 15 Jul 2019 06:32:27 GMT - Info - Server is running on port: 3000
 Mon, 15 Jul 2019 06:33:54 GMT - Info - Server is running on port: 3000
 Mon, 15 Jul 2019 06:35:49 GMT - Info - Server is running on port: 3000
+<<<<<<< HEAD
 Mon, 15 Jul 2019 07:06:16 GMT - Info - Server is running on port: 3000
 Mon, 15 Jul 2019 07:06:24 GMT - Info - Server is running on port: 3000
 Mon, 15 Jul 2019 07:06:46 GMT - Info - Server is running on port: 3000
@@ -76,3 +77,30 @@ Mon, 15 Jul 2019 10:00:17 GMT - Debug - auth.service - signup with email: undefi
 Mon, 15 Jul 2019 10:00:17 GMT - Debug - auth.route - new user created: {"user":{"fullName":"Smadar Shnitzer","email":"alondai1@gmail.com","country":"Israel","city":"Givon Hahadasha","password":"12","reviews":[],"_id":"5d2c4eb12c9f6e21986e9030"}}
 Mon, 15 Jul 2019 10:02:16 GMT - Debug - auth.service - signup with email: undefined, username: undefined
 Mon, 15 Jul 2019 10:02:16 GMT - Debug - auth.route - new user created: {"user":{"fullName":"Smadar Shnitzer","email":"alondai1@gmail.com","country":"Israel","city":"Givon Hahadasha","password":",k","reviews":[],"_id":"5d2c4f282c9f6e21986e9031"}}
+=======
+
+Mon, 15 Jul 2019 07:41:35 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:04:26 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:05:21 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:05:56 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:06:27 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:07:23 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:07:30 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:08:21 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:08:35 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:08:40 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:08:59 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:09:05 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:20:10 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:20:13 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:20:43 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:21:04 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:24:15 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:26:38 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:27:26 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:28:33 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:29:53 GMT - Info - Server is running on port: 3000
+Mon, 15 Jul 2019 09:31:31 GMT - Info - Server is running on port: 3000
+>>>>>>> 3a0d37a2519934cdd86f74f7e4bf70d363b5afab
+
+Mon, 15 Jul 2019 10:12:37 GMT - Info - Server is running on port: 3000
