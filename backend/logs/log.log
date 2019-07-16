@@ -145,3 +145,10 @@ Tue, 16 Jul 2019 11:16:32 GMT - Info - Server is running on port: 3000
 Tue, 16 Jul 2019 11:16:48 GMT - Info - Server is running on port: 3000
 Tue, 16 Jul 2019 11:16:53 GMT - Debug - auth.service - signup with email: admin3@admin.com and 1234
 Tue, 16 Jul 2019 11:16:54 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Randall Lucas","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"arenas":[],"_id":"5d2db2268c5bbd1dab2703ee"}
+
+Tue, 16 Jul 2019 11:22:29 GMT - Debug - auth.service - signup with email: admin4@admin.com and 1234
+Tue, 16 Jul 2019 11:22:31 GMT - Error - [SIGNUP] MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+Tue, 16 Jul 2019 11:23:46 GMT - Debug - auth.service - signup with email: admin1@admin.com and 1234
+Tue, 16 Jul 2019 11:23:48 GMT - Error - [SIGNUP] MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+Tue, 16 Jul 2019 11:24:22 GMT - Debug - auth.service - signup with email: admin5@admin.com and 1234
+Tue, 16 Jul 2019 11:24:24 GMT - Error - [SIGNUP] MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
