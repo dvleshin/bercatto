@@ -146,3 +146,15 @@ Tue, 16 Jul 2019 07:30:48 GMT - Info - Server is running on port: 3000
 Tue, 16 Jul 2019 07:32:08 GMT - Info - Server is running on port: 3000
 Tue, 16 Jul 2019 07:33:47 GMT - Info - Server is running on port: 3000
 >>>>>>> 6f77211ec25210026b288de767ba4a46120c64bf
+
+Tue, 16 Jul 2019 09:32:52 GMT - Info - Server is running on port: 3000
+Tue, 16 Jul 2019 11:00:15 GMT - Info - Server is running on port: 3000
+Tue, 16 Jul 2019 11:05:52 GMT - Info - Server is running on port: 3000
+Tue, 16 Jul 2019 11:07:53 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Tue, 16 Jul 2019 11:07:54 GMT - Error - [SIGNUP] MongoNetworkError: failed to connect to server [cluster0-shard-00-00-klgzh.mongodb.net:27017] on first connect [MongoError: Authentication failed.]
+Tue, 16 Jul 2019 11:13:22 GMT - Debug - auth.service - signup with email: admin3@admin.com and 1234
+Tue, 16 Jul 2019 11:13:23 GMT - Error - [SIGNUP] MongoNetworkError: failed to connect to server [cluster0-shard-00-01-klgzh.mongodb.net:27017] on first connect [MongoError: Authentication failed.]
+Tue, 16 Jul 2019 11:16:32 GMT - Info - Server is running on port: 3000
+Tue, 16 Jul 2019 11:16:48 GMT - Info - Server is running on port: 3000
+Tue, 16 Jul 2019 11:16:53 GMT - Debug - auth.service - signup with email: admin3@admin.com and 1234
+Tue, 16 Jul 2019 11:16:54 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Randall Lucas","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"arenas":[],"_id":"5d2db2268c5bbd1dab2703ee"}
