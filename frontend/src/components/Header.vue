@@ -1,5 +1,6 @@
 <template>
   <v-toolbar>
+    
     <v-form class="form" v-if="!loggedInUser">
       <v-toolbar-items class="hidden-sm-and-down">
         <v-text-field label="E-mail" v-model="user.email" required></v-text-field>
