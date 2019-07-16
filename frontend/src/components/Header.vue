@@ -30,7 +30,7 @@ export default {
     return {
       user: {
         email: "admin3@admin.com",
-        password: "abcd"
+        password: "1234"
       },
       loggedInUser: null
     };
