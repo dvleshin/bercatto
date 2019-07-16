@@ -115,3 +115,16 @@ Mon, 15 Jul 2019 19:45:58 GMT - Debug - auth.route - new user created: {"adress"
 Mon, 15 Jul 2019 19:51:51 GMT - Info - Server is running on port: 3000
 Mon, 15 Jul 2019 19:53:06 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
 Mon, 15 Jul 2019 19:53:06 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"_id":"5d2cd9a271adef351cef4c04"}
+Mon, 15 Jul 2019 20:03:02 GMT - Debug - auth.service - signup with email: admin3@admin.com and 1111
+Mon, 15 Jul 2019 20:03:02 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"_id":"5d2cdbf671adef351cef4c06"}
+Tue, 16 Jul 2019 05:47:40 GMT - Debug - auth.service - signup with email: admin3@admin.com and 1111
+Tue, 16 Jul 2019 05:47:40 GMT - Error - [SIGNUP] This email is already used
+Tue, 16 Jul 2019 05:58:49 GMT - Info - Server is running on port: 3000
+Tue, 16 Jul 2019 05:59:21 GMT - Debug - auth.service - signup with email: admin3@admin.com and 1111
+Tue, 16 Jul 2019 05:59:21 GMT - Error - [SIGNUP] This email is already used
+Tue, 16 Jul 2019 06:00:17 GMT - Debug - auth.service - signup with email: admin@admin.com and 1111
+Tue, 16 Jul 2019 06:00:17 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"_id":"5d2d67f10a02553568f5e5d2"}
+Tue, 16 Jul 2019 06:16:15 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Tue, 16 Jul 2019 06:16:15 GMT - Error - [SIGNUP] This email is already used
+Tue, 16 Jul 2019 06:16:49 GMT - Debug - auth.service - signup with email: admin3@a.com and abcd
+Tue, 16 Jul 2019 06:16:49 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@a.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"_id":"5d2d6bd10a02553568f5e5d4"}

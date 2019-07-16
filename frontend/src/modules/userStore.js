@@ -11,8 +11,8 @@ export default {
     setUsers(state, {users}) {
       state.users = users
     },
-    setLoggedInUser(state, {user}) {
-      state.loggedInUser = user
+    setLoggedInUser(state, {userCreds}) {
+      state.loggedInUser = userCreds,
       console.log('in the store', state.loggedInUser);
     },
 

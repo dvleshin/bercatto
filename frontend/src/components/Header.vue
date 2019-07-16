@@ -38,13 +38,15 @@ export default {
     onLogin() {
       this.$store
         .dispatch({type: "doLogin", userCred: this.user})
-        .then(() => {
-          this.loggedInUser = this.$store.getters.loggedInUser;
-          console.log('Login successful', this.loggedInUser);
+        .then((res) => {
+          // this.loggedInUser = this.$store.getters.loggedInUser;
+          this.loggedInUser = JSON.parse(sessionStorage.loggedInUser)
+          console.log('Login successful');
         });
     },
     onLogOut(){
       this.$store.dispatch({type: 'doLogout'})
+        .then(this.loggedInUser = null)
     }
   }
 };
