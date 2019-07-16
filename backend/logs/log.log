@@ -158,3 +158,5 @@ Tue, 16 Jul 2019 11:16:32 GMT - Info - Server is running on port: 3000
 Tue, 16 Jul 2019 11:16:48 GMT - Info - Server is running on port: 3000
 Tue, 16 Jul 2019 11:16:53 GMT - Debug - auth.service - signup with email: admin3@admin.com and 1234
 Tue, 16 Jul 2019 11:16:54 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Randall Lucas","email":"admin3@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"arenas":[],"_id":"5d2db2268c5bbd1dab2703ee"}
+Tue, 16 Jul 2019 11:25:21 GMT - Debug - auth.service - signup with email: admin1@admin.com and 1234
+Tue, 16 Jul 2019 11:25:21 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Randall Lucas","email":"admin1@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"arenas":[],"_id":"5d2db4218c5bbd1dab2703ef"}
