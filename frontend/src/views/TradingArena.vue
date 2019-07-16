@@ -9,6 +9,10 @@
       <div class="buyer-section">
         <h1>buyer: {{loggedInUser.fullName}}</h1>
         <div class="user-items-container">
+          <div  v-if="!userItems.length">
+          <h2>Please Upload Items To Bargain</h2>
+            <v-btn @click="addItem">Add Item </v-btn>
+          </div>
           <img
             v-for="item in userItems"
             :class="{active: item.isPicked}"
@@ -56,6 +60,9 @@ export default {
   },
   computed: {},
   methods: {
+    addItem() {
+this.$router.push('add')
+    },
     togglePickItem(item) {
       const editedItem = { ...item };
       editedItem.isPicked = !editedItem.isPicked;

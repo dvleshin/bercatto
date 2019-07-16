@@ -1,9 +1,11 @@
 <template>
   <div class="img-upload">
-    <v-btn fab small color="blue-grey" class="white--text" @click="pickFile">
-      <v-icon dark size="30">cloud_upload</v-icon>
+    <v-btn v-if="!showImgLoading" fab small color="blue-grey" class="white--text" @click="pickFile">
+      <v-icon  dark size="30">cloud_upload</v-icon>
     </v-btn>
     <input @change="handleUploadImage" multiple ref="image" hidden type="file" />
+               <img class="loader" v-if="showImgLoading" src="../../public/img/loader.gif" alt="">
+
     <!-- <img v-for="(img, idx) in uploadedImgs" :key="idx" :src="img.url"> -->
   </div>
 </template>
@@ -12,6 +14,7 @@ export default {
   data() {
     return {
       uploadedImgs: null,
+      showImgLoading:false
     };
   },
   methods: {
@@ -19,6 +22,7 @@ export default {
       this.$refs.image.click();
     },
     handleUploadImage(ev) {
+      this.showImgLoading=true
       const files = ev.target.files;
       if (files === undefined) return console.log(`error! I can't this file`);
         //this.loading = true;
@@ -28,8 +32,16 @@ export default {
             this.uploadedImgs = uploadedImgs;  
             // this.loading = false;
             this.$emit('uploadedImgs', this.uploadedImgs)
+            this.showImgLoading=false
           });
     }
   }
 };
 </script>
+
+<style scoped lang="scss">
+.loader {
+    height: 50px;
+}
+</style>
+

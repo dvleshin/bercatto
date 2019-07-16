@@ -22,7 +22,8 @@
 import userService from "../services/UserService.js";
 export default {
   created() {
-    this.loggedInUser = this.$store.getters.loggedInUser;    
+    if(sessionStorage.loggedInUser)this.loggedInUser = JSON.parse(sessionStorage.loggedInUser)
+    // this.loggedInUser = this.$store.getters.loggedInUser;    
   },
   
   data() {

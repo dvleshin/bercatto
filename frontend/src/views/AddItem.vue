@@ -42,12 +42,13 @@ export default {
   },
   data() {
     return {
+      showImgLoading:false,
       loggedInUser: null,
       item: {
         name: "",
         category: "",
         ownerId: "",
-        imgUrl: "",
+        imgUrl: [],
         views: null,
         description: "",
         condition: "",
@@ -73,8 +74,13 @@ export default {
       this.$router.go(-1);
     },
     uploadedImgs(imgs) {
-this.item.imgUrl = [imgs[0].url]
-console.log(this.item.imgUrl);
+      imgs.forEach(img => {
+        let src =img.url
+        this.item.imgUrl.push(src)   
+      })
+      
+
+
 
     },
     saveItem() {

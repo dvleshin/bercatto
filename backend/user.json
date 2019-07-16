@@ -1,18 +1,31 @@
 {
-"email": "admin@admin.com",
-"fullName": "Bradley Murphy",
-"password": "1234",
-"isAdmin": false,
-"reviews":[],
-"profileImg": "https://randomuser.me/api/portraits/men/43.jpg",
-"adress": { "city": "Jerusalem", "country": "Israel" }
+    "userName" : "Shai",
+    "fullName" : "dima san",
+    "password" : "1234",
+    "isAdmin" : false,
+    "reviews" : [],
+    "adress" : {
+        "city" : "Jerusalem",
+        "country" : "Israel"
+    },
+    "profileImg" : "https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png",
+    "email" : "alondai1@gmail.com",
+    "arenas" : []
 },
+
 {
-"email": "admin1@admin.com",
-"fullName": "Brent Anderson",
-"password": "1234",
-"isAdmin": true,
-"reviews":[],
-"profileImg": "https://randomuser.me/api/portraits/men/51.jpg",
-"adress": { "city": "Tel aviv", "country": "Israel" }
-},
+    "_id" : ObjectId("5d2b620e6cb77d4500e9faec"),
+    "userName" : "Yossi1",
+    "fullName" : "dima gop",
+    "password" : "tinkerbell",
+    "isAdmin" : true,
+    "reviews" : [],
+    "adress" : {
+        "city" : "tel aviv",
+        "country" : "Israel"
+    },
+    "profileImg" : "https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png",
+    "email" : "admin3@admin.com",
+    "arenas" : []
+}
+

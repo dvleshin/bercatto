@@ -52,7 +52,8 @@ export default {
         password: "abcd",
         isAdmin: false,
         profileImg: "https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png",
-        reviews: []
+        reviews: [],
+        arenas: []
       },
       rules: {
         required: value => !!value || "Required.",
