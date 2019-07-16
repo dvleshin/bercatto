@@ -36,7 +36,15 @@ export default {
         console.log(err);
       }
     },
-
+    async onFilter(context, {filterBy}){
+      const items = await itemService.query(filterBy)
+      try {
+        //console.log('Got filtered items', items); 
+        context.commit({ type: 'setItems', items })
+      } catch (err) {
+        console.log('Got error', err);
+      }
+    },
     async getTrendingItems(context, ) {
       const items = await itemService.getTrendingItems()
       try {
@@ -78,8 +86,6 @@ export default {
       return state.items
     },
     trendingItems(state) {
-
-
       return state.trendingItems
     },
   },

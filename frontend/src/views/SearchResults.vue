@@ -1,7 +1,7 @@
 <template>
 <section class="search-container">
   <div class="main-container">
-  <FilterSection class="filter-section" style="border: 1px solid #000"></FilterSection>
+  <FilterSection class="filter-section" @filterBy="onFilter" :searchBy="filterBy.category"></FilterSection>
   <MainItemList class="item-list" @remove="remove" :items="itemsToShow"></MainItemList>
   </div>
 </section>
@@ -13,8 +13,8 @@ import FilterSection from '../components/FilterSection.vue'
 import Header from '../components/Header.vue'
 export default {
   created() {
-    this.filterBy.txt = this.$route.query.searchBy;
-    this.$store.dispatch({ type: "loadItems", creteria:this.filterBy }).then(() => {
+    this.filterBy.category = this.$route.query.searchBy;
+    this.$store.dispatch({ type: "loadItems", creteria: this.filterBy }).then(() => {
       this.isLoading = false;
     });
   },
@@ -24,12 +24,16 @@ export default {
     };
   },
   computed: {
-       itemsToShow() {
+      itemsToShow() {
       return this.$store.getters.itemsToshow;
     }
   },
   methods: {
-       remove(itemId) {
+      onFilter(filterBy) {
+        console.log(filterBy);
+        this.$store.dispatch({type: 'onFilter', filterBy: filterBy})
+      },
+      remove(itemId) {
       console.log("onmain", itemId);
       this.$store
         .dispatch({ type: "deleteItem", itemId })
