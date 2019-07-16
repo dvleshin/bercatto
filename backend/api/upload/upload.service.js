@@ -8,7 +8,8 @@ module.exports = {
 }
 
 async function add(file) {
-    return await cloudinary.uploader.upload(file.path,
+    const uniqueFilename = Date.now()
+    return await cloudinary.uploader.upload(file.path, { public_id: `barcatto/${uniqueFilename}`},
         async function (error, result) {
             return await result;            
         });

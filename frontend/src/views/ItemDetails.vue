@@ -1,6 +1,5 @@
 <template>
   <section v-if="item">
-    <div style="width: 100%; background: #ccc; height: 80px; margin-bottom: 20px;">Header</div>
       <div class="item-title"><h1>{{item.name}}</h1></div>
     <div class="item-details">
       <div class="item-container">

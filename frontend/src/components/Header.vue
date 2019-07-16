@@ -25,7 +25,6 @@ export default {
     if(sessionStorage.loggedInUser)this.loggedInUser = JSON.parse(sessionStorage.loggedInUser)
     // this.loggedInUser = this.$store.getters.loggedInUser;    
   },
-  
   data() {
     return {
       user: {
@@ -47,7 +46,7 @@ export default {
     },
     onLogOut(){
       this.$store.dispatch({type: 'doLogout'})
-        .then(this.loggedInUser = null)
+      .then (this.loggedInUser = null)
     }
   }
 };

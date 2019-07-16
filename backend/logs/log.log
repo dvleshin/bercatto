@@ -128,6 +128,7 @@ Tue, 16 Jul 2019 06:16:15 GMT - Debug - auth.service - signup with email: admin3
 Tue, 16 Jul 2019 06:16:15 GMT - Error - [SIGNUP] This email is already used
 Tue, 16 Jul 2019 06:16:49 GMT - Debug - auth.service - signup with email: admin3@a.com and abcd
 Tue, 16 Jul 2019 06:16:49 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin3@a.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"_id":"5d2d6bd10a02553568f5e5d4"}
+<<<<<<< HEAD
 Tue, 16 Jul 2019 06:35:14 GMT - Debug - auth.service - signup with email: shai@admin.com and 1111
 Tue, 16 Jul 2019 06:35:14 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"shai","email":"shai@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"_id":"5d2d70220a02553568f5e5d6"}
 Tue, 16 Jul 2019 06:58:42 GMT - Debug - auth.service - signup with email: ad@admin.com and abcd
@@ -138,3 +139,10 @@ Tue, 16 Jul 2019 07:30:43 GMT - Debug - auth.service - signup with email: admin@
 Tue, 16 Jul 2019 07:30:43 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Dmitry Leshin","email":"admin@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"arenas":[],"_id":"5d2d7d230a02553568f5e5da"}
 Tue, 16 Jul 2019 09:26:41 GMT - Info - Server is running on port: 3000
 Tue, 16 Jul 2019 09:26:56 GMT - Info - Server is running on port: 3000
+=======
+Tue, 16 Jul 2019 07:28:27 GMT - Info - Server is running on port: 3000
+Tue, 16 Jul 2019 07:30:04 GMT - Info - Server is running on port: 3000
+Tue, 16 Jul 2019 07:30:48 GMT - Info - Server is running on port: 3000
+Tue, 16 Jul 2019 07:32:08 GMT - Info - Server is running on port: 3000
+Tue, 16 Jul 2019 07:33:47 GMT - Info - Server is running on port: 3000
+>>>>>>> 6f77211ec25210026b288de767ba4a46120c64bf

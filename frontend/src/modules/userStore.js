@@ -38,7 +38,9 @@ export default {
     async doLogin(context, {userCred}) {
       const userCreds = await userService.doLogin(userCred)
       try {
-        context.commit({type: 'setLoggedInUser', userCreds}) 
+        context.commit({type: 'setLoggedInUser', userCreds})
+        console.log('actions doLogIn {userCreds}', userCreds);
+        
       } catch (err) {
         console.log(err);
       }
