@@ -24,6 +24,10 @@ export default {
       const idx = state.items.findIndex(currItem => currItem._id === item._id)
       state.items.splice(idx, 1, item);
     },
+    setFilter(state, {filterBy}){
+      // console.log('mutation state filterBy', filterBy);
+        state.filterBy = filterBy
+    }
 
   },
   actions: {
@@ -41,6 +45,16 @@ export default {
       try {
         //console.log('Got filtered items', items); 
         context.commit({ type: 'setItems', items })
+        context.commit({ type: 'setFilter', filterBy})
+      } catch (err) {
+        console.log('Got error', err);
+      }
+    },
+    async onSort(context, {filterBy}){
+      const items = await itemService.query(filterBy)
+      try {
+        context.commit({ type: 'setItems', items })
+        context.commit({ type: 'setFilter', filterBy})
       } catch (err) {
         console.log('Got error', err);
       }
@@ -88,5 +102,8 @@ export default {
     trendingItems(state) {
       return state.trendingItems
     },
+    getFilterBy(state){
+      return state.filterBy
+    }
   },
 }

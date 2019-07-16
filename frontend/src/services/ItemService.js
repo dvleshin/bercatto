@@ -10,8 +10,9 @@ export default {
     uploadImage
 }
 
-async function query(creteria = { txt: '' }) {    
-    return await httpService.get(_getUrl(), creteria) 
+async function query(criteria = { txt: '' }) {
+    console.log('Item service creteria:', criteria);
+    return await httpService.get(_getUrl(), criteria) 
 }
 
 async function getTrendingItems() {

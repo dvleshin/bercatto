@@ -2,7 +2,7 @@
   <form @submit.prevent="emitFilterBy">
     <v-text-field v-model="filterBy.name" label="Name"></v-text-field>
     <v-select :items="condition" v-model="filterBy.condition" label="Condition"></v-select>
-    <v-select :items="this.searchBy" v-model="filterBy.category" label="Category"></v-select>
+    <v-select :items="category" v-model="filterBy.category" label="Category"></v-select>
     <v-btn color="blue" type="submit">Search</v-btn>
     <v-btn color="red" @click="clearForm" fab small>
       <v-icon>clear</v-icon>

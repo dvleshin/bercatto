@@ -15,17 +15,21 @@ async function query(filterBy = {}) {
     
     console.log('item service filterBy:', filterBy);
 
-    const criteria = {};
-    if (filterBy.name) criteria.name = filterBy.name
-    if (filterBy.condition) criteria.condition = filterBy.condition
-    if (filterBy.category) criteria.category = filterBy.category
+    const filterCriteria = {};
+    const sortCriteria = {}
+    if (filterBy.name) filterCriteria.name = filterBy.name
+    if (filterBy.condition) filterCriteria.condition = filterBy.condition
+    if (filterBy.category) filterCriteria.category = filterBy.category
+    if (filterBy.byViews) sortCriteria.views = +filterBy.byViews
+    if (filterBy.byCreatedAt) sortCriteria.createdAt = +filterBy.byCreatedAt
+    if (filterBy.byName) sortCriteria.name = +filterBy.byName
     
-    //console.log('item service criteria:', criteria);
+    console.log('item service sortCriteria:', sortCriteria);
 
     const collection = await dbService.getCollection(COLLECTION)
     try {
-        const items = await collection.find(criteria).toArray();
-        console.log(items);
+        const items = await collection.find(filterCriteria).sort(sortCriteria).toArray();
+        //console.log(items);
         
         return items
     } catch (err) {
