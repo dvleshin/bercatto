@@ -12,9 +12,8 @@ export default {
       state.users = users
     },
     setLoggedInUser(state, {userCreds}) {
-      state.loggedInUser = userCreds
-      console.log('In the mutation {userCreds}', userCreds);
-      console.log('In the store', state.loggedInUser);
+      state.loggedInUser = userCreds,
+      console.log('in the store', state.loggedInUser);
     },
 
     deleteUser(state, {userId}) {

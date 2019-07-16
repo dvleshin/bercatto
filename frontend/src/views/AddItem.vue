@@ -51,7 +51,7 @@ export default {
         views: null,
         description: "",
         condition: "",
-        tags: [],
+        tags: '',
         uploadedAt: null
       },
       categories: [
@@ -78,13 +78,11 @@ console.log(this.item.imgUrl);
 
     },
     saveItem() {
-      console.log("sd");
-
       this.item.uploadedAt = Date.now();
       this.item.isPicked = false;
       this.item.isAdmin = false;
-      // this.item.tags = this.item.tags.split(',')
-      this.item.ownerId = JSON.parse(sessionStorage.loggedInUser).user._id;
+      this.item.tags = this.item.tags.split(',')
+      this.item.ownerId = JSON.parse(sessionStorage.loggedInUser)._id;
       this.item.value = +this.item.value;
       this.$store
         .dispatch({ type: "saveItem", item: { ...this.item } })

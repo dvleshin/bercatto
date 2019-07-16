@@ -26,12 +26,20 @@
           <v-btn flat color="orange" @click="goToArena(item.Id)">Go To Arena!</v-btn>
         </v-card-actions>
       </v-card>
-  <button class="delete" @click="remove(item._id)">X</button> <!--v-if user is the owner -->
+  <button v-if="loggedInUser&&loggedInUser._id===item.ownerId" class="delete" @click="remove(item._id)">X</button> <!--v-if user is the owner -->
 </section>
 </template>
 <script>
 export default {
   props: ["item"],
+  created() {
+    if(sessionStorage.loggedInUser) this.loggedInUser = JSON.parse(sessionStorage.loggedInUser)
+  },
+  data() {
+    return {
+      loggedInUser:null
+    }
+  },
   methods: {
     remove(itemId) {
       this.$emit('remove' , itemId)
@@ -43,8 +51,9 @@ export default {
        this.$router.push(`user/${this.item.ownerId}`);
     },
     goToArena(){
-       const loggedInUser = JSON.parse(sessionStorage.loggedInUser).user
-       if(!loggedInUser) return //swal
+          if(!sessionStorage.loggedInUser) return 
+
+       
        this.$router.push(`arena?id=${this.item._id}`);
     }
   },

@@ -73,7 +73,7 @@ function _handleSuccessfulRegister(user) {
 }
 
 function getLoggedinUser() {
-    var loggedInUser = sessionStorage.getItem(KEY)
+    var loggedInUser = sessionStorage.getItem(loggedInUser)
     return JSON.parse(loggedInUser);
 }
 
