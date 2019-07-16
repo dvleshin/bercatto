@@ -11,6 +11,7 @@
             @change="search"
             v-model="filter.txt"
             append-icon="search"
+            :append-icon-cb="search"
             solo
             placeholder="Search..."
             autofocus

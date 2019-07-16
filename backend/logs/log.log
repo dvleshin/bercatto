@@ -146,3 +146,19 @@ Tue, 16 Jul 2019 07:30:48 GMT - Info - Server is running on port: 3000
 Tue, 16 Jul 2019 07:32:08 GMT - Info - Server is running on port: 3000
 Tue, 16 Jul 2019 07:33:47 GMT - Info - Server is running on port: 3000
 >>>>>>> 6f77211ec25210026b288de767ba4a46120c64bf
+
+Tue, 16 Jul 2019 09:39:17 GMT - Info - Server is running on port: 3000
+Tue, 16 Jul 2019 09:41:47 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Tue, 16 Jul 2019 09:41:49 GMT - Error - [SIGNUP] MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+Tue, 16 Jul 2019 09:45:11 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Tue, 16 Jul 2019 09:45:12 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Tue, 16 Jul 2019 09:45:12 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Tue, 16 Jul 2019 09:45:12 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Tue, 16 Jul 2019 09:45:12 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Tue, 16 Jul 2019 09:45:13 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Tue, 16 Jul 2019 09:45:13 GMT - Error - [SIGNUP] MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+Tue, 16 Jul 2019 09:45:14 GMT - Error - [SIGNUP] MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+Tue, 16 Jul 2019 09:45:14 GMT - Error - [SIGNUP] MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+Tue, 16 Jul 2019 09:45:14 GMT - Error - [SIGNUP] MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+Tue, 16 Jul 2019 09:45:15 GMT - Error - [SIGNUP] MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+Tue, 16 Jul 2019 09:45:15 GMT - Error - [SIGNUP] MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
