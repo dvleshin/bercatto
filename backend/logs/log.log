@@ -152,3 +152,4 @@ Tue, 16 Jul 2019 11:23:46 GMT - Debug - auth.service - signup with email: admin1
 Tue, 16 Jul 2019 11:23:48 GMT - Error - [SIGNUP] MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
 Tue, 16 Jul 2019 11:24:22 GMT - Debug - auth.service - signup with email: admin5@admin.com and 1234
 Tue, 16 Jul 2019 11:24:24 GMT - Error - [SIGNUP] MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+Tue, 16 Jul 2019 11:30:04 GMT - Info - Server is running on port: 3000
