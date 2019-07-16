@@ -11,9 +11,10 @@ export default {
     setUsers(state, {users}) {
       state.users = users
     },
-    setLoggedInUser(state, {user}) {
-      state.loggedInUser = user
-      console.log('in the store', state.loggedInUser);
+    setLoggedInUser(state, {userCreds}) {
+      state.loggedInUser = userCreds
+      console.log('In the mutation {userCreds}', userCreds);
+      console.log('In the store', state.loggedInUser);
     },
 
     deleteUser(state, {userId}) {
@@ -38,7 +39,9 @@ export default {
     async doLogin(context, {userCred}) {
       const userCreds = await userService.doLogin(userCred)
       try {
-        context.commit({type: 'setLoggedInUser', userCreds}) 
+        context.commit({type: 'setLoggedInUser', userCreds})
+        console.log('actions doLogIn {userCreds}', userCreds);
+        
       } catch (err) {
         console.log(err);
       }
