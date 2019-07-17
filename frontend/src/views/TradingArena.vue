@@ -101,11 +101,14 @@ export default {
               this.owner = user;
               if (arenaId) {
                 this.arena.id = arenaId;
+                
                 const arena = this.owner.arenas.find(
                   currArena => currArena.id === arenaId
                 );
                 this.suggestedItems = arena.buyer.items;
               }
+              else this.arena.id = utilService.makeId();
+
             })
             .then(
               this.$store
@@ -170,8 +173,10 @@ export default {
      const newBuyer = { ...buyer };
       
       arenaIdx = newBuyer.arenas.findIndex(
-        currArena => currArena.id === this.id
+        currArena => currArena.id === this.arena.id
       );
+      console.log('@@',arenaIdx);
+      
       if (arenaIdx) {
         newBuyer.arenas.splice(arenaIdx, 1, arena);
       } else newBuyer.arenas.push(arena);
