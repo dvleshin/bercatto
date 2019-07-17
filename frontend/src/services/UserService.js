@@ -38,6 +38,8 @@ async function getUserItems(userId) {
 async function save(editedUser) {
     const completeUser = await httpService.post(`auth/signup`, editedUser)
     try {
+       
+        
         _handleSuccessfulRegister(completeUser)
         return completeUser
     } catch (err) {

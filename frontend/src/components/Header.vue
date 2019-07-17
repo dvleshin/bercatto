@@ -31,7 +31,7 @@ import userService from "../services/UserService.js";
 export default {
   created() {
     if(sessionStorage.loggedInUser)this.loggedInUser = JSON.parse(sessionStorage.loggedInUser)
-    // this.loggedInUser = this.$store.getters.loggedInUser;    
+  
   },
   data() {
     return {
