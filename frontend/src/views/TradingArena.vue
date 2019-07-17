@@ -1,4 +1,6 @@
 <template>
+<div>
+  <Header></Header>
   <section v-if="ownerItem && owner">
     <div class="users-section">
       <div class="owner-section">
@@ -33,10 +35,12 @@
     </div>
     <div class="chat"></div>
   </section>
+</div>
 </template>
 
 
 <script>
+import Header from '../components/Header.vue';
 import utilService from "../services/UtilsService.js";
 export default {
   created() {
@@ -144,6 +148,9 @@ export default {
       // this.$store.dispatch({ type: "saveUser", user: newBuyer }).then(() => {});
       // -------------------------------------------------
     }
+  },
+  components: {
+    Header
   }
 };
 </script>
