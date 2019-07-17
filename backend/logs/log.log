@@ -153,3 +153,8 @@ Tue, 16 Jul 2019 11:23:48 GMT - Error - [SIGNUP] MongoNetworkError: failed to co
 Tue, 16 Jul 2019 11:24:22 GMT - Debug - auth.service - signup with email: admin5@admin.com and 1234
 Tue, 16 Jul 2019 11:24:24 GMT - Error - [SIGNUP] MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
 Tue, 16 Jul 2019 11:30:04 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 06:32:49 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 08:14:57 GMT - Debug - auth.service - signup with email: hello and 456
+Wed, 17 Jul 2019 08:14:58 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"hello","email":"hello","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"arenas":[],"_id":"5d2ed902b407651774324ef7"}
+Wed, 17 Jul 2019 08:16:05 GMT - Debug - auth.service - signup with email: hello and $2b$10$gAkCefBerBQV4CUu25qZTOjuTJaC4bSeXjHyID.J1.6bsRFu1WuBi
+Wed, 17 Jul 2019 08:16:05 GMT - Error - [SIGNUP] This email is already used
