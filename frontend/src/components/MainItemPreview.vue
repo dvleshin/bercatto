@@ -18,7 +18,7 @@
              <h2>{{item.name}}</h2>
             <span class="grey--text">Added {{humanTime(item.uploadedAt)}}</span><br>
             <span> {{item.condition}}</span><br>
-            <span>{{item.description}}</span>
+            <span>{{txtToShow}}</span>
           </div>
         </v-card-title>
         <v-card-actions>
@@ -64,6 +64,12 @@ return moment(timestamp).fromNow()
        this.$router.push(`arena?id=${this.item._id}`);
     }
   },
+  computed: {
+    txtToShow(){
+            if (this.item.description.length <= 100) return this.item.description
+            return this.item.description.substr(0, 100) + '...'
+        },
+  }
   
 };
 </script>
