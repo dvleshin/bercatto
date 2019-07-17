@@ -74,7 +74,7 @@ export default {
       console.log(4);
       editedUser.reviews.push({...this.review});
       console.log(5);
-      this.$store.dispatch({ type: "saveUser", user: editedUser });
+      this.$store.dispatch({ type: "updateUser", user: editedUser });
       this.review = {rating :3}
     }
   },

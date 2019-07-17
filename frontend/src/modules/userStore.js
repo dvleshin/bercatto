@@ -10,24 +10,23 @@ export default {
   mutations: {
     setUsers(state, {users}) {
       state.users = users
+      
     },
     setLoggedInUser(state, {userCreds}) {
-      state.loggedInUser = userCreds,
-      console.log('in the store', state.loggedInUser);
+      state.loggedInUser = userCreds
     },
 
     deleteUser(state, {userId}) {
       let idx = state.users.findIndex(user => user._id === userId)
       state.users.splice(idx, 1);
     },
-    saveUser(state, {user}) {
+    updateUser(state, {user}) {
       const idx = state.users.findIndex(currUser => currUser._id === user._id)
       state.users.splice(idx, 1, user);
     },
   },
   actions: {
     async doSignup(context, {userCred}) {
-      console.log('User Store:', userCred);
       const user = await userService.save(userCred)
       try {
         context.commit({type: 'setLoggedInUser', user})
@@ -35,11 +34,13 @@ export default {
         console.log(err);
       }
     },
+    setLoggedInUser (context, {userCreds}) {
+      context.commit({type: 'setLoggedInUser', userCreds})
+    },
     async doLogin(context, {userCred}) {
-      const userCreds = await userService.doLogin(userCred)
+      const userCreds = await userService.doLogin(userCred)      
       try {
         context.commit({type: 'setLoggedInUser', userCreds})
-        console.log('actions doLogIn {userCreds}', userCreds);
         
       } catch (err) {
         console.log(err);
@@ -71,10 +72,10 @@ export default {
         console.log(err);
       }
     },
-    async saveUser(context, {user}) {
+    async updateUser(context, {user}) {
       const savedUser = await userService.save(user)
       try {
-        context.commit({type: 'saveUser', user: savedUser})
+        context.commit({type: 'updateUser', user: savedUser})
       } catch (err) {
         console.log(err);
       }
@@ -94,6 +95,8 @@ export default {
       return state.users
     },
     loggedInUser(state) {
+console.log('in getter, state is: ',state.loggedInUser);
+
       return state.loggedInUser
     }
   },

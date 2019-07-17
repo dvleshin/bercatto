@@ -30,7 +30,22 @@
 import userService from "../services/UserService.js";
 export default {
   created() {
-    if(sessionStorage.loggedInUser)this.loggedInUser = JSON.parse(sessionStorage.loggedInUser)
+    this.loggedInUser = this.$store.getters.loggedInUser;
+
+    if (!this.loggedInUser) {
+      this.$store
+        .dispatch({
+          type: "getUserById",
+          userId: JSON.parse(sessionStorage.loggedInUser)._id
+        })
+        .then((user)=> {
+          
+          this.loggedInUser = user;
+          this.$store.dispatch({
+            type: "setLoggedInUser",
+            userCreds: user
+          });
+        })}
   
   },
   data() {
@@ -48,7 +63,22 @@ export default {
         .dispatch({type: "doLogin", userCred: this.user})
         .then((res) => {
           // this.loggedInUser = this.$store.getters.loggedInUser;
-          this.loggedInUser = JSON.parse(sessionStorage.loggedInUser)
+           this.loggedInUser = this.$store.getters.loggedInUser;
+
+    if (!this.loggedInUser) {
+      this.$store
+        .dispatch({
+          type: "getUserById",
+          userId: JSON.parse(sessionStorage.loggedInUser)._id
+        })
+        .then((user)=> {
+          
+          this.loggedInUser = user;
+          this.$store.dispatch({
+            type: "setLoggedInUser",
+            userCreds: user
+          });
+        })}
           console.log('Login successful');
         });
     },

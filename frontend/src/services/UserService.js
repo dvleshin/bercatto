@@ -38,9 +38,7 @@ async function getUserItems(userId) {
 async function save(editedUser) {
     const completeUser = await httpService.post(`auth/signup`, editedUser)
     try {
-       
-        
-        _handleSuccessfulRegister(completeUser)
+        // _handleSuccessfulRegister(completeUser)
         return completeUser
     } catch (err) {
         console.log('User Service save function error:', err);
