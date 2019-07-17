@@ -27,6 +27,7 @@
                   @click:append="show1 = !show1"
                 ></v-text-field>
                 <v-layout justify-space-between>
+                    <UploadImages @uploadedImgs="uploadedImg"></UploadImages>
                   <v-btn @click.prevent="submit">SignUp</v-btn>
                 </v-layout>
               </v-form>
@@ -39,6 +40,8 @@
 </template>
 
 <script>
+import UploadImages from "../components/UploadImages.vue";
+
 export default {
   data() {
     return {
@@ -76,7 +79,14 @@ export default {
         // });
         this.$router.push("/");
       });
-    }
+    },
+     uploadedImg(imgs) {
+     
+        this.user.profileImg = imgs[0].url 
+      }
+  },
+  components: {
+    UploadImages
   }
 };
 </script>

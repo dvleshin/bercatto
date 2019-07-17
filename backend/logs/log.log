@@ -180,6 +180,13 @@ Tue, 16 Jul 2019 11:23:48 GMT - Error - [SIGNUP] MongoNetworkError: failed to co
 Tue, 16 Jul 2019 11:24:22 GMT - Debug - auth.service - signup with email: admin5@admin.com and 1234
 Tue, 16 Jul 2019 11:24:24 GMT - Error - [SIGNUP] MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
 Tue, 16 Jul 2019 11:30:04 GMT - Info - Server is running on port: 3000
+<<<<<<< HEAD
+Wed, 17 Jul 2019 06:32:49 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 08:14:57 GMT - Debug - auth.service - signup with email: hello and 456
+Wed, 17 Jul 2019 08:14:58 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"hello","email":"hello","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"arenas":[],"_id":"5d2ed902b407651774324ef7"}
+Wed, 17 Jul 2019 08:16:05 GMT - Debug - auth.service - signup with email: hello and $2b$10$gAkCefBerBQV4CUu25qZTOjuTJaC4bSeXjHyID.J1.6bsRFu1WuBi
+Wed, 17 Jul 2019 08:16:05 GMT - Error - [SIGNUP] This email is already used
+=======
 
 Tue, 16 Jul 2019 13:11:25 GMT - Info - Server is running on port: 3000
 Tue, 16 Jul 2019 13:18:29 GMT - Info - Server is running on port: 3000
@@ -226,3 +233,23 @@ Wed, 17 Jul 2019 08:14:17 GMT - Error - [SIGNUP] This email is already used
 =======
 >>>>>>> 69b1c4d191b1d63fe20f99347fc686c8cc3592f4
 >>>>>>> ab198d4272a1cdcefc805f858499ad8aea592148
+<<<<<<< HEAD
+>>>>>>> e62e67bd9cff7d6b8be23338c1cddb8733c6ad93
+
+Wed, 17 Jul 2019 10:01:14 GMT - Debug - auth.service - signup with email: admin2@admin.com and $2b$10$MnOHbE6JKM1xcZGIF9Mmj.WtK8doFUQ5s9ApzcNjBu4nCQkjf7GLC
+Wed, 17 Jul 2019 10:01:14 GMT - Error - [SIGNUP] This email is already used
+Wed, 17 Jul 2019 10:10:41 GMT - Debug - auth.service - signup with email: admin2@admin.com and $2b$10$MnOHbE6JKM1xcZGIF9Mmj.WtK8doFUQ5s9ApzcNjBu4nCQkjf7GLC
+Wed, 17 Jul 2019 10:10:41 GMT - Error - [SIGNUP] This email is already used
+=======
+
+Wed, 17 Jul 2019 08:21:18 GMT - Debug - auth.service - signup with email: admin1@admin.com and $2b$10$BhiuYy1O5izp5NfCAziL2uFtaMWvEAVxILENzaMIs7zEVilzMLolu
+Wed, 17 Jul 2019 08:21:18 GMT - Error - [SIGNUP] This email is already used
+Wed, 17 Jul 2019 08:30:54 GMT - Debug - auth.service - signup with email: admin7@admin.com and 1234
+Wed, 17 Jul 2019 08:30:54 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"test","email":"admin7@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"arenas":[],"_id":"5d2edcbe29e3702334f185b2"}
+Wed, 17 Jul 2019 08:32:15 GMT - Debug - auth.service - signup with email: admin8@admin.com and 1234
+Wed, 17 Jul 2019 08:32:15 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Randall Lucas","email":"admin8@admin.com","isAdmin":false,"profileImg":"http://res.cloudinary.com/dbcg46m3l/image/upload/v1563352335/barcatto/1563352309084.jpg","reviews":[],"arenas":[],"_id":"5d2edd0f29e3702334f185b3"}
+Wed, 17 Jul 2019 08:37:11 GMT - Debug - auth.service - signup with email: admin1@admin.com and $2b$10$BhiuYy1O5izp5NfCAziL2uFtaMWvEAVxILENzaMIs7zEVilzMLolu
+Wed, 17 Jul 2019 08:37:11 GMT - Error - [SIGNUP] This email is already used
+Wed, 17 Jul 2019 08:47:20 GMT - Debug - auth.service - signup with email: admin2@admin.com and $2b$10$MnOHbE6JKM1xcZGIF9Mmj.WtK8doFUQ5s9ApzcNjBu4nCQkjf7GLC
+Wed, 17 Jul 2019 08:47:21 GMT - Error - [SIGNUP] This email is already used
+>>>>>>> 449a38236388ffabf567badac0c6a82356a13ee8

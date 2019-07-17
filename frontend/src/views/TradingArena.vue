@@ -48,7 +48,7 @@ export default {
   },
   data() {
     return {
-      loggedInUser: null,
+      // loggedInUser: null,
       ownerItem: null,
       owner: null,
       userItems: [],
@@ -106,11 +106,11 @@ export default {
           this.saveArena();
         });
     },
-    saveArena() {
+    saveArena() {      
       const arena = { ...this.arena };
       if (!arena.id) arena.id = utilService.makeId();
-      this.arena.id = arena.id;
-      arena.url = `arena?id=${this.ownerItem._id}&arena=${this.arena.id}`;
+      // this.arena.id = arena.id;
+      arena.url = `arena?id=${this.ownerItem._id}&arena=${arena.id}`;
       arena.owner = { id: this.owner._id, item: this.ownerItem._id };
       if (this.suggestedItems) {
         arena.buyer = {
@@ -135,7 +135,7 @@ export default {
       } else newOwner.arenas.push(arena);
       console.log(newOwner);
 
-      this.$store.dispatch({ type: "saveUser", user: newOwner }).then(() => {});
+      // this.$store.dispatch({ type: "saveUser", user: newOwner }).then(() => {});
       // const newBuyer = { ...arena.buyer };
       // arenaIdx = arena.buyer.arenas.findIndex(
       //   currArena => currArena.id === arena.id
