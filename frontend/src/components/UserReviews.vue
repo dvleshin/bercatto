@@ -8,10 +8,10 @@
           <v-icon>add</v-icon>
         </v-btn>
       </v-toolbar>
-      <v-card-text v-for="review in user.reviews" class="grey lighten-5">
+      <v-card-text v-for="review in user.reviews" :key="review.id" class="grey lighten-5">
         From : {{review.firstName }} {{review.lastName }}
         {{review.txt}}
-        {{review.createdAt}}
+        {{humanTime(review.createdAt)}}
         Rate: {{review.rating}}
       </v-card-text>
     </v-card>
@@ -64,9 +64,13 @@
 </template>
 
 <script>
+import moment from 'moment'
 export default {
   props: ["user"],
   methods: {
+    humanTime(timestamp){
+return moment(timestamp).fromNow()
+    },
     saveReview() {
       this.dialog = false;
       const editedUser = { ...this.user };

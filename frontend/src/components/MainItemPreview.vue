@@ -16,7 +16,7 @@
         <v-card-title>
           <div>
              <h2>{{item.name}}</h2>
-            <span class="grey--text">Added {{item.uploadedAt}}</span><br>
+            <span class="grey--text">Added {{humanTime(item.uploadedAt)}}</span><br>
             <span> {{item.condition}}</span><br>
             <span>{{item.description}}</span>
           </div>
@@ -32,6 +32,7 @@
 </section>
 </template>
 <script>
+import moment from 'moment'
 export default {
   props: ["item"],
   created() {
@@ -39,10 +40,14 @@ export default {
   },
   data() {
     return {
+      moment:moment,
       loggedInUser:null
     }
   },
   methods: {
+    humanTime(timestamp){
+return moment(timestamp).fromNow()
+    },
     remove(itemId) {
       this.$emit('remove' , itemId)
     },
