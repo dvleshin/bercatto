@@ -2,13 +2,14 @@
   <header class="flex">
     <div class="logo">
       <p>
-        Barcatto
-        <v-icon @click="goMain" color="#fff" size="30px">home</v-icon>
+        <v-icon @click="goMain" color="#fff" size="20px">home</v-icon> Barcatto
       </p>
     </div>
 
     <div class="nav-bar flex">
       <div v-if="loggedInUser" class="user-menu">
+        <v-icon @click="addItem">add</v-icon>
+        arenas: ({{loggedInUser.arenas.length}})
         <v-avatar size="60px">
           <img :src="loggedInUser.profileImg" />
         </v-avatar>
@@ -17,7 +18,7 @@
       <div class="login-area" v-if="!loggedInUser">
         <ul>
           <li>
-            <v-icon color="#fff" size="25px">person</v-icon>signup
+            <Signup></Signup>
           </li>
           <li class="login flex">
             <v-menu v-model="menu" :close-on-content-click="false" :nudge-width="200" offset-x>
@@ -51,6 +52,7 @@
 
 <script>
 import userService from "../services/UserService.js";
+import Signup from "../components/SignUp-v2.vue";
 export default {
   created() {
     this.loggedInUser = this.$store.getters.loggedInUser;
@@ -113,12 +115,18 @@ export default {
       this.$store
         .dispatch({ type: "doLogout" })
         .then((this.loggedInUser = null));
+    },
+    addItem(){
+      this.$router.push('/add')
     }
   },
   computed: {
     arenasUrls() {
       return this.loggedInUser.arenas.map(arena => arena.url);
     }
+  },
+  components: {
+    Signup,
   }
 };
 </script>
