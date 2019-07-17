@@ -1,8 +1,9 @@
 <template>
   <section>
-    <v-parallax :height="500" dark src="https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
+    <v-parallax :height="500" dark src="https://www.moneycrashers.com/wp-content/uploads/2011/06/best-swapping-websites-2136x1427.jpg">
       <v-layout align-center column justify-center>
         <div class="main-navbar">
+          <div><span class="logo">barcattö</span></div>
           <ul>
             <li @click="goToSignUpPage"><v-icon color="#fff">person</v-icon> signup</li>
             <li @click="goToAddPage"><v-icon color="#fff">account_circle</v-icon> login</li>

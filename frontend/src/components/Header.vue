@@ -1,9 +1,7 @@
 <template>
   <header class="flex">
     <div class="logo">
-      <p>
-        <v-icon @click="goMain" color="#fff" size="20px">home</v-icon> Barcatto
-      </p>
+       <span @click="goMain">barcattö</span>
     </div>
 
     <div class="nav-bar flex">
