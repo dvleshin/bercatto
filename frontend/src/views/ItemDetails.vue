@@ -1,6 +1,8 @@
 <template>
+<div>
+  <Header></Header>
   <section v-if="item">
-      <div class="item-title"><h1>{{item.name}}</h1></div>
+    <div class="item-title"><h1>{{item.name}}</h1></div>
     <div class="item-details">
       <div class="item-container">
         <v-toolbar color="cyan" dark tabs height="0">
@@ -39,9 +41,11 @@
       </div>
     </div>
   </section>
+</div>
 </template>
 
 <script>
+import Header from '../components/Header.vue'
 import UserMap from "../components/UserMap.vue";
 import ImagesCarousel from "../components/ImagesCarousel.vue";
 export default {
@@ -92,7 +96,8 @@ export default {
   },
   components: {
     UserMap,
-    ImagesCarousel
+    ImagesCarousel,
+    Header
   },
   computed: {},
   methods: {

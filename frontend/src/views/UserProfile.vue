@@ -1,14 +1,18 @@
 <template>
-  <section v-if="user" class="user-profile">
-    <div class="user-info">
-    <UserCard class="user-card" :user="user"></UserCard>
-    <UserReviews class="user-reviews" :user="user"></UserReviews>
-    </div>
-    <UserItemList class="user-item-list" :items="userItems"></UserItemList>
-  </section>
+  <div>
+    <Header></Header>
+    <section v-if="user" class="user-profile">
+      <div class="user-info">
+        <UserCard class="user-card" :user="user"></UserCard>
+        <UserReviews class="user-reviews" :user="user"></UserReviews>
+      </div>
+      <UserItemList class="user-item-list" :items="userItems"></UserItemList>
+    </section>
+  </div>
 </template>
 
 <script>
+import Header from '../components/Header.vue'
 import UserItemList from "../components/UserItemList.vue";
 import UserReviews from "../components/UserReviews.vue";
 import UserCard from "../components/UserCard.vue";
@@ -19,17 +23,18 @@ export default {
       .then(user => {
         this.user = user;
       });
-     this.$store.dispatch({ type: "getUserItems", userId: this.$route.params.id })
+    this.$store
+      .dispatch({ type: "getUserItems", userId: this.$route.params.id })
       .then(items => {
         console.log(items);
-        
+
         this.userItems = items;
       });
   },
   data() {
     return {
       user: null,
-      userItems:[]
+      userItems: []
     };
   },
   computed: {},
@@ -37,7 +42,8 @@ export default {
   components: {
     UserItemList,
     UserCard,
-    UserReviews
+    UserReviews,
+    Header
   }
 };
 </script>

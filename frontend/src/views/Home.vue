@@ -2,8 +2,12 @@
   <section>
     <v-parallax :height="500" dark src="https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
       <v-layout align-center column justify-center>
-          <v-icon @click="goToAddPage" class="add-icon">add</v-icon>
-          <v-icon @click="goToSignUpPage" class="signup-icon">remove</v-icon>
+        <div class="main-navbar">
+          <ul>
+            <li @click="goToSignUpPage"><v-icon color="#fff">person</v-icon> signup</li>
+            <li @click="goToAddPage"><v-icon color="#fff">account_circle</v-icon> login</li>
+          </ul>
+        </div>
         <h1 class="display-2 font-weight-thin mb-3">Barcatto</h1>
         <h4 class="subheading">Barter, bargain and swap unique items</h4>
         <h4 class="subheading">
@@ -18,7 +22,7 @@
             autofocus
           ></v-text-field>
         </h4>
-       <img class="loader" v-if="showSearchLoading" src="../../public/img/loader.gif" alt="">
+        <img class="loader" v-if="showSearchLoading" src="../../public/img/loader.gif" alt />
       </v-layout>
     </v-parallax>
     <MainItemList @remove="remove" :items="itemsToShow"></MainItemList>
@@ -68,18 +72,17 @@ export default {
           //   timer: 2000
           // });
         });
-      
     },
 
-      goToAddPage() {
-          this.$router.push(`add`)
-        },
-      goToSignUpPage() {
-          this.$router.push(`signup`)
-        },
-        
+    goToAddPage() {
+      this.$router.push(`add`);
+    },
+    goToSignUpPage() {
+      this.$router.push(`signup`);
+    },
+
     search() {
-      if(!this.filter.category) return
+      if (!this.filter.category) return;
       this.timeout = setTimeout(() => {
         this.$router.push(`item?searchBy=${this.filter.category}`);
         this.filter.category = "";

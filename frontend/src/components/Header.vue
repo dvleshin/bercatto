@@ -1,29 +1,52 @@
 <template>
-  <v-toolbar>
-    
-    <v-form class="form" v-if="!loggedInUser">
-      <v-toolbar-items class="hidden-sm-and-down">
-        <v-text-field label="E-mail" v-model="user.email" required></v-text-field>
-
-        <v-text-field label="Password" v-model="user.password" required></v-text-field>
-      </v-toolbar-items>
-      <v-btn @click.prevent="onLogin">LogIn</v-btn>
-    </v-form>
-    <div class="user-info" v-if="loggedInUser">
-      <v-select
-          v-if="loggedInUser.arenas.length"
-          :items="arenasUrls"
-          label="ActiveArenas"
-        ></v-select>
-        <span v-else>No Active Arenas</span>
-    <v-avatar size="48px">
-      <img :src="loggedInUser.profileImg" />
-    </v-avatar>
-    <span>{{loggedInUser.fullName}}</span>
-    <v-btn @click.prevent="onLogOut">LogOut</v-btn>
+  <header class="flex">
+    <div class="logo">
+      <p>
+        Barcatto
+        <v-icon @click="goMain" color="#fff" size="30px">home</v-icon>
+      </p>
     </div>
 
-  </v-toolbar>
+    <div class="nav-bar flex">
+      <div v-if="loggedInUser" class="user-menu">
+        <v-avatar size="60px">
+          <img :src="loggedInUser.profileImg" />
+        </v-avatar>
+        <v-icon @click.prevent="onLogOut" color="#fff" size="30px">exit_to_app</v-icon>
+      </div>
+      <div class="login-area" v-if="!loggedInUser">
+        <ul>
+          <li>
+            <v-icon color="#fff" size="25px">person</v-icon>signup
+          </li>
+          <li class="login flex">
+            <v-menu v-model="menu" :close-on-content-click="false" :nudge-width="200" offset-x>
+              <template v-slot:activator="{ on }">
+                <div v-on="on">
+                  <v-icon color="#fff" size="25px">account_circle</v-icon>login
+                </div>
+              </template>
+              <v-card>
+                <div>
+                  <v-form class="form flex">
+                    <v-text-field label="E-mail" v-model="user.email" required prepend-icon="email"></v-text-field>
+                    <v-text-field
+                      label="Password"
+                      type="password"
+                      v-model="user.password"
+                      required
+                      prepend-icon="lock"
+                    ></v-text-field>
+                    <v-btn @click.prevent="onLogin" color="#5774ff" outline>LogIn</v-btn>
+                  </v-form>
+                </div>
+              </v-card>
+            </v-menu>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
 </template>
 
 <script>
@@ -54,14 +77,18 @@ export default {
         email: "admin3@admin.com",
         password: "1234"
       },
-      loggedInUser: null
+      loggedInUser: null,
+      menu: false,
     };
   },
   methods: {
+    goMain() {
+      this.$router.push("/");
+    },
     onLogin() {
       this.$store
-        .dispatch({type: "doLogin", userCred: this.user})
-        .then((res) => {
+        .dispatch({ type: "doLogin", userCred: this.user })
+        .then(res => {
           // this.loggedInUser = this.$store.getters.loggedInUser;
            this.loggedInUser = this.$store.getters.loggedInUser;
 
@@ -82,18 +109,20 @@ export default {
           console.log('Login successful');
         });
     },
-    onLogOut(){
-      this.$store.dispatch({type: 'doLogout'})
-      .then (this.loggedInUser = null)
+    onLogOut() {
+      this.$store
+        .dispatch({ type: "doLogout" })
+        .then((this.loggedInUser = null));
     }
   },
   computed: {
     arenasUrls() {
-      return this.loggedInUser.arenas.map(arena=> arena.url)
+      return this.loggedInUser.arenas.map(arena => arena.url);
     }
-  },
+  }
 };
 </script>
 
-<style lang="scss" scoped src="../styles/components/header.scss">
+<style lang="scss">
+@import "../styles/components/header.scss";
 </style>
