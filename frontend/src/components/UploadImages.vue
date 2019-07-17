@@ -6,7 +6,7 @@
     <input @change="handleUploadImage" multiple ref="image" hidden type="file" />
                <img class="loader" v-if="showImgLoading" src="../../public/img/loader.gif" alt="">
 
-    <!-- <img v-for="(img, idx) in uploadedImgs" :key="idx" :src="img.url"> -->
+    <img v-for="(img, idx) in uploadedImgs" :key="idx" :src="img.url">
      
   </div>
 </template>
@@ -43,6 +43,10 @@ export default {
 <style scoped lang="scss">
 .loader {
     height: 50px;
+}
+
+img {
+  height: 60px;
 }
 </style>
 
