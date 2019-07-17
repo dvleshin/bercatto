@@ -278,3 +278,5 @@ Wed, 17 Jul 2019 13:13:31 GMT - Info - Server is running on port: 3000
 Wed, 17 Jul 2019 13:32:47 GMT - Info - Server is running on port: 3000
 Wed, 17 Jul 2019 13:49:28 GMT - Debug - auth.service - signup with email: admin3@admin.com and 1234
 Wed, 17 Jul 2019 13:49:28 GMT - Error - [SIGNUP] This email is already used
+Wed, 17 Jul 2019 13:51:27 GMT - Debug - auth.service - signup with email: admin8@admin.com and 1234
+Wed, 17 Jul 2019 13:51:27 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Randall Lucas","email":"admin8@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"arenas":[],"_id":"5d2f27dfb407651774324efa"}
