@@ -108,7 +108,7 @@ export default {
   },
   methods: {
     emitSingUp(){
-      this.$emit('onsignup', this.user)
+      this.$emit('onSignUp', this.user)
     }
   },
   watch: {
