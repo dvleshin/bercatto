@@ -9,8 +9,9 @@
         <h4 class="subheading">
           <v-text-field
             @change="search"
-            v-model="filter.txt"
+            v-model="filter.category"
             append-icon="search"
+            :append-icon-cb="search"
             solo
             placeholder="Search..."
             autofocus
@@ -77,10 +78,10 @@ export default {
         },
         
     search() {
-      if(!this.filter.txt) return
+      if(!this.filter.category) return
       this.timeout = setTimeout(() => {
-        this.$router.push(`item?searchBy=${this.filter.txt}`);
-        this.filter.txt = "";
+        this.$router.push(`item?searchBy=${this.filter.category}`);
+        this.filter.category = "";
       }, 2000);
       this.showSearchLoading = true;
     }

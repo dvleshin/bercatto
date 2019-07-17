@@ -10,12 +10,12 @@ export default {
     uploadImage
 }
 
-async function query(creteria = { txt: '' }) {
-    return await httpService.get(_getUrl()) 
+async function query(criteria = { txt: '' }) {
+    console.log('Item service creteria:', criteria);
+    return await httpService.get(_getUrl(), criteria) 
 }
 
 async function getTrendingItems() {
-    // db.collection.find().sort({views:-1}).limit(10)
     return await httpService.get(_getUrl())
 }
 
@@ -29,10 +29,10 @@ async function getById(itemId) {
 
 async function save(item) {
    if(!item._id) {
-       return await httpService.post(`item/add`,item )
+       return await httpService.post(`item/add`, item)
    }
    else {
-       return await httpService.post(`item/update`,item )
+       return await httpService.post(`item/update`,item)
    }
 }
 

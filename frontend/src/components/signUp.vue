@@ -47,9 +47,9 @@ export default {
           country: "Israel",
           city: "Tel Aviv"
         },
-        fullName: "Dmitry Leshin",
+        fullName: "Randall Lucas",
         email: "admin3@admin.com",
-        password: "abcd",
+        password: "1234",
         isAdmin: false,
         profileImg: "https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png",
         reviews: [],

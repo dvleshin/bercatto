@@ -6,7 +6,7 @@ async function getItem(req, res) {
 }
   
 const getItems = async (req, res) => {
-    const items = await itemService.query()
+    const items = await itemService.query(req.query)
     res.send(items)
 }
 

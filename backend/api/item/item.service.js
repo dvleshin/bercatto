@@ -12,19 +12,25 @@ module.exports = {
 const COLLECTION = 'item'
 
 async function query(filterBy = {}) {
+    
+    console.log('item service filterBy:', filterBy);
 
-    const criteria = {};
-    // if (filterBy.txt) {
-    //     criteria.name = filterBy.txt
-    // }
-    // if (filterBy.minBalance) {
-    //     criteria.balance = {$gte : filterBy.minBalance}
-    // }
-
+    const filterCriteria = {};
+    const sortCriteria = {}
+    if (filterBy.name) filterCriteria.name = filterBy.name
+    if (filterBy.condition) filterCriteria.condition = filterBy.condition
+    if (filterBy.category) filterCriteria.category = filterBy.category
+    if (filterBy.byViews) sortCriteria.views = +filterBy.byViews
+    if (filterBy.byCreatedAt) sortCriteria.createdAt = +filterBy.byCreatedAt
+    if (filterBy.byName) sortCriteria.name = +filterBy.byName
+    
+    console.log('item service sortCriteria:', sortCriteria);
 
     const collection = await dbService.getCollection(COLLECTION)
     try {
-        const items = await collection.find(criteria).toArray();
+        const items = await collection.find(filterCriteria).sort(sortCriteria).toArray();
+        //console.log(items);
+        
         return items
     } catch (err) {
         console.log('ERROR: cannot find items')
