@@ -51,6 +51,7 @@ export default {
       .then(item => {
         this.item = item;
         this.tabs[0].data = item.imgUrl;
+        this.setItemView()
 
         this.$store
           .dispatch({ type: "getUserById", userId: this.item.ownerId })
@@ -94,7 +95,17 @@ export default {
     ImagesCarousel
   },
   computed: {},
-  methods: {}
+  methods: {
+    setItemView() {
+      console.log('ItemDetails:', this.item);
+      
+      this.item.views += 1 
+      this.$store
+        .dispatch({ type: "saveItem", item: { ...this.item } })
+        .then(() => {
+        });
+    }
+  }
 };
 </script>
 <style scoped lang="scss">
