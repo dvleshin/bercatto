@@ -18,6 +18,7 @@
       v-model="byName"
       label="Name"
       @input="emitSortBy(byName === 'A-Z' ? {byName: 1}:{byName: -1})"
+      
     ></v-select>
   </section>
 </template>

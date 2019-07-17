@@ -7,6 +7,7 @@
                <img class="loader" v-if="showImgLoading" src="../../public/img/loader.gif" alt="">
 
     <!-- <img v-for="(img, idx) in uploadedImgs" :key="idx" :src="img.url"> -->
+     
   </div>
 </template>
 <script>
