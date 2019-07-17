@@ -213,3 +213,13 @@ Tue, 16 Jul 2019 18:32:13 GMT - Info - Server is running on port: 3000
 >>>>>>> 8904d3d555c86d5831c5c4cc71024eab0ef153f4
 
 Wed, 17 Jul 2019 06:13:07 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 06:43:00 GMT - Debug - auth.service - signup with email: alondai1@gmail.com and 1111
+Wed, 17 Jul 2019 06:43:01 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Givon Hahadasha"},"fullName":"alondai1","email":"alondai1@gmail.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"arenas":[],"_id":"5d2ec37429e3702334f185ae"}
+Wed, 17 Jul 2019 08:00:45 GMT - Debug - auth.service - signup with email: admin1@admin.com and $2b$10$BhiuYy1O5izp5NfCAziL2uFtaMWvEAVxILENzaMIs7zEVilzMLolu
+Wed, 17 Jul 2019 08:00:45 GMT - Error - [SIGNUP] This email is already used
+Wed, 17 Jul 2019 08:04:51 GMT - Debug - auth.service - signup with email: admin1@admin.com and $2b$10$BhiuYy1O5izp5NfCAziL2uFtaMWvEAVxILENzaMIs7zEVilzMLolu
+Wed, 17 Jul 2019 08:04:51 GMT - Error - [SIGNUP] This email is already used
+Wed, 17 Jul 2019 08:14:15 GMT - Debug - auth.service - signup with email: admin2@admin.com and $2b$10$MnOHbE6JKM1xcZGIF9Mmj.WtK8doFUQ5s9ApzcNjBu4nCQkjf7GLC
+Wed, 17 Jul 2019 08:14:15 GMT - Error - [SIGNUP] This email is already used
+Wed, 17 Jul 2019 08:14:17 GMT - Debug - auth.service - signup with email: admin2@admin.com and $2b$10$MnOHbE6JKM1xcZGIF9Mmj.WtK8doFUQ5s9ApzcNjBu4nCQkjf7GLC
+Wed, 17 Jul 2019 08:14:17 GMT - Error - [SIGNUP] This email is already used

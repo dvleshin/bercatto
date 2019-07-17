@@ -14,7 +14,7 @@ section {
 
 .owner-section , .buyer-section {
     border: 1px solid black;
-    height: 300px;
+    min-height: 300px;
    
 }
 
@@ -25,10 +25,12 @@ section {
 
 .user-items-container {
     display: flex;
+
 }
 
 .user-items-container img {
     height: 200px;
+    margin:10px;
 }
 
 .close-deal-btn{
@@ -39,6 +41,9 @@ section {
 }
 
 .active{
-    // opacity: 0.1;
-    border: 10px solid green;
+    opacity: 1;
+    
+}
+.not-active{
+    opacity: 0.4;
 }

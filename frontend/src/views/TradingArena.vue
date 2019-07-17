@@ -15,7 +15,7 @@
           </div>
           <img
             v-for="item in userItems"
-            :class="{active: item.isPicked}"
+            :class="{active: item.isPicked, 'not-active': !item.isPicked}"
             @click="togglePickItem(item)"
             :src="item.imgUrl[0]"
             alt
@@ -24,7 +24,7 @@
         <div v-else class="user-items-container">
           <img
             v-for="item in suggestedItems"
-            :class="{active: item.isPicked}"
+            :class="{active: item.isPicked, 'not-active': !item.isPicked}"
             :src="item.imgUrl[0]"
             alt
           />
@@ -76,10 +76,9 @@ export default {
                 const arena = this.owner.arenas.find(
                   currArena => currArena.id === arenaId
                 );
-                this.suggestedItems = arena.buyer.item;
+                this.suggestedItems = arena.buyer.items;
                 console.log(this.suggestedItems);
-              } else {
-              } //push arena item to both users
+              }
             });
         })
         .then(
@@ -89,7 +88,6 @@ export default {
               this.userItems = items;
             })
         )
-        .then(() => {});
     },
     addItem() {
       this.$router.push("add");
@@ -113,12 +111,12 @@ export default {
       if (this.suggestedItems) {
         arena.buyer = {
           id: this.suggestedItems[0].ownerId,
-          items: this.suggestedItems.filter(item => item.isPicked)
+          items: this.suggestedItems
         };
       } else {
         arena.buyer = {
           id: this.loggedInUser._id,
-          items: this.userItems.filter(item => item.isPicked)
+          items: this.userItems
         };
       }
       arena.status = this.arena.status;
@@ -133,7 +131,7 @@ export default {
       } else newOwner.arenas.push(arena);
       console.log(newOwner);
 
-      // this.$store.dispatch({ type: "saveUser", user: newOwner }).then(() => {});
+      this.$store.dispatch({ type: "saveUser", user: newOwner }).then(() => {});
       // const newBuyer = { ...arena.buyer };
       // arenaIdx = arena.buyer.arenas.findIndex(
       //   currArena => currArena.id === arena.id
