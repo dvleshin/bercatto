@@ -133,6 +133,33 @@ Tue, 16 Jul 2019 07:30:04 GMT - Info - Server is running on port: 3000
 Tue, 16 Jul 2019 07:30:48 GMT - Info - Server is running on port: 3000
 Tue, 16 Jul 2019 07:32:08 GMT - Info - Server is running on port: 3000
 Tue, 16 Jul 2019 07:33:47 GMT - Info - Server is running on port: 3000
+<<<<<<< HEAD
+>>>>>>> 6f77211ec25210026b288de767ba4a46120c64bf
+
+Tue, 16 Jul 2019 10:08:59 GMT - Debug - auth.service - signup with email: admin3@admin.com and tinkerbell
+Tue, 16 Jul 2019 10:08:59 GMT - Error - [SIGNUP] This email is already used
+Tue, 16 Jul 2019 10:19:15 GMT - Debug - auth.service - signup with email: alondai1@gmail.com and 1234
+Tue, 16 Jul 2019 10:19:15 GMT - Error - [SIGNUP] This email is already used
+Tue, 16 Jul 2019 10:23:57 GMT - Debug - auth.service - signup with email: admin3@admin.com and abcd
+Tue, 16 Jul 2019 10:23:57 GMT - Error - [SIGNUP] This email is already used
+Tue, 16 Jul 2019 11:47:03 GMT - Debug - auth.service - signup with email: alon@admin.com and 1111
+Tue, 16 Jul 2019 11:47:03 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"jerusalem"},"fullName":"alon","email":"alon@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"arenas":[],"_id":"5d2db9370315122cd413c127"}
+Tue, 16 Jul 2019 13:08:05 GMT - Debug - auth.service - signup with email: alondai1@gmail.com and 1234
+Tue, 16 Jul 2019 13:08:05 GMT - Error - [SIGNUP] This email is already used
+Tue, 16 Jul 2019 13:09:04 GMT - Debug - auth.service - signup with email: alondai1@gmail.com and 1234
+Tue, 16 Jul 2019 13:09:04 GMT - Error - [SIGNUP] This email is already used
+Tue, 16 Jul 2019 13:10:32 GMT - Debug - auth.service - signup with email: alondai1@gmail.com and 1234
+Tue, 16 Jul 2019 13:10:33 GMT - Error - [SIGNUP] This email is already used
+Tue, 16 Jul 2019 13:14:43 GMT - Debug - auth.service - signup with email: alon@admin.com and $2b$10$afk17ZqSxAZFYx9HJMvb7uChpy6pHHDcGqwZkhvNDShoic9HF/iuu
+Tue, 16 Jul 2019 13:14:43 GMT - Error - [SIGNUP] This email is already used
+Tue, 16 Jul 2019 13:14:45 GMT - Debug - auth.service - signup with email: alon@admin.com and $2b$10$afk17ZqSxAZFYx9HJMvb7uChpy6pHHDcGqwZkhvNDShoic9HF/iuu
+Tue, 16 Jul 2019 13:14:45 GMT - Error - [SIGNUP] This email is already used
+Tue, 16 Jul 2019 13:14:48 GMT - Debug - auth.service - signup with email: alon@admin.com and $2b$10$afk17ZqSxAZFYx9HJMvb7uChpy6pHHDcGqwZkhvNDShoic9HF/iuu
+Tue, 16 Jul 2019 13:14:48 GMT - Error - [SIGNUP] This email is already used
+Tue, 16 Jul 2019 13:14:50 GMT - Debug - auth.service - signup with email: alon@admin.com and $2b$10$afk17ZqSxAZFYx9HJMvb7uChpy6pHHDcGqwZkhvNDShoic9HF/iuu
+Tue, 16 Jul 2019 13:14:50 GMT - Error - [SIGNUP] This email is already used
+Tue, 16 Jul 2019 13:33:54 GMT - Info - Server is running on port: 3000
+=======
 
 Tue, 16 Jul 2019 09:32:52 GMT - Info - Server is running on port: 3000
 Tue, 16 Jul 2019 11:00:15 GMT - Info - Server is running on port: 3000
@@ -183,5 +210,6 @@ Tue, 16 Jul 2019 18:27:02 GMT - Info - Server is running on port: 3000
 Tue, 16 Jul 2019 18:31:02 GMT - Info - Server is running on port: 3000
 Tue, 16 Jul 2019 18:31:12 GMT - Info - Server is running on port: 3000
 Tue, 16 Jul 2019 18:32:13 GMT - Info - Server is running on port: 3000
-Tue, 16 Jul 2019 19:23:08 GMT - Info - Server is running on port: 3000
-Wed, 17 Jul 2019 05:07:26 GMT - Info - Server is running on port: 3000
+
+Wed, 17 Jul 2019 06:13:07 GMT - Info - Server is running on port: 3000
+>>>>>>> 69b1c4d191b1d63fe20f99347fc686c8cc3592f4
