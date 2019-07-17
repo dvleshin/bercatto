@@ -9,10 +9,17 @@
       </v-toolbar-items>
       <v-btn @click.prevent="onLogin">LogIn</v-btn>
     </v-form>
-    <div v-if="loggedInUser">
+    <div class="user-info" v-if="loggedInUser">
+      <v-select
+          v-if="loggedInUser.arenas.length"
+          :items="arenasUrls"
+          label="ActiveArenas"
+        ></v-select>
+        <span v-else>No Active Arenas</span>
     <v-avatar size="48px">
       <img :src="loggedInUser.profileImg" />
     </v-avatar>
+    <span>{{loggedInUser.fullName}}</span>
     <v-btn @click.prevent="onLogOut">LogOut</v-btn>
     </div>
 
@@ -49,7 +56,12 @@ export default {
       this.$store.dispatch({type: 'doLogout'})
       .then (this.loggedInUser = null)
     }
-  }
+  },
+  computed: {
+    arenasUrls() {
+      return this.loggedInUser.arenas.map(arena=> arena.url)
+    }
+  },
 };
 </script>
 

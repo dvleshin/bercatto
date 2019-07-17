@@ -1,6 +1,6 @@
 <template>
   <section>
-    <v-parallax :height="500" dark src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg">
+    <v-parallax :height="500" dark src="https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
       <v-layout align-center column justify-center>
           <v-icon @click="goToAddPage" class="add-icon">add</v-icon>
           <v-icon @click="goToSignUpPage" class="signup-icon">remove</v-icon>
@@ -8,8 +8,9 @@
         <h4 class="subheading">Barter, bargain and swap unique items</h4>
         <h4 class="subheading">
           <v-text-field
+          class="search"
             @change="search"
-            v-model="filter.txt"
+            v-model="filter.category"
             append-icon="search"
             :append-icon-cb="search"
             solo
@@ -78,10 +79,10 @@ export default {
         },
         
     search() {
-      if(!this.filter.txt) return
+      if(!this.filter.category) return
       this.timeout = setTimeout(() => {
-        this.$router.push(`item?searchBy=${this.filter.txt}`);
-        this.filter.txt = "";
+        this.$router.push(`item?searchBy=${this.filter.category}`);
+        this.filter.category = "";
       }, 2000);
       this.showSearchLoading = true;
     }

@@ -49,7 +49,7 @@ export default {
         category: "",
         ownerId: "",
         imgUrl: [],
-        views: null,
+        views: 0,
         description: "",
         condition: "",
         tags: '',
