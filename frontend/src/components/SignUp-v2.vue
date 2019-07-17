@@ -8,7 +8,7 @@
       </template>
       <v-card>
         <v-card-title>
-          <span class="headline">User Profile</span>
+          <span class="headline">Sign up</span>
         </v-card-title>
         <v-card-text>
           <v-container grid-list-md>
@@ -63,7 +63,7 @@
             Upload Image
             <v-icon right dark>cloud_upload</v-icon>
           </v-btn>
-          <v-btn @click="emitSingUp">SignUp</v-btn>
+          <v-btn @click="onSignUp">SignUp</v-btn>
             </v-layout>
           </v-container>
           <v-spacer></v-spacer>
@@ -80,7 +80,11 @@
 </template>
 
 <script>
+import Swal from 'sweetalert';
 export default {
+  props: {
+    close: String,
+  },
   data() {
     return {
       dialog: false,
@@ -104,11 +108,21 @@ export default {
       },
       loader: null,
       loading: false,
+      show1: false,
     };
   },
   methods: {
-    emitSingUp(){
-      this.$emit('onSignUp', this.user)
+    onSignUp(){
+      this.$store.dispatch({ type: "doSignup", userCred: this.user }).then(() => {
+        this.dialog = false
+        Swal.fire({
+          position: "top-end",
+          type: "success",
+          title: "Welcome! you have signed up successfully.",
+          showConfirmButton: true,
+          timer: 2000
+        });
+      }); 
     }
   },
   watch: {

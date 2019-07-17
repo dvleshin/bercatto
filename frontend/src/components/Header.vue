@@ -8,6 +8,8 @@
 
     <div class="nav-bar flex">
       <div v-if="loggedInUser" class="user-menu">
+        <v-icon @click="addItem">add</v-icon>
+        arenas: ({{loggedInUser.arenas.length}})
         <v-avatar size="60px">
           <img :src="loggedInUser.profileImg" />
         </v-avatar>
@@ -16,7 +18,7 @@
       <div class="login-area" v-if="!loggedInUser">
         <ul>
           <li>
-            <v-icon color="#fff" size="25px">person</v-icon>signup
+            <Signup></Signup>
           </li>
           <li class="login flex">
             <v-menu v-model="menu" :close-on-content-click="false" :nudge-width="200" offset-x>
@@ -45,7 +47,6 @@
         </ul>
       </div>
     </div>
-    <Signup :onsignup="onSignUp"></Signup>
   </header>
 </template>
 
@@ -110,14 +111,13 @@ export default {
           console.log('Login successful');
         });
     },
-    onSignUp(user){
-      console.log('Header User:', user);
-      
-    },
     onLogOut() {
       this.$store
         .dispatch({ type: "doLogout" })
         .then((this.loggedInUser = null));
+    },
+    addItem(){
+      this.$router.push('/add')
     }
   },
   computed: {
