@@ -152,6 +152,7 @@ export default {
       arena.status = this.arena.status;
       // ------------------------------------------UPDATE ARENA TO USERS
       const newOwner = { ...this.owner };
+    
       let arenaIdx = this.owner.arenas.findIndex(currArena => {
         currArena.id === this.arena.id;
       });
@@ -160,17 +161,23 @@ export default {
         newOwner.arenas.splice(arenaIdx, 1, arena);
       } else newOwner.arenas.push(arena);
       console.log(newOwner);
+      this.$store.dispatch({ type: "updateUser", user: newOwner }).then(() => {});
+     
 
-      // this.$store.dispatch({ type: "updateUser", user: newOwner }).then(() => {});
-      // const newBuyer = { ...arena.buyer };
-      // arenaIdx = arena.buyer.arenas.findIndex(
-      //   currArena => currArena.id === arena.id
-      // );
-      // if (arenaIdx) {
-      //   newBuyer.arenas.splice(arenaIdx, 1, arena);
-      // } else newBuyer.arenas.push(arena);
-      // this.$store.dispatch({ type: "updateUser", user: newBuyer }).then(() => {});
-      // -------------------------------------------------
+      this.$store
+            .dispatch({ type: "getUserById", userId: arena.buyer.id })
+            .then(buyer => {
+     const newBuyer = { ...buyer };
+      
+      arenaIdx = newBuyer.arenas.findIndex(
+        currArena => currArena.id === arena.id
+      );
+      if (arenaIdx) {
+        newBuyer.arenas.splice(arenaIdx, 1, arena);
+      } else newBuyer.arenas.push(arena);
+      this.$store.dispatch({ type: "updateUser", user: newBuyer }).then(() => {});
+            }
+)      // -------------------------------------------------
     }
   },
   components: {

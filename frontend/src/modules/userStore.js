@@ -73,7 +73,7 @@ export default {
       }
     },
     async updateUser(context, {user}) {
-      const savedUser = await userService.save(user)
+      const savedUser = await userService.update(user)
       try {
         context.commit({type: 'updateUser', user: savedUser})
       } catch (err) {

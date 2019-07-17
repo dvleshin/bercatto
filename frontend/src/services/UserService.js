@@ -4,6 +4,7 @@ import httpService from './HttpService';
 export default {
     query,
     save,
+    update,
     remove,
     getById,
     getUserItems,
@@ -40,6 +41,16 @@ async function save(editedUser) {
     try {
         // _handleSuccessfulRegister(completeUser)
         return completeUser
+    } catch (err) {
+        console.log('User Service save function error:', err);
+        throw err;
+    }
+}
+async function update(editedUser) {
+    const updatedUser = await httpService.put(`user/update`, editedUser)
+    try {
+        // _handleSuccessfulRegister(completeUser)
+        return updatedUser
     } catch (err) {
         console.log('User Service save function error:', err);
         throw err;
