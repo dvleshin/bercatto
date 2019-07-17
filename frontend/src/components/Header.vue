@@ -2,8 +2,7 @@
   <header class="flex">
     <div class="logo">
       <p>
-        Barcatto
-        <v-icon @click="goMain" color="#fff" size="30px">home</v-icon>
+        <v-icon @click="goMain" color="#fff" size="20px">home</v-icon> Barcatto
       </p>
     </div>
 
@@ -46,11 +45,13 @@
         </ul>
       </div>
     </div>
+    <Signup :onsignup="onSignUp"></Signup>
   </header>
 </template>
 
 <script>
 import userService from "../services/UserService.js";
+import Signup from "../components/SignUp-v2.vue";
 export default {
   created() {
     if (sessionStorage.loggedInUser)
@@ -80,6 +81,10 @@ export default {
           console.log("Login successful");
         });
     },
+    onSignUp(user){
+      console.log('Header User:', user);
+      
+    },
     onLogOut() {
       this.$store
         .dispatch({ type: "doLogout" })
@@ -90,6 +95,9 @@ export default {
     arenasUrls() {
       return this.loggedInUser.arenas.map(arena => arena.url);
     }
+  },
+  components: {
+    Signup,
   }
 };
 </script>

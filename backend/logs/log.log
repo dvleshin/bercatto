@@ -253,3 +253,6 @@ Wed, 17 Jul 2019 08:37:11 GMT - Error - [SIGNUP] This email is already used
 Wed, 17 Jul 2019 08:47:20 GMT - Debug - auth.service - signup with email: admin2@admin.com and $2b$10$MnOHbE6JKM1xcZGIF9Mmj.WtK8doFUQ5s9ApzcNjBu4nCQkjf7GLC
 Wed, 17 Jul 2019 08:47:21 GMT - Error - [SIGNUP] This email is already used
 >>>>>>> 449a38236388ffabf567badac0c6a82356a13ee8
+
+Wed, 17 Jul 2019 13:07:58 GMT - Debug - auth.service - signup with email: admin3@admin.com and 1234
+Wed, 17 Jul 2019 13:07:59 GMT - Error - [SIGNUP] This email is already used
