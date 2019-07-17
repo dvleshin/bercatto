@@ -36,7 +36,8 @@ import moment from 'moment'
 export default {
   props: ["item"],
   created() {
-    if(JSON.parse(sessionStorage.loggedInUser)) {
+    
+    if(sessionStorage.loggedInUser) {
   this.loggedInUserId = JSON.parse(sessionStorage.loggedInUser)._id
     }
   },
