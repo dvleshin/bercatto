@@ -254,5 +254,32 @@ Wed, 17 Jul 2019 08:47:20 GMT - Debug - auth.service - signup with email: admin2
 Wed, 17 Jul 2019 08:47:21 GMT - Error - [SIGNUP] This email is already used
 >>>>>>> 449a38236388ffabf567badac0c6a82356a13ee8
 
+<<<<<<< HEAD
 Wed, 17 Jul 2019 13:07:58 GMT - Debug - auth.service - signup with email: admin3@admin.com and 1234
 Wed, 17 Jul 2019 13:07:59 GMT - Error - [SIGNUP] This email is already used
+=======
+Wed, 17 Jul 2019 12:57:50 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 12:58:02 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 12:58:38 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 12:58:49 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 12:59:01 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 12:59:05 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 12:59:08 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 12:59:32 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 13:00:08 GMT - Debug - auth.service - signup with email: admin1@admin.com and $2b$10$BhiuYy1O5izp5NfCAziL2uFtaMWvEAVxILENzaMIs7zEVilzMLolu
+Wed, 17 Jul 2019 13:00:08 GMT - Error - [SIGNUP] This email is already used
+Wed, 17 Jul 2019 13:05:42 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 13:05:59 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 13:06:19 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 13:06:42 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 13:11:06 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 13:12:02 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 13:12:13 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 13:12:28 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 13:12:49 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 13:12:58 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 13:13:31 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 13:32:47 GMT - Info - Server is running on port: 3000
+>>>>>>> c05b25f9871d4c85ede08b30ef0397250aac441b
+
+Wed, 17 Jul 2019 13:33:31 GMT - Info - Server is running on port: 3000

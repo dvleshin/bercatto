@@ -54,9 +54,23 @@ import userService from "../services/UserService.js";
 import Signup from "../components/SignUp-v2.vue";
 export default {
   created() {
-    if (sessionStorage.loggedInUser)
-      this.loggedInUser = JSON.parse(sessionStorage.loggedInUser);
-    // this.loggedInUser = this.$store.getters.loggedInUser;
+    this.loggedInUser = this.$store.getters.loggedInUser;
+
+    if (!this.loggedInUser) {
+      this.$store
+        .dispatch({
+          type: "getUserById",
+          userId: JSON.parse(sessionStorage.loggedInUser)._id
+        })
+        .then((user)=> {
+          
+          this.loggedInUser = user;
+          this.$store.dispatch({
+            type: "setLoggedInUser",
+            userCreds: user
+          });
+        })}
+  
   },
   data() {
     return {
@@ -77,8 +91,23 @@ export default {
         .dispatch({ type: "doLogin", userCred: this.user })
         .then(res => {
           // this.loggedInUser = this.$store.getters.loggedInUser;
-          this.loggedInUser = JSON.parse(sessionStorage.loggedInUser);
-          console.log("Login successful");
+           this.loggedInUser = this.$store.getters.loggedInUser;
+
+    if (!this.loggedInUser) {
+      this.$store
+        .dispatch({
+          type: "getUserById",
+          userId: JSON.parse(sessionStorage.loggedInUser)._id
+        })
+        .then((user)=> {
+          
+          this.loggedInUser = user;
+          this.$store.dispatch({
+            type: "setLoggedInUser",
+            userCreds: user
+          });
+        })}
+          console.log('Login successful');
         });
     },
     onSignUp(user){

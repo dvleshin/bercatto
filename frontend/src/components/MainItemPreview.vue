@@ -28,7 +28,7 @@
       </v-card>
   <img src="../../public/img/trending.png" v-if="item.views>50" class="trending"> 
 
-  <v-icon v-if="loggedInUser&&loggedInUser._id===item.ownerId" class="delete" @click="remove(item._id)">remove</v-icon> <!--v-if user is the owner -->
+  <v-icon v-if="loggedInUserId&&loggedInUserId===item.ownerId" class="delete" @click="remove(item._id)">remove</v-icon> <!--v-if user is the owner -->
 </section>
 </template>
 <script>
@@ -36,7 +36,7 @@ import moment from 'moment'
 export default {
   props: ["item"],
   created() {
-    if(sessionStorage.loggedInUser) this.loggedInUser = JSON.parse(sessionStorage.loggedInUser)
+  this.loggedInUserId = JSON.parse(sessionStorage.loggedInUser)._id
   },
   data() {
     return {
