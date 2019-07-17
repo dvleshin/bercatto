@@ -1,5 +1,6 @@
 <template>
   <section>
+    <Header></Header>
     <div class="edit-form">
       <h1>{{item._id ? 'Edit Item' : 'Add Item'}}</h1>
       <div>
@@ -28,6 +29,7 @@
 </template>
 
 <script>
+import Header from '../components/Header.vue'
 import UploadImages from "../components/UploadImages.vue";
 export default {
   created() {
@@ -98,7 +100,8 @@ export default {
     }
   },
   components: {
-    UploadImages
+    UploadImages,
+    Header
   }
 };
 </script>

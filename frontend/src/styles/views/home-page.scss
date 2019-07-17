@@ -1,4 +1,4 @@
-.v-input{
+.v-input {
     margin-top: 40px;
     width: 400px;
 }
@@ -7,21 +7,29 @@
     height: 50px;
 }
 
-.add-icon {
+.main-navbar {
     position: absolute;
-    top: 19px;
-    right: 21px;
-    color: white;
-    font-size: 44px;
-    cursor: pointer;
+    top: 10px;
+    right: 20px;
+    font-family: 'Roboto';
+    font-weight: 300;
 }
-.signup-icon {
-    position: absolute;
-    top: 19px;
-    right: 60px;
-    color: white;
-    font-size: 44px;
+
+.main-navbar ul {
+    display: flex;
+    padding-left: 0px;
+    padding-inline-start: 0px;
+    list-style-type: none;
+}
+.main-navbar ul li {
     cursor: pointer;
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+.main-navbar ul li:hover {
+    border-bottom: 1px solid #fff;
+    padding-bottom: 3px;
 }
 
 

@@ -1,18 +1,21 @@
 <template>
-  <section class="search-container">
-    <div class="main-container">
-      <FilterSection class="filter-section" @filterBy="onFilter" :searchBy="filterBy.category"></FilterSection>
-      <SortSection @sortBy="onSort"></SortSection>
-      <MainItemList class="item-list" @remove="remove" :items="itemsToShow"></MainItemList>
-    </div>
-  </section>
+  <div>
+    <Header></Header>
+    <section class="search-container">
+      <div class="main-container">
+        <FilterSection class="filter-section" @filterBy="onFilter" :searchBy="filterBy.category"></FilterSection>
+        <SortSection @sortBy="onSort"></SortSection>
+        <MainItemList class="item-list" @remove="remove" :items="itemsToShow"></MainItemList>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
+import Header from '../components/Header.vue'
 import MainItemList from "../components/MainItemList.vue";
 import FilterSection from "../components/FilterSection.vue";
 import SortSection from "../components/SortSection.vue";
-import Header from "../components/Header.vue";
 export default {
   created() {
     this.filterBy.category = this.$route.query.searchBy;
@@ -41,15 +44,14 @@ export default {
       this.$store.dispatch({ type: "onFilter", filterBy: filterBy });
     },
     onSort(sortBy) {
-      console.log('Search Results sortBy:', sortBy);
-      
-      let filteredBy = this.getFilterBy
-      console.log('Search Results filteredBy:', filteredBy);
-      if(!filteredBy) filteredBy = this.filterBy
-      const filterBy = Object.assign(filteredBy, sortBy)
+      console.log("Search Results sortBy:", sortBy);
+
+      let filteredBy = this.getFilterBy;
+      console.log("Search Results filteredBy:", filteredBy);
+      if (!filteredBy) filteredBy = this.filterBy;
+      const filterBy = Object.assign(filteredBy, sortBy);
       //console.log("SearchResults sortBy:", sortBy, "filter:", filterBy);
       this.$store.dispatch({ type: "onSort", filterBy: filterBy });
-
     },
     remove(itemId) {
       console.log("onmain", itemId);
@@ -78,7 +80,8 @@ export default {
   components: {
     MainItemList,
     FilterSection,
-    SortSection
+    SortSection,
+    Header
   }
 };
 </script>

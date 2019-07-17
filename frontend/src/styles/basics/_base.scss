@@ -1,21 +1,10 @@
-* {
-    box-sizing: border-box;
-}
-
 html {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Regular', sans-serif;
     font-size: 14px;
-    @include for-normal-layout {
-        font-size: 16px;
-    }
 }
 
 body {
     margin: 0;
-    background-color: $clr5;
+    background-color: $clr7;
     color: $clr2;
-}
-
-img {
-    max-width: 100%;
 }
