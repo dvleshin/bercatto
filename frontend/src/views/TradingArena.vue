@@ -170,7 +170,7 @@ export default {
      const newBuyer = { ...buyer };
       
       arenaIdx = newBuyer.arenas.findIndex(
-        currArena => currArena.id === arena.id
+        currArena => currArena.id === this.id
       );
       if (arenaIdx) {
         newBuyer.arenas.splice(arenaIdx, 1, arena);

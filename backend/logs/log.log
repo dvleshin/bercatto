@@ -299,3 +299,5 @@ Wed, 17 Jul 2019 13:59:42 GMT - Debug - auth.service - signup with email: admin3
 Wed, 17 Jul 2019 13:59:42 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Randall Lucas","email":"admin3432@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"arenas":[],"_id":"5d2f29ce728bcc198017421c"}
 Wed, 17 Jul 2019 14:04:42 GMT - Debug - auth.service - signup with email: admin3@admin.com and 1234
 Wed, 17 Jul 2019 14:04:42 GMT - Error - [SIGNUP] This email is already used
+Wed, 17 Jul 2019 14:46:00 GMT - Debug - auth.service - signup with email: admin34@admin.com and 1234
+Wed, 17 Jul 2019 14:46:01 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"skhsdh","email":"admin34@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"arenas":[],"_id":"5d2f34a9ca4f131164fc3978"}
