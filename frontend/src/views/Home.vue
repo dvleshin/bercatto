@@ -4,6 +4,7 @@
       <v-layout align-center column justify-center>
         <div class="main-navbar">
           <ul>
+            <Signup></Signup>
             <li @click="goToSignUpPage"><v-icon color="#fff">person</v-icon> signup</li>
             <li @click="goToAddPage"><v-icon color="#fff">account_circle</v-icon> login</li>
           </ul>
@@ -32,6 +33,7 @@
 <script>
 import MainItemList from "../components/MainItemList";
 import itemsService from "../services/ItemService";
+import Signup from "../components/SignUp-v2.vue";
 export default {
   created() {
     this.$store.dispatch({ type: "getTrendingItems" }).then(() => {
@@ -91,7 +93,8 @@ export default {
     }
   },
   components: {
-    MainItemList
+    MainItemList,
+    Signup
   },
 
   destroyed() {

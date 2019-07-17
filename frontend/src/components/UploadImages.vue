@@ -1,7 +1,7 @@
 <template>
   <div class="img-upload">
-    <v-btn v-if="!showImgLoading" fab small color="blue-grey" class="white--text" @click="pickFile">
-      <v-icon  dark size="30">cloud_upload</v-icon>
+    <v-btn v-if="!showImgLoading" small color="blue-grey" class="white--text" @click="pickFile">
+      UPLOAD IMAGES <v-icon  dark size="30">cloud_upload</v-icon>
     </v-btn>
     <input @change="handleUploadImage" multiple ref="image" hidden type="file" />
                <img class="loader" v-if="showImgLoading" src="../../public/img/loader.gif" alt="">
