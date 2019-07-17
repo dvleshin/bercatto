@@ -4,7 +4,6 @@
       <v-layout align-center column justify-center>
         <div class="main-navbar">
           <ul>
-            <Signup></Signup>
             <li @click="goToSignUpPage"><v-icon color="#fff">person</v-icon> signup</li>
             <li @click="goToAddPage"><v-icon color="#fff">account_circle</v-icon> login</li>
           </ul>
@@ -94,7 +93,7 @@ export default {
   },
   components: {
     MainItemList,
-    Signup
+    
   },
 
   destroyed() {
