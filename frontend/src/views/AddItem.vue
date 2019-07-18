@@ -95,6 +95,12 @@ export default {
       this.$store
         .dispatch({ type: "saveItem", item: { ...this.item } })
         .then(() => {
+          this.$noty.success("Item Added Succsessfully", {
+  killer: true,
+  timeout: 3000,
+  theme:'semanticui',
+  layout: 'topRight'
+})
           this.$router.push("/");
         });
     }
@@ -106,6 +112,8 @@ export default {
 };
 </script>
 <style lang="scss" scoped src="../styles/views/add-item.scss">
+@import "../styles/lib/vuejs-noty.css";
+
 </style>
 
 
