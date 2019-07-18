@@ -1,35 +1,60 @@
 <template>
   <section class="item">
-    <div class="card">
+    <div v-if="!itemUser">Loading...</div>
+    <div class="card" v-else>
       <div class="img-container">
-        <img :src="item.imgUrl[0]">
+        <img :src="item.imgUrl[0]" @click.stop="seeItem" />
       </div>
       <div class="content-container">
-        <div class="title">
-        {{item.name}}
+        <div class="title" @click.stop="seeItem">{{item.name}}</div>
+        <div class="user-profile">
+          <img :src="itemUser.profileImg" />
+          <span class="user-name" @click="goToUserProfile(item.ownerId)">{{itemUser.fullName}} </span>
+          <span>★</span>
+          <span>{{rating}}</span>
         </div>
+        <div class="item-details">
+          <span>Condition: {{item.condition}}</span>
+          <span>Added: {{humanTime(item.uploadedAt)}}</span>
+        </div>
+          <button @click="goToArena(item.Id)" class="arena-btn">Go to Arena</button>
       </div>
     </div>
+    <img src="../../public/img/trending.png" v-if="item.views>50" class="trending">
+    <v-icon v-if="loggedInUserId&&loggedInUserId===item.ownerId" class="delete" @click="remove(item._id)">delete</v-icon>
   </section>
 </template>
 <script>
 import moment from "moment";
 export default {
-  props: ["item"],
+  props: {
+    item: Object,
+  },
   created() {
     if (sessionStorage.loggedInUser) {
       this.loggedInUserId = JSON.parse(sessionStorage.loggedInUser)._id;
     }
+    this.$store.dispatch({type: 'getUserById', userId: this.item.ownerId})
+    .then((user) =>{
+      this.itemUser = user      
+    })
   },
   data() {
     return {
       moment: moment,
-      loggedInUserId: null
+      loggedInUserId: null,
+      itemUser: null
     };
   },
   methods: {
     humanTime(timestamp) {
-      return moment(timestamp).fromNow();
+      let oneDay = Date.now() + (1 * 24 * 60 * 60 * 1000);
+
+      if (oneDay > timestamp) {
+        return moment(timestamp).fromNow();
+      } else {
+        return moment(timestamp).format("LL");
+      }
     },
     remove(itemId) {
       this.$emit("remove", itemId);
@@ -50,6 +75,16 @@ export default {
     txtToShow() {
       if (this.item.description.length <= 100) return this.item.description;
       return this.item.description.substr(0, 100) + "...";
+    },
+    rating() {
+      if(this.itemUser.reviews.length) {
+      const rating = this.itemUser.reviews.reduce((accumulator, review) => {
+        return accumulator + review.rating;
+      }, 0);
+      const avrg = rating / this.itemUser.reviews.length
+      return avrg.toFixed(1)
+    }
+    else return 0
     }
   }
 };
