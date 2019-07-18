@@ -9,7 +9,7 @@
         <div class="title" @click.stop="seeItem">{{item.name}}</div>
         <div class="user-profile">
           <img :src="itemUser.profileImg" />
-          <span class="user-name" @click="goToUserProfile(item.ownerId)">{{itemUser.fullName}} </span>
+          <span class="user-name" @click="goToUserProfile(item.ownerId)">{{itemUser.fullName}}</span>
           <span>★</span>
           <span>{{rating}}</span>
         </div>
@@ -17,27 +17,32 @@
           <span>Condition: {{item.condition}}</span>
           <span>Added: {{humanTime(item.uploadedAt)}}</span>
         </div>
-          <button @click="goToArena(item.Id)" class="arena-btn">Go to Arena</button>
+        <button @click="goToArena(item.Id)" class="arena-btn">Go to Arena</button>
       </div>
+      <img src="../../public/img/trending.png" v-if="item.views>50" class="trending" />
+      <v-icon
+        v-if="loggedInUserId&&loggedInUserId===item.ownerId"
+        class="delete"
+        @click="remove(item._id)"
+      >delete</v-icon>
     </div>
-    <img src="../../public/img/trending.png" v-if="item.views>50" class="trending">
-    <v-icon v-if="loggedInUserId&&loggedInUserId===item.ownerId" class="delete" @click="remove(item._id)">delete</v-icon>
   </section>
 </template>
 <script>
 import moment from "moment";
 export default {
   props: {
-    item: Object,
+    item: Object
   },
   created() {
     if (sessionStorage.loggedInUser) {
       this.loggedInUserId = JSON.parse(sessionStorage.loggedInUser)._id;
     }
-    this.$store.dispatch({type: 'getUserById', userId: this.item.ownerId})
-    .then((user) =>{
-      this.itemUser = user      
-    })
+    this.$store
+      .dispatch({ type: "getUserById", userId: this.item.ownerId })
+      .then(user => {
+        this.itemUser = user;
+      });
   },
   data() {
     return {
@@ -48,7 +53,7 @@ export default {
   },
   methods: {
     humanTime(timestamp) {
-      let oneDay = Date.now() + (1 * 24 * 60 * 60 * 1000);
+      let oneDay = Date.now() + 1 * 24 * 60 * 60 * 1000;
 
       if (oneDay > timestamp) {
         return moment(timestamp).fromNow();
@@ -77,14 +82,13 @@ export default {
       return this.item.description.substr(0, 100) + "...";
     },
     rating() {
-      if(this.itemUser.reviews.length) {
-      const rating = this.itemUser.reviews.reduce((accumulator, review) => {
-        return accumulator + review.rating;
-      }, 0);
-      const avrg = rating / this.itemUser.reviews.length
-      return avrg.toFixed(1)
-    }
-    else return 0
+      if (this.itemUser.reviews.length) {
+        const rating = this.itemUser.reviews.reduce((accumulator, review) => {
+          return accumulator + review.rating;
+        }, 0);
+        const avrg = rating / this.itemUser.reviews.length;
+        return avrg.toFixed(1);
+      } else return 0;
     }
   }
 };

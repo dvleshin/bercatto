@@ -1,11 +1,14 @@
 <template>
   <section>
-    <v-parallax :height="600" dark src="https://res.cloudinary.com/dbcg46m3l/image/upload/v1563431109/main-bg_uwei5x.jpg">
+    <v-parallax :height="600" dark style="z-index: 300;" src="https://res.cloudinary.com/dbcg46m3l/image/upload/v1563431109/main-bg_uwei5x.jpg">
       <v-layout align-center column justify-center>
         <div class="main-navbar">
           <div><span class="logo">barcattö</span></div>
           <ul>
-            <li @click="goToSignUpPage"><v-icon color="#fff">person</v-icon> signup</li>
+            <!-- <li @click="goToSignUpPage"><v-icon color="#fff">person</v-icon> signup</li> -->
+            <Signup>
+              <li><v-icon color="#fff">person</v-icon> signup</li>
+            </Signup>
             <li @click="goToAddPage"><v-icon color="#fff">account_circle</v-icon> login</li>
           </ul>
         </div>
@@ -93,6 +96,7 @@ export default {
   },
   components: {
     MainItemList,
+    Signup
     
   },
 
