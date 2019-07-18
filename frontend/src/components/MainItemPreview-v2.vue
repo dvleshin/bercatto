@@ -70,8 +70,27 @@ export default {
     goToUserProfile() {
       this.$router.push(`user/${this.item.ownerId}`);
     },
-    goToArena() {
-      if (!sessionStorage.loggedInUser) return;
+    goToArena(){
+      console.log('@@@');
+      
+      if (!sessionStorage.loggedInUser) {
+        this.$noty.error("Please Login Or Signup", {
+          killer: true,
+          timeout: 3000,
+          theme: "semanticui",
+          layout: "topRight"
+        });
+        return;
+      }
+      else if (this.loggedInUserId===this.item.ownerId) {
+        this.$noty.error("You Can't Trade Your Own Items! ", {
+          killer: true,
+          timeout: 3000,
+          theme: "semanticui",
+          layout: "topRight"
+        });
+        return;
+      }
 
       this.$router.push(`arena?id=${this.item._id}`);
     }
@@ -95,4 +114,6 @@ export default {
 </script>
 
 <style lang="scss" scoped src="../styles/components/main-item-preview.scss">
+@import "../styles/lib/vuejs-noty.css";
+
 </style>

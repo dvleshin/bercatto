@@ -67,6 +67,7 @@ export default {
       this.$router.push(`user/${this.item.ownerId}`);
     },
     goToArena() {
+      console.log('@@@');
       
       if (!sessionStorage.loggedInUser) {
         this.$noty.error("Please Login Or Signup", {
