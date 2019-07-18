@@ -1,20 +1,25 @@
 <template>
   <header class="flex">
     <div class="logo">
-       <span @click="goMain">barcattö</span>
+      <span @click="goMain">barcattö</span>
     </div>
 
     <div class="nav-bar flex">
       <div v-if="loggedInUser" class="user-menu">
         <v-icon @click="addItem">add</v-icon>
-        arenas: ({{loggedInUser.arenas.length}})
- <ul>
-          <li  @click="seeArenas(idx)" v-for="arena , idx in loggedInUser.arenas">{{arena.id}}</li>
+        <v-badge left color="red" transition>
+          <template v-slot:badge>
+            <span>{{activeArenas}}</span>
+          </template>
+          <v-icon large color="grey lighten-1">tab</v-icon>
+        </v-badge>
+        <ul>
+          <li @click="seeArenas(idx)" v-for="arena , idx in loggedInUser.arenas">{{arena.id}}</li>
         </ul>
         <v-avatar size="60px">
           <img :src="loggedInUser.profileImg" />
         </v-avatar>
-       
+
         <v-icon @click.prevent="onLogOut" color="#fff" size="30px">exit_to_app</v-icon>
       </div>
       <div class="login-area" v-if="!loggedInUser">
@@ -55,8 +60,12 @@
 <script>
 import userService from "../services/UserService.js";
 import Signup from "../components/SignUp-v2.vue";
+import Noty from 'noty';
 export default {
+  
   created() {
+  
+
     this.loggedInUser = this.$store.getters.loggedInUser;
 
     if (!this.loggedInUser) {
@@ -65,15 +74,14 @@ export default {
           type: "getUserById",
           userId: JSON.parse(sessionStorage.loggedInUser)._id
         })
-        .then((user)=> {
-          
+        .then(user => {
           this.loggedInUser = user;
           this.$store.dispatch({
             type: "setLoggedInUser",
             userCreds: user
           });
-        })}
-  
+        });
+    }
   },
   data() {
     return {
@@ -82,14 +90,15 @@ export default {
         password: "1234"
       },
       loggedInUser: null,
-      menu: false,
+      menu: false
     };
   },
   methods: {
     seeArenas(idx) {
-      this.$router.push(this.loggedInUser.arenas[idx].url)
+      this.$router.push(this.loggedInUser.arenas[idx].url);
     },
     goMain() {
+      
       this.$router.push("/");
     },
     onLogin() {
@@ -97,23 +106,23 @@ export default {
         .dispatch({ type: "doLogin", userCred: this.user })
         .then(res => {
           // this.loggedInUser = this.$store.getters.loggedInUser;
-           this.loggedInUser = this.$store.getters.loggedInUser;
+          this.loggedInUser = this.$store.getters.loggedInUser;
 
-    if (!this.loggedInUser) {
-      this.$store
-        .dispatch({
-          type: "getUserById",
-          userId: JSON.parse(sessionStorage.loggedInUser)._id
-        })
-        .then((user)=> {
-          
-          this.loggedInUser = user;
-          this.$store.dispatch({
-            type: "setLoggedInUser",
-            userCreds: user
-          });
-        })}
-          console.log('Login successful');
+          if (!this.loggedInUser) {
+            this.$store
+              .dispatch({
+                type: "getUserById",
+                userId: JSON.parse(sessionStorage.loggedInUser)._id
+              })
+              .then(user => {
+                this.loggedInUser = user;
+                this.$store.dispatch({
+                  type: "setLoggedInUser",
+                  userCreds: user
+                });
+              });
+          }
+          console.log("Login successful");
         });
     },
     onLogOut() {
@@ -121,21 +130,26 @@ export default {
         .dispatch({ type: "doLogout" })
         .then((this.loggedInUser = null));
     },
-    addItem(){
-      this.$router.push('/add')
+    addItem() {
+      this.$router.push("/add");
     }
   },
   computed: {
     arenasUrls() {
       return this.loggedInUser.arenas.map(arena => arena.url);
+    },
+    activeArenas() {
+      return this.loggedInUser.arenas.filter(arena=>!arena.isDone).length
     }
   },
   components: {
-    Signup,
+    Signup
   }
 };
+
 </script>
 
 <style lang="scss">
+@import "../styles/lib/vuejs-noty.css";
 @import "../styles/components/header.scss";
 </style>

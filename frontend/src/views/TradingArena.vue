@@ -4,7 +4,12 @@
     <section v-if="ownerItem && owner">
       <div class="users-section">
         <div class="owner-section">
-          <button class="close-deal-btn" v-if="owner._id===loggedInUser._id">Close Deal</button>
+          <img class="done " v-if="arena.isDone" src="../../public/img/deal.png" alt="">
+          <button
+            @click="closeDeal"
+            class="close-deal-btn"
+            v-if="owner._id===loggedInUser._id && !arena.isDone"
+          >Close Deal</button>
           <h2>Owner: {{owner.fullName}}</h2>
           <img :src="ownerItem.imgUrl[0]" alt />
         </div>
@@ -15,16 +20,13 @@
               <h2>Please Upload Items To Bargain</h2>
               <v-btn @click="addItem">Add Item</v-btn>
             </div>
-            <img
-              v-for="item in userItems"
-              :class="{active: item.isPicked, 'not-active': !item.isPicked}"
-              @click="togglePickItem(item)"
-              :src="item.imgUrl[0]"
-              alt
-            />
+            <div class="img-container" v-for="item in userItems" @click="togglePickItem(item)">
+              <img class="hvr-glow" :src="item.imgUrl[0]" alt />
+              <img v-if="item.isPicked" class="selected" src="../../public/img/selected.png" alt />
+            </div>
           </div>
           <div v-else class="user-items-container">
-            <h2>Buyer: {{this.arena.buyer.id}}</h2>
+            <h2>Buyer: {{this.arena.buyer.fullName}}</h2>
             <img v-for="item in suggestedItems" :src="item.imgUrl[0]" alt />
           </div>
         </div>
@@ -72,14 +74,13 @@ export default {
         url: "",
         owner: null,
         buyer: null,
-        status: ""
+        isDone: false
       }
     };
   },
   computed: {},
   methods: {
     initArena() {
-
       this.$store
         .dispatch({ type: "getItemById", itemId: this.$route.query.id })
         .then(item => {
@@ -114,6 +115,11 @@ export default {
     addItem() {
       this.$router.push("add");
     },
+
+    closeDeal() {
+      this.arena.isDone = true;
+      this.saveArena();
+    },
     togglePickItem(item) {
       const editedItem = { ...item };
       editedItem.isPicked = !editedItem.isPicked;
@@ -125,7 +131,6 @@ export default {
         });
     },
     saveArena() {
-      
       const arena = { ...this.arena };
       if (!arena.id) arena.id = utilService.makeId();
       // this.arena.id = arena.id;
@@ -133,17 +138,18 @@ export default {
       arena.owner = { id: this.owner._id, item: this.ownerItem._id };
       if (this.suggestedItems) {
         arena.buyer = {
+          fullName: this.loggedInUser.fullName,
           id: this.suggestedItems[0].ownerId,
           items: this.userItems.filter(item => item.isPicked)
         };
       } else {
         arena.buyer = {
+          fullName: this.loggedInUser.fullName,
           id: this.loggedInUser._id,
           items: this.userItems.filter(item => item.isPicked)
         };
       }
-      console.log('@@@',arena.buyer.items.length);
-      arena.status = this.arena.status;
+      arena.isDone = this.arena.isDone;
       // ------------------------------------------UPDATE ARENA TO USERS
       const newOwner = { ...this.owner };
 
@@ -170,7 +176,6 @@ export default {
           );
 
           if (buyerArenaIdx >= 0) {
-
             newBuyer.arenas.splice(buyerArenaIdx, 1, arena);
           } else {
             newBuyer.arenas.push(arena);
@@ -187,6 +192,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped src="../styles/views/trading-arena.scss">
+@import "../styles/lib/vuejs-noty.css";
 </style>
 
 

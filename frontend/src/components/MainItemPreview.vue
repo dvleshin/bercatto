@@ -61,7 +61,15 @@ return moment(timestamp).fromNow()
        this.$router.push(`user/${this.item.ownerId}`);
     },
     goToArena(){
-          if(!sessionStorage.loggedInUser) return 
+          if(!sessionStorage.loggedInUser) {
+ this.$noty.error("Please Login Or Signup", {
+  killer: true,
+  timeout: 3000,
+  theme:'semanticui',
+  layout: 'topRight'
+})
+return
+          }
 
        
        this.$router.push(`arena?id=${this.item._id}`);
@@ -78,4 +86,5 @@ return moment(timestamp).fromNow()
 </script>
 
 <style lang="scss" scoped src="../styles/components/main-item-preview.scss">
+@import "../styles/lib/vuejs-noty.css";
 </style>

@@ -57,13 +57,12 @@ export default {
       this.$store
         .dispatch({ type: "deleteItem", itemId })
         .then(() => {
-          // Swal.fire({
-          //   position: "top-end",
-          //   type: "success",
-          //   title: "The toy is deleted",
-          //   showConfirmButton: true,
-          //   timer: 2000
-          // });
+         this.$noty.error("Item Deleted", {
+  killer: true,
+  timeout: 3000,
+  theme:'semanticui',
+  layout: 'topRight'
+})
         })
         .catch(err => {
           // Swal.fire({
