@@ -14,10 +14,6 @@
     padding-top: 10px;
  }
 
- header .logo {
-    width: 150px;
- }
-
  header .nav-bar {
     flex-grow: 2;
  }
@@ -56,4 +52,16 @@
 
  .login {
     justify-items: initial;
+ }
+
+ .logo {
+    font-family: 'Arciform';
+    font-size: 35px;
+    color: #fff;
+    cursor: pointer;
+ }
+
+ header .logo {
+    margin-top: 12px;
+    margin-left: 10px;
  }
