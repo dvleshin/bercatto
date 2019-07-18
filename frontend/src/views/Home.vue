@@ -1,6 +1,6 @@
 <template>
   <section>
-    <v-parallax :height="500" dark src="https://www.moneycrashers.com/wp-content/uploads/2011/06/best-swapping-websites-2136x1427.jpg">
+    <v-parallax :height="600" dark src="https://res.cloudinary.com/dbcg46m3l/image/upload/v1563431109/main-bg_uwei5x.jpg">
       <v-layout align-center column justify-center>
         <div class="main-navbar">
           <div><span class="logo">barcattö</span></div>
@@ -9,10 +9,10 @@
             <li @click="goToAddPage"><v-icon color="#fff">account_circle</v-icon> login</li>
           </ul>
         </div>
-        <h1 class="display-2 font-weight-thin mb-3">Barcatto</h1>
+        <h1 class="display-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
         <h4 class="subheading">Barter, bargain and swap unique items</h4>
         <h4 class="subheading">
-          <v-text-field
+        <v-text-field
           class="search"
             @change="search"
             v-model="filter.category"
