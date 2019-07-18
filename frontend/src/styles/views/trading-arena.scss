@@ -48,6 +48,7 @@ section {
 
 .img-container {
     position: relative;
+    
 }
 
 .done {
@@ -61,6 +62,11 @@ section {
     height: 45px;
     right: 0;
 }
+
+.active {
+    filter: blur(3px);
+}
+
 
 // -------------------------------------------------------------
 
@@ -77,6 +83,5 @@ section {
   .hvr-glow:hover, .hvr-glow:focus, .hvr-glow:active {
     box-shadow: 0 0 14px rgba(0, 0, 0, 0.6);
   }
-
 
   

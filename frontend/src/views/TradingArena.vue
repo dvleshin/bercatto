@@ -20,8 +20,8 @@
               <h2>Please Upload Items To Bargain</h2>
               <v-btn @click="addItem">Add Item</v-btn>
             </div>
-            <div class="img-container" v-for="item in userItems" @click="togglePickItem(item)">
-              <img class="hvr-glow" :src="item.imgUrl[0]" alt />
+            <div class="img-container hvr-glow" v-for="item in userItems" @click="togglePickItem(item)">
+              <img :class="{active : item.isPicked}"  :src="item.imgUrl[0]" alt />
               <img v-if="item.isPicked" class="selected" src="../../public/img/selected.png" alt />
             </div>
           </div>
