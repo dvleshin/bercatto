@@ -1,6 +1,8 @@
+@import '../setup/_functions.scss';
+@import '../setup/_variables.scss';
+
 .item {
     position: relative;
-    
 }
 
 .card-image {
@@ -9,22 +11,125 @@
 
 .delete {
     color: white;
-    padding: 5px;
+    padding: rem(5px);
     position: absolute;
-    top: 1px;
-    height: 30px;
-    width: 30px;
-    background-color: red;
-    border:1px solid black;
-    right: 0
-
+    top: rem(1px);
+    height: rem(30px);
+    width: rem(30px);
+    color: #000;
+    right: rem(45px);
+    border: rem(1px) solid #000;
+    background-color: #fff;
 }
+
 .trending {
     position: absolute;
-    top: -1px;
-    height: 50px;
-    left: -20px;
+    top: -7px;
+    height: rem(40px);
+    left: 0px;
 }
 
+.card {
+    font-family: 'Roboto', sans-serif;
+    color: $gray4;
+    background-color: #fff;
+    position: relative;
+    border: rem(1px) solid #e5e5e5;
+    border-radius: rem(5px);
+    width: rem(320px);
+    height: rem(390px);
+    display: inline-table;
+    margin-bottom: rem(20px);
+    box-shadow: 0px 1px 10px 1px rgba(224, 224, 224, 0.5);
+}
 
+.img-container img {
+    position: absolute;
+    top: -20px;
+    left: rem(10px);
+    object-fit: cover;
+    height: rem(200px);
+    width: rem(300px);
+    border: rem(1px) solid #e5e5e5;
+    border-radius: rem(5px);
+    box-shadow: 0px rem(2px) rem(9px) rem(2px) rgba(224, 224, 224, 0.7);
+    cursor: pointer;
+}
 
+.content-container {
+    position: absolute;
+    padding-left: rem(10px);
+    padding-right: rem(10px);
+    top: rem(190px);
+    width: 100%;
+
+}
+
+.content-container .title {
+    margin-bottom: rem(7px);
+    height: rem(60px);
+    cursor: pointer;
+}
+
+.content-container .title:hover {
+    color: $clr2;
+}
+
+.user-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin-bottom: rem(15px)
+}
+
+.user-name {
+    flex-basis: 100%;
+    font-size: rem(18px);
+}
+
+.user-name:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.user-profile span:nth-child(3) {
+    font-size: rem(20px);
+    padding-right: rem(5px);
+    color: $clr3;
+}
+
+.user-profile span:nth-child(4) {
+    font-weight: 300;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: rem(15px)
+}
+
+.user-profile img {
+    width: rem(30px);
+    height: rem(30px);
+    border-radius: rem(5px);
+    margin-right: rem(5px)
+}
+
+.arena-btn {
+    width: 100%;
+    height: rem(45px);
+    border: rem(1px) solid $btn1;
+    border-radius: 10px;
+    color: $clr7;
+    background-color: $btn1;
+    font-weight: 600;
+    box-shadow: 0px 1px 10px 1px rgba(224, 224, 224, 0.5);
+}
+
+.arena-btn:hover {
+    background-color: $btn2;
+}

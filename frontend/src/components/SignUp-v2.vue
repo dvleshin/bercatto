@@ -3,7 +3,7 @@
     <v-dialog v-model="dialog" persistent max-width="600px">
       <template v-slot:activator="{ on }">
         <div v-on="on">
-          <v-icon color="#fff" size="25px">person</v-icon>signup
+          <slot></slot>
         </div>
       </template>
       <v-card>

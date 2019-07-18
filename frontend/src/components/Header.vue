@@ -25,7 +25,9 @@
       <div class="login-area" v-if="!loggedInUser">
         <ul>
           <li>
-            <Signup></Signup>
+            <Signup>
+              <v-icon color="#fff" size="25px">person</v-icon>signup
+            </Signup>
           </li>
           <li class="login flex">
             <v-menu v-model="menu" :close-on-content-click="false" :nudge-width="200" offset-x>

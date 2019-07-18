@@ -24,7 +24,6 @@ async function remove(userId) {
 }
 
 async function getById(userId) {
-    console.log(userId);
     return await httpService.get(_getUrl(userId))
 }
 async function getUserItems(userId) {
