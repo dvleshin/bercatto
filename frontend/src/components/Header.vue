@@ -8,9 +8,13 @@
       <div v-if="loggedInUser" class="user-menu">
         <v-icon @click="addItem">add</v-icon>
         arenas: ({{loggedInUser.arenas.length}})
+ <ul>
+          <li  @click="seeArenas(idx)" v-for="arena , idx in loggedInUser.arenas">{{arena.id}}</li>
+        </ul>
         <v-avatar size="60px">
           <img :src="loggedInUser.profileImg" />
         </v-avatar>
+       
         <v-icon @click.prevent="onLogOut" color="#fff" size="30px">exit_to_app</v-icon>
       </div>
       <div class="login-area" v-if="!loggedInUser">
@@ -82,6 +86,9 @@ export default {
     };
   },
   methods: {
+    seeArenas(idx) {
+      this.$router.push(this.loggedInUser.arenas[idx].url)
+    },
     goMain() {
       this.$router.push("/");
     },
