@@ -64,7 +64,8 @@ section {
 }
 
 .active {
-    filter: blur(3px);
+    filter: grayscale(200%) blur(3px) opacity(80%);
+    
 }
 
 

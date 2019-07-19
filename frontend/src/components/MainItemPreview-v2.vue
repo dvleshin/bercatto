@@ -1,6 +1,6 @@
 <template>
   <section class="item">
-    <div v-if="!itemUser">Loading...</div>
+    <img class="loader" v-if="!itemUser" src="../../public/img/loader.gif" alt />
     <div class="card" v-else>
       <div class="img-container">
         <img :src="item.imgUrl[0]" @click.stop="seeItem" />
@@ -70,9 +70,9 @@ export default {
     goToUserProfile() {
       this.$router.push(`user/${this.item.ownerId}`);
     },
-    goToArena(){
-      console.log('@@@');
-      
+    goToArena() {
+      console.log("@@@");
+
       if (!sessionStorage.loggedInUser) {
         this.$noty.error("Please Login Or Signup", {
           killer: true,
@@ -81,8 +81,7 @@ export default {
           layout: "topRight"
         });
         return;
-      }
-      else if (this.loggedInUserId===this.item.ownerId) {
+      } else if (this.loggedInUserId === this.item.ownerId) {
         this.$noty.error("You Can't Trade Your Own Items! ", {
           killer: true,
           timeout: 3000,
@@ -115,5 +114,4 @@ export default {
 
 <style lang="scss" scoped src="../styles/components/main-item-preview.scss">
 @import "../styles/lib/vuejs-noty.css";
-
 </style>

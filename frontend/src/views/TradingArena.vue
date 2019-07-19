@@ -74,7 +74,8 @@ export default {
         url: "",
         owner: null,
         buyer: null,
-        isDone: false
+        isDone: false,
+        mainItemImgUrl:''
       }
     };
   },
@@ -135,6 +136,7 @@ export default {
       if (!arena.id) arena.id = utilService.makeId();
       // this.arena.id = arena.id;
       arena.url = `arena?id=${this.ownerItem._id}&arena=${arena.id}`;
+      arena.mainItemImgUrl = this.ownerItem.imgUrl[0];
       arena.owner = { id: this.owner._id, item: this.ownerItem._id };
       if (this.suggestedItems) {
         arena.buyer = {
