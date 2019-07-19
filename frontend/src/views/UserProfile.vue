@@ -18,15 +18,16 @@ import UserReviews from "../components/UserReviews.vue";
 import UserCard from "../components/UserCard.vue";
 export default {
   created() {
+    console.log('@');
     this.$store
       .dispatch({ type: "getUserById", userId: this.$route.params.id })
       .then(user => {
         this.user = user;
+        
       });
     this.$store
       .dispatch({ type: "getUserItems", userId: this.$route.params.id })
       .then(items => {
-        console.log(items);
 
         this.userItems = items;
       });

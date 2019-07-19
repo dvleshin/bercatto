@@ -254,6 +254,10 @@ Wed, 17 Jul 2019 08:47:20 GMT - Debug - auth.service - signup with email: admin2
 Wed, 17 Jul 2019 08:47:21 GMT - Error - [SIGNUP] This email is already used
 >>>>>>> 449a38236388ffabf567badac0c6a82356a13ee8
 
+<<<<<<< HEAD
+Wed, 17 Jul 2019 13:07:58 GMT - Debug - auth.service - signup with email: admin3@admin.com and 1234
+Wed, 17 Jul 2019 13:07:59 GMT - Error - [SIGNUP] This email is already used
+=======
 Wed, 17 Jul 2019 12:57:50 GMT - Info - Server is running on port: 3000
 Wed, 17 Jul 2019 12:58:02 GMT - Info - Server is running on port: 3000
 Wed, 17 Jul 2019 12:58:38 GMT - Info - Server is running on port: 3000
@@ -276,8 +280,33 @@ Wed, 17 Jul 2019 13:12:49 GMT - Info - Server is running on port: 3000
 Wed, 17 Jul 2019 13:12:58 GMT - Info - Server is running on port: 3000
 Wed, 17 Jul 2019 13:13:31 GMT - Info - Server is running on port: 3000
 Wed, 17 Jul 2019 13:32:47 GMT - Info - Server is running on port: 3000
+<<<<<<< HEAD
 Wed, 17 Jul 2019 13:49:28 GMT - Debug - auth.service - signup with email: admin3@admin.com and 1234
 Wed, 17 Jul 2019 13:49:28 GMT - Error - [SIGNUP] This email is already used
 Wed, 17 Jul 2019 13:51:27 GMT - Debug - auth.service - signup with email: admin8@admin.com and 1234
 Wed, 17 Jul 2019 13:51:27 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Randall Lucas","email":"admin8@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"arenas":[],"_id":"5d2f27dfb407651774324efa"}
 Thu, 18 Jul 2019 07:21:30 GMT - Info - Server is running on port: 3000
+=======
+>>>>>>> c05b25f9871d4c85ede08b30ef0397250aac441b
+
+Wed, 17 Jul 2019 13:33:31 GMT - Info - Server is running on port: 3000
+Wed, 17 Jul 2019 13:41:36 GMT - Debug - auth.service - signup with email: admin10@admin.com and 1234
+Wed, 17 Jul 2019 13:41:36 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Randall Lucas111","email":"admin10@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"arenas":[],"_id":"5d2f2590728bcc1980174219"}
+Wed, 17 Jul 2019 13:51:33 GMT - Debug - auth.service - signup with email: admin3@admin.com and 1234
+Wed, 17 Jul 2019 13:51:33 GMT - Error - [SIGNUP] This email is already used
+Wed, 17 Jul 2019 13:51:37 GMT - Debug - auth.service - signup with email: admin3@admin.com and 1234
+Wed, 17 Jul 2019 13:51:37 GMT - Error - [SIGNUP] This email is already used
+Wed, 17 Jul 2019 13:56:51 GMT - Debug - auth.service - signup with email: admin3@admin.com and 1234
+Wed, 17 Jul 2019 13:56:52 GMT - Error - [SIGNUP] This email is already used
+Wed, 17 Jul 2019 13:56:57 GMT - Debug - auth.service - signup with email: admin123@admin.com and 1234
+Wed, 17 Jul 2019 13:56:57 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Randall Lucas","email":"admin123@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"arenas":[],"_id":"5d2f2929728bcc198017421a"}
+Wed, 17 Jul 2019 13:57:35 GMT - Debug - auth.service - signup with email: admin190@admin.com and 1234
+Wed, 17 Jul 2019 13:57:35 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Randall Lucas","email":"admin190@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"arenas":[],"_id":"5d2f294f728bcc198017421b"}
+Wed, 17 Jul 2019 13:59:42 GMT - Debug - auth.service - signup with email: admin3432@admin.com and 1234
+Wed, 17 Jul 2019 13:59:42 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"Randall Lucas","email":"admin3432@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"arenas":[],"_id":"5d2f29ce728bcc198017421c"}
+Wed, 17 Jul 2019 14:04:42 GMT - Debug - auth.service - signup with email: admin3@admin.com and 1234
+Wed, 17 Jul 2019 14:04:42 GMT - Error - [SIGNUP] This email is already used
+Wed, 17 Jul 2019 14:46:00 GMT - Debug - auth.service - signup with email: admin34@admin.com and 1234
+Wed, 17 Jul 2019 14:46:01 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Tel Aviv"},"fullName":"skhsdh","email":"admin34@admin.com","isAdmin":false,"profileImg":"https://res.cloudinary.com/dbcg46m3l/image/upload/v1563216566/barcatto/user_male2-512_vsjdfm.png","reviews":[],"arenas":[],"_id":"5d2f34a9ca4f131164fc3978"}
+Thu, 18 Jul 2019 05:07:12 GMT - Info - Server is running on port: 3000
+>>>>>>> db9ea6b8bb9a89ed9a5023c6dd1798eb7dc52c4f

@@ -1,7 +1,13 @@
+@import '../setup/_functions.scss';
+@import '../setup/_variables.scss';
+
+.main-container {
+    max-width: 1260px;
+    margin: 0 auto;
+}
 .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    justify-content: space-around;
-    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    grid-row-gap: rem(15px);
+    margin-top: rem(20px);
 }

@@ -1,17 +1,21 @@
 <template>
   <section>
-    <v-parallax :height="500" dark src="https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
+    <v-parallax :height="600" dark style="z-index: 300;" src="https://res.cloudinary.com/dbcg46m3l/image/upload/v1563431109/main-bg_uwei5x.jpg">
       <v-layout align-center column justify-center>
         <div class="main-navbar">
+          <div><span class="logo">barcattö</span></div>
           <ul>
-            <li @click="goToSignUpPage"><v-icon color="#fff">person</v-icon> signup</li>
+            <!-- <li @click="goToSignUpPage"><v-icon color="#fff">person</v-icon> signup</li> -->
+            <Signup>
+              <li><v-icon color="#fff">person</v-icon> signup</li>
+            </Signup>
             <li @click="goToAddPage"><v-icon color="#fff">account_circle</v-icon> login</li>
           </ul>
         </div>
-        <h1 class="display-2 font-weight-thin mb-3">Barcatto</h1>
+        <h1 class="display-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
         <h4 class="subheading">Barter, bargain and swap unique items</h4>
         <h4 class="subheading">
-          <v-text-field
+        <v-text-field
           class="search"
             @change="search"
             v-model="filter.category"
@@ -32,6 +36,7 @@
 <script>
 import MainItemList from "../components/MainItemList";
 import itemsService from "../services/ItemService";
+import Signup from "../components/SignUp-v2.vue";
 export default {
   created() {
     this.$store.dispatch({ type: "getTrendingItems" }).then(() => {
@@ -55,13 +60,12 @@ export default {
       this.$store
         .dispatch({ type: "deleteItem", itemId })
         .then(() => {
-          // Swal.fire({
-          //   position: "top-end",
-          //   type: "success",
-          //   title: "The toy is deleted",
-          //   showConfirmButton: true,
-          //   timer: 2000
-          // });
+         this.$noty.error("Item Deleted", {
+  killer: true,
+  timeout: 3000,
+  theme:'semanticui',
+  layout: 'topRight'
+})
         })
         .catch(err => {
           // Swal.fire({
@@ -91,7 +95,9 @@ export default {
     }
   },
   components: {
-    MainItemList
+    MainItemList,
+    Signup
+    
   },
 
   destroyed() {

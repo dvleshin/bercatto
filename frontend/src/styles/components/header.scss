@@ -14,20 +14,19 @@
     padding-top: 10px;
  }
 
- header .logo {
-    width: 150px;
- }
-
  header .nav-bar {
     flex-grow: 2;
  }
 
  .user-menu {
     margin-right: 10px;
+    display: flex;
  }
 
  .nav-bar {
     justify-content: flex-end;
+    font-family: 'Roboto';
+    font-weight: 300;
  }
 
  .nav-bar ul {
@@ -54,4 +53,16 @@
 
  .login {
     justify-items: initial;
+ }
+
+ .logo {
+    font-family: 'Arciform';
+    font-size: 35px;
+    color: #fff;
+    cursor: pointer;
+ }
+
+ header .logo {
+    margin-top: 12px;
+    margin-left: 10px;
  }
