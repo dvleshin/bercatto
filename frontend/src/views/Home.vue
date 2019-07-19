@@ -22,6 +22,7 @@
             append-icon="search"
             :append-icon-cb="search"
             solo
+            style="border-radius: 30px"
             placeholder="Search..."
             autofocus
           ></v-text-field>

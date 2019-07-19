@@ -8,7 +8,7 @@
       <div v-if="loggedInUser" class="user-menu">
         <v-icon @click="addItem">add</v-icon>
         <ArenasMenu :loggedInUser="loggedInUser"> </ArenasMenu>
-        <v-avatar size="60px">
+        <v-avatar class="user-avatar" @click="goToUserProfile" size="60px">
           <img :src="loggedInUser.profileImg" />
         </v-avatar>
         <v-icon @click.prevent="onLogOut" color="#fff" size="30px">exit_to_app</v-icon>
@@ -89,6 +89,9 @@ export default {
     };
   },
   methods: {
+     goToUserProfile() {
+      this.$router.push(`user/${this.loggedInUser._id}`);
+    },
     seeArenas(idx) {
       this.$router.push(this.loggedInUser.arenas[idx].url);
     },
@@ -123,14 +126,16 @@ export default {
     onLogOut() {
       this.$store
         .dispatch({ type: "doLogout" })
-        .then((this.loggedInUser = null));
+        .then((()=>{
+          this.loggedInUser = null
+        }));
     },
     addItem() {
       this.$router.push("/add");
     }
   },
   computed: {
-  
+ 
   },
   components: {
     Signup,

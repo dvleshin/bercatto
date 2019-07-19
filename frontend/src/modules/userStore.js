@@ -23,6 +23,7 @@ export default {
     updateUser(state, {user}) {
       const idx = state.users.findIndex(currUser => currUser._id === user._id)
       state.users.splice(idx, 1, user);
+      
     },
   },
   actions: {

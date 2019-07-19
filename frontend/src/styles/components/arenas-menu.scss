@@ -1,7 +1,16 @@
 img{
-    height: 50px;
+    height: 60px;
+    width: 70px;
 }
 
 .done {
     text-decoration: line-through;
+}
+
+.list-item{
+    margin: 20px 0 20px 0;
+}
+
+.list-item:hover {
+    background-color: rgba(211, 209, 209, 0.336);
 }
