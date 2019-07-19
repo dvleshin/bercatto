@@ -40,7 +40,7 @@ export default {
   },
   data() {
     return {
-      moment:moment,
+      moment,
       loggedInUser:null
     }
   },
