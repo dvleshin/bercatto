@@ -8,11 +8,20 @@
           <v-icon>add</v-icon>
         </v-btn>
       </v-toolbar>
-      <v-card-text v-for="review in user.reviews" :key="review.id" class="grey lighten-5">
-        From : {{review.firstName }} {{review.lastName }}
-        {{review.txt}}
+      <v-card-text v-for="review in user.reviews" :key="review.id" class="review">
+       <h2>{{review.firstName }} {{review.lastName }}</h2> <br>
+        <h4>{{review.txt}}</h4> <br>
         {{humanTime(review.createdAt)}}
-        Rate: {{review.rating}}
+        
+        <v-rating
+          :value=review.rating
+          color="yellow darken-3"
+          background-color="grey darken-1"
+          empty-icon="$vuetify.icons.ratingFull"
+          half-increments
+          ripple
+          readonly
+        ></v-rating>
       </v-card-text>
     </v-card>
 
