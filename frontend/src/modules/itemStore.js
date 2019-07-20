@@ -8,7 +8,7 @@ export default {
     filterBy: null,
   },
   mutations: {
-    setItems(state, { items }) {
+    setItems(state, { items }) {      
       state.items = items
     },
     setTrendingItems(state, { items }) {
@@ -25,20 +25,28 @@ export default {
       state.items.splice(idx, 1, item);
     },
     setFilter(state, {filterBy}){
-      // console.log('mutation state filterBy', filterBy);
         state.filterBy = filterBy
     }
 
   },
   actions: {
-    async loadItems(context,payload ) {
-      const items = await itemService.query(payload.creteria)
+    async loadItems(context, {filterBy}) {      
+      const items = await itemService.query(filterBy)
       try {
         context.commit({ type: 'setItems', items })
       }
       catch (err) {
         console.log(err);
       }
+    },
+    async getTrendingItems(context, {limit}) {
+      const items = await itemService.query({limit: limit, tranding: true, gt: 50, byViews: 1})      
+      try {
+        console.log('getTrendingItems', items);
+        context.commit({ type: 'setTrendingItems', items })
+      }
+      catch (err) {console.log(err)}
+
     },
     async onFilter(context, {filterBy}){
       const items = await itemService.query(filterBy)
@@ -58,14 +66,6 @@ export default {
       } catch (err) {
         console.log('Got error', err);
       }
-    },
-    async getTrendingItems(context, ) {
-      const items = await itemService.getTrendingItems()
-      try {
-        context.commit({ type: 'setTrendingItems', items })
-      }
-      catch (err) {console.log(err)}
-
     },
     getItemById(context, { itemId }) {
       return itemService.getById(itemId)

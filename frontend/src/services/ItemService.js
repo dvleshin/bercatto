@@ -11,7 +11,6 @@ export default {
 }
 
 async function query(criteria = { txt: '' }) {
-    console.log('Item service creteria:', criteria);
     return await httpService.get(_getUrl(), criteria) 
 }
 

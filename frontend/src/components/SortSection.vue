@@ -5,7 +5,7 @@
       :items="views"
       v-model="byViews"
       label="Views"
-      @input="emitSortBy(byViews==='High-Low'? {byViews: 1}:{byViews: -1})"
+      @input="emitSortBy(byViews==='High-Low'? {byViews: -1}:{byViews: 1})"
     ></v-select>
     <v-select
       :items="createdAt"

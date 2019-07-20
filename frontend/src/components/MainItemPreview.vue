@@ -49,9 +49,15 @@ export default {
   },
   data() {
     return {
+<<<<<<< HEAD
+      moment,
+      loggedInUser:null
+    }
+=======
       moment: moment,
       loggedInUserId: null
     };
+>>>>>>> db9ea6b8bb9a89ed9a5023c6dd1798eb7dc52c4f
   },
   methods: {
     humanTime(timestamp) {

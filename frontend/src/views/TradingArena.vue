@@ -12,6 +12,10 @@
           >Close Deal</button>
           <h2>Owner: {{owner.fullName}}</h2>
           <img :src="ownerItem.imgUrl[0]" alt />
+          <div v-if="owner._id!==loggedInUser._id && suggestedItems" >
+            <h2>You suggested :</h2>
+            <img v-for="item in suggestedItems" :src="item.imgUrl[0]" alt="">
+             </div>
         </div>
         <div class="buyer-section">
           <div v-if="owner._id!==loggedInUser._id" class="user-items-container">
@@ -64,7 +68,8 @@ export default {
   },
   data() {
     return {
-      // loggedInUser: null,
+      pickedItems: [],
+      loggedInUser: null,
       ownerItem: null,
       owner: null,
       userItems: [],
@@ -74,7 +79,8 @@ export default {
         url: "",
         owner: null,
         buyer: null,
-        isDone: false
+        isDone: false,
+        mainItemImgUrl:''
       }
     };
   },
@@ -91,12 +97,12 @@ export default {
               this.owner = user;
               const arenaId = this.$route.query.arena;
               if (arenaId) {
-                this.arena.id = arenaId;
-
+                this.arena.id = arenaId;//not needed
                 const arena = this.owner.arenas.find(
                   currArena => currArena.id === arenaId
                 );
                 this.suggestedItems = arena.buyer.items;
+                this.pickedItems = arena.buyer.items; 
                 this.arena = arena;
               } else this.arena.id = utilService.makeId();
             })
@@ -120,13 +126,18 @@ export default {
       this.arena.isDone = true;
       this.saveArena();
     },
-    togglePickItem(item) {
+    togglePickItem(item) { 
       const editedItem = { ...item };
       editedItem.isPicked = !editedItem.isPicked;
       this.$store
         .dispatch({ type: "saveItem", item: { ...editedItem } })
         .then(() => {
           item.isPicked = !item.isPicked;
+          if(editedItem.isPicked) this.pickedItems.push(editedItem)
+          else {
+            const idx = this.pickedItems.findIndex(currItem=>currItem._id===editedItem._id)
+            this.pickedItems.splice(idx , 1)
+          }
           this.saveArena();
         });
     },
@@ -135,18 +146,19 @@ export default {
       if (!arena.id) arena.id = utilService.makeId();
       // this.arena.id = arena.id;
       arena.url = `arena?id=${this.ownerItem._id}&arena=${arena.id}`;
+      arena.mainItemImgUrl = this.ownerItem.imgUrl[0];
       arena.owner = { id: this.owner._id, item: this.ownerItem._id };
-      if (this.suggestedItems) {
+      if (this.suggestedItems) { 
         arena.buyer = {
           fullName: this.loggedInUser.fullName,
           id: this.suggestedItems[0].ownerId,
-          items: this.userItems.filter(item => item.isPicked)
+          items: this.pickedItems
         };
       } else {
         arena.buyer = {
           fullName: this.loggedInUser.fullName,
           id: this.loggedInUser._id,
-          items: this.userItems.filter(item => item.isPicked)
+          items: this.pickedItems
         };
       }
       arena.isDone = this.arena.isDone;

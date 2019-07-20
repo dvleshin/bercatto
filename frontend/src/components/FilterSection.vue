@@ -28,7 +28,7 @@ export default {
       filterBy: {
         category: this.searchBy,
       },
-      category: ["Kinds", "Arts", "Home"],
+      category: ["Tech", "Arts", "Home", "Music"],
       condition: ["New", "Used", "Good", "Excellent"]
     };
   },

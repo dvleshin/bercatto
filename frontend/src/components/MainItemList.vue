@@ -1,9 +1,10 @@
 <template>
   <section class="main-container">
+    <slot name="title"></slot>
     <div class="cards-container">
       <MainItemPreview @remove="remove" v-for="item in items" :item="item" :key="item._id"></MainItemPreview>
-      <h1 v-if="!items.length">No items to show</h1>
     </div>
+    <slot name="more"></slot>
   </section>
 </template>
 
@@ -12,11 +13,19 @@
 import MainItemPreview from "./MainItemPreview-v2.vue";
 export default {
   props: {
-    items: {
-      type: Array,
-      validator(val) {
-        return val != [];
-      }
+    tranding: Boolean,
+    category: String
+  },
+  created() {
+    if(this.tranding) {
+      this.$store.dispatch({ type: "getTrendingItems", limit: 4}).then(() => {
+      this.isLoading = false;
+      this.items = this.$store.getters.trendingItems
+    })
+    } else {
+      this.$store.dispatch({ type: "loadItems", filterBy: {category: this.category, limit: 4}}).then(() => {
+          this.items = this.$store.getters.itemsToshow;
+        })
     }
   },
   methods: {
@@ -26,7 +35,9 @@ export default {
   },
   computed: {},
   data() {
-    return {};
+    return {
+      items: [],
+    };
   },
   components: {
     MainItemPreview

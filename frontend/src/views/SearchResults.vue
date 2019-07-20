@@ -5,34 +5,36 @@
       <div class="main-container">
         <FilterSection class="filter-section" @filterBy="onFilter" :searchBy="filterBy.category"></FilterSection>
         <SortSection @sortBy="onSort"></SortSection>
-        <MainItemList class="item-list" @remove="remove" :items="itemsToShow"></MainItemList>
+        <SearchItemList class="item-list" @remove="remove" :searchItems="itemsToShow"></SearchItemList>
       </div>
     </section>
   </div>
 </template>
 
 <script>
-import Header from '../components/Header.vue'
-import MainItemList from "../components/MainItemList.vue";
+import Header from "../components/Header.vue";
+import SearchItemList from "../components/SearchItemList.vue";
 import FilterSection from "../components/FilterSection.vue";
 import SortSection from "../components/SortSection.vue";
 export default {
   created() {
     this.filterBy.category = this.$route.query.searchBy;
     this.$store
-      .dispatch({ type: "loadItems", creteria: this.filterBy })
+      .dispatch({ type: "loadItems", filterBy: this.filterBy })
       .then(() => {
         this.isLoading = false;
       });
   },
   data() {
     return {
+      items: null,
       filterBy: {}
     };
   },
   computed: {
     itemsToShow() {
-      return this.$store.getters.itemsToshow;
+      this.items = this.$store.getters.itemsToshow;
+      return this.items;
     },
     getFilterBy() {
       return this.$store.getters.getFilterBy;
@@ -47,7 +49,7 @@ export default {
       console.log("Search Results sortBy:", sortBy);
 
       let filteredBy = this.getFilterBy;
-      console.log("Search Results filteredBy:", filteredBy);
+      //console.log("Search Results filteredBy:", filteredBy);
       if (!filteredBy) filteredBy = this.filterBy;
       const filterBy = Object.assign(filteredBy, sortBy);
       //console.log("SearchResults sortBy:", sortBy, "filter:", filterBy);
@@ -58,12 +60,12 @@ export default {
       this.$store
         .dispatch({ type: "deleteItem", itemId })
         .then(() => {
-         this.$noty.error("Item Deleted", {
-  killer: true,
-  timeout: 3000,
-  theme:'semanticui',
-  layout: 'topRight'
-})
+          this.$noty.error("Item Deleted", {
+            killer: true,
+            timeout: 3000,
+            theme: "semanticui",
+            layout: "topRight"
+          });
         })
         .catch(err => {
           // Swal.fire({
@@ -77,7 +79,7 @@ export default {
     }
   },
   components: {
-    MainItemList,
+    SearchItemList,
     FilterSection,
     SortSection,
     Header

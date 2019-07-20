@@ -5,11 +5,19 @@
 
 .item img {
     height: 115px;
+    width: 115px;
 }
+
 
 .item .info-container {
     margin: 16px;
 }
+
+.item:hover > img {
+   opacity: 0.8;
+}
+
+
 
 .item .info-container h1 {
     padding-bottom: 14px;

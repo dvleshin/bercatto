@@ -7,19 +7,10 @@
     <div class="nav-bar flex">
       <div v-if="loggedInUser" class="user-menu">
         <v-icon @click="addItem">add</v-icon>
-        <v-badge left color="red" transition>
-          <template v-slot:badge>
-            <span>{{activeArenas}}</span>
-          </template>
-          <v-icon large color="grey lighten-1">tab</v-icon>
-        </v-badge>
-        <ul>
-          <li @click="seeArenas(idx)" v-for="arena , idx in loggedInUser.arenas">{{arena.id}}</li>
-        </ul>
-        <v-avatar size="60px">
+        <ArenasMenu :loggedInUser="loggedInUser"> </ArenasMenu>
+        <v-avatar class="user-avatar" @click="goToUserProfile" size="60px">
           <img :src="loggedInUser.profileImg" />
         </v-avatar>
-
         <v-icon @click.prevent="onLogOut" color="#fff" size="30px">exit_to_app</v-icon>
       </div>
       <div class="login-area" v-if="!loggedInUser">
@@ -52,6 +43,7 @@
                 </div>
               </v-card>
             </v-menu>
+
           </li>
         </ul>
       </div>
@@ -62,6 +54,7 @@
 <script>
 import userService from "../services/UserService.js";
 import Signup from "../components/SignUp-v2.vue";
+import ArenasMenu from "../components/ArenasMenu.vue";
 import Noty from 'noty';
 export default {
   
@@ -96,6 +89,9 @@ export default {
     };
   },
   methods: {
+     goToUserProfile() {
+      this.$router.push(`user/${this.loggedInUser._id}`);
+    },
     seeArenas(idx) {
       this.$router.push(this.loggedInUser.arenas[idx].url);
     },
@@ -130,22 +126,20 @@ export default {
     onLogOut() {
       this.$store
         .dispatch({ type: "doLogout" })
-        .then((this.loggedInUser = null));
+        .then((()=>{
+          this.loggedInUser = null
+        }));
     },
     addItem() {
       this.$router.push("/add");
     }
   },
   computed: {
-    arenasUrls() {
-      return this.loggedInUser.arenas.map(arena => arena.url);
-    },
-    activeArenas() {
-      return this.loggedInUser.arenas.filter(arena=>!arena.isDone).length
-    }
+ 
   },
   components: {
-    Signup
+    Signup,
+    ArenasMenu
   }
 };
 
