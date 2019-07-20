@@ -11,16 +11,9 @@
           <div>
             <span class="logo">barcattö</span>
           </div>
-          <ul>
-            <Signup>
-              <li>
-                <v-icon color="#fff">person</v-icon>signup
-              </li>
-            </Signup>
-            <li @click="goToAddPage">
-              <v-icon color="#fff">account_circle</v-icon>login
-            </li>
-          </ul>
+          <div>
+            <MainHeader></MainHeader>
+          </div>
         </div>
         <h1 class="display-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
         <h4 class="subheading">Barter, bargain and swap unique items</h4>
@@ -76,6 +69,7 @@
 <script>
 import itemsService from "../services/ItemService";
 import MainItemList from "../components/MainItemList.vue";
+import MainHeader from '../components/MainHeader.vue'
 import Signup from "../components/SignUp-v2.vue";
 export default {
   created() {
@@ -129,7 +123,8 @@ export default {
   },
   components: {
     MainItemList,
-    Signup
+    Signup,
+    MainHeader
   },
 
   destroyed() {

@@ -10,7 +10,6 @@ export default {
   mutations: {
     setUsers(state, {users}) {
       state.users = users
-      
     },
     setLoggedInUser(state, {userCreds}) {
       state.loggedInUser = userCreds
@@ -23,8 +22,10 @@ export default {
     updateUser(state, {user}) {
       const idx = state.users.findIndex(currUser => currUser._id === user._id)
       state.users.splice(idx, 1, user);
-      
     },
+    updateLoggedInUser(state){
+      state.loggedInUser = null
+    }
   },
   actions: {
     async doSignup(context, {userCred}) {
@@ -49,6 +50,13 @@ export default {
     },
     async doLogout(context) {
       const userLoggetOut = await userService.doLogout()
+      try {
+        console.log('Logout Success:', userLoggetOut);
+        context.commit({type: 'updateLoggedInUser', userLoggetOut})
+      } catch (err) {
+        console.log('Logout error:', err);
+        
+      }
     },
 
     async loadUsers(context, ) {
@@ -96,8 +104,7 @@ export default {
       return state.users
     },
     loggedInUser(state) {
-console.log('in getter, state is: ',state.loggedInUser);
-
+      console.log('in getter, state is: ', state.loggedInUser);
       return state.loggedInUser
     }
   },

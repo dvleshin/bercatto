@@ -1,10 +1,6 @@
 <template>
-  <header class="flex">
-    <div class="logo">
-      <span @click="goMain">barcattö</span>
-    </div>
-
-    <div class="nav-bar flex">
+  <div class="flex">
+    <div class="main-navbar-user flex">
       <div v-if="loggedInUser" class="user-menu">
         <v-icon @click="addItem">add</v-icon>
         <ArenasMenu :loggedInUser="loggedInUser"> </ArenasMenu>
@@ -47,7 +43,7 @@
         </ul>
       </div>
     </div>
-  </header>
+  </div>
 </template>
 
 <script>
@@ -58,21 +54,13 @@ import Noty from 'noty';
 export default {
   
   created() {
-
     this.loggedInUser = this.$store.getters.loggedInUser;
-
     if (!this.loggedInUser) {
       this.$store
-        .dispatch({
-          type: "getUserById",
-          userId: JSON.parse(sessionStorage.loggedInUser)._id
-        })
+        .dispatch({type: "getUserById", userId: JSON.parse(sessionStorage.loggedInUser)._id})
         .then(user => {
           this.loggedInUser = user;
-          this.$store.dispatch({
-            type: "setLoggedInUser",
-            userCreds: user
-          });
+          this.$store.dispatch({type: "setLoggedInUser", userCreds: user});
         });
     }
   },
@@ -143,7 +131,7 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../styles/lib/vuejs-noty.css";
-@import "../styles/components/header.scss";
+@import "../styles/components/main-header.scss";
 </style>

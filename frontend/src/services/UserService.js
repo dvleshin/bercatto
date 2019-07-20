@@ -71,6 +71,7 @@ async function doLogout(){
     const userLoggetOut = await httpService.post(`auth/logout`)
     try {
         sessionStorage.removeItem(KEY)
+        return userLoggetOut
     } catch (err) {
         console.log('User Service Log Out error:', err);
         throw err;
@@ -83,7 +84,7 @@ function _handleSuccessfulRegister(user) {
 }
 
 function getLoggedinUser() {
-    var loggedInUser = sessionStorage.getItem(loggedInUser)
+    let loggedInUser = sessionStorage.getItem(KEY)
     return JSON.parse(loggedInUser);
 }
 
