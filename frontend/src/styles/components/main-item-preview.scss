@@ -55,6 +55,9 @@
     box-shadow: 0px rem(2px) rem(9px) rem(2px) rgba(224, 224, 224, 0.7);
     cursor: pointer;
 }
+.img-container img:hover {
+    filter: brightness(80%);
+}
 
 .content-container {
     position: absolute;
