@@ -1,10 +1,20 @@
-.item {
+@import '../setup/_functions.scss';
+@import '../setup/_variables.scss';
+@import '../basics/typography.scss';
+
+.item-section {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    max-width: 1260px;
+    margin: 0 auto;
+    font-family: 'Roboto Regular', sans-serif;
 }
+
 .item-title {
-    padding-bottom: 10px;
+    padding-bottom: rem(10px);
+    font-size: rem(25px);
 }
+
 .item-details {
     display: flex;
     flex-direction: row;
@@ -14,10 +24,57 @@
 .v-card-profile {
     background-color: #ccc;
     height: 100%;
-    padding: 10px;
+    padding: rem(10px);
     flex-grow: 2;
 }
 
+.item {
+    margin-top: rem(10px);
+    flex-grow: 1;
+}
+
+.user-area {
+    margin-top: rem(39px);
+}
+
 .item-container {
-    flex-grow: 3;
+    width: 100%;
+    margin-right: rem(20px);
+}
+
+.desc p:nth-child(1) {
+    padding-top: rem(10px);
+    font-size: rem(30px);
+}
+
+.desc p:nth-child(2) {
+    font-size: rem(25px);
+}
+
+.desc ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 0px;
+    list-style-type: none;
+    margin-bottom: rem(60px)
+}
+
+.desc ul li {
+    padding-right: rem(20px);
+    font-size: rem(20px);
+}
+.back {
+    background-color: $btn1;
+    height: rem(50px);
+    width: 100%;
+    color: #ffffff;
+    font-size: rem(20px);
+    font-weight: 600;
+    outline: none;
+    border-radius: rem(5px);
+
+}
+.back:hover {
+    background-color: $btn2;
 }
