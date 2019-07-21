@@ -41,7 +41,7 @@ export default {
     },
     async getTrendingItems(context, {limit}) {
       try {
-        const items = await itemService.query({limit: limit, tranding: true, gt: 50, byViews: 1})      
+        const items = await itemService.query({limit: limit, tranding: true, gt: 50, byViews: -1})      
         context.commit({ type: 'setTrendingItems', items })
       }
       catch (err) {console.log(err)}

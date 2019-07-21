@@ -1,0 +1,35 @@
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .form form {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+  }
+  .chat-list {
+    height: 300px;
+    overflow: auto;
+  }
+  .chat-list ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+  }
+  .chat-list ul li {
+    padding: 5px;
+  }
+  .chat-list li span {
+    margin-right: 5px;
+    font-weight: bold;
+  }
+  .typing-msg {
+    position: absolute;
+    bottom: 46px;
+    left: 6px;
+  }
+  .user {
+    background-color: #ebebeb;
+  }
