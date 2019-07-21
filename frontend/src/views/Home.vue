@@ -1,7 +1,7 @@
 <template>
   <section>
     <v-parallax
-      :height="600"
+      :height="500"
       dark
       style="z-index: 300;"
       src="https://res.cloudinary.com/dbcg46m3l/image/upload/v1563431109/main-bg_uwei5x.jpg"
@@ -15,7 +15,7 @@
             <MainHeader></MainHeader>
           </div>
         </div>
-        <h1 class="display-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+        <h1 class="display-2">Don't throw it away, Replace it.</h1>
         <h4 class="subheading">Barter, bargain and swap unique items</h4>
         <h4 class="subheading">
           <v-text-field
@@ -35,31 +35,31 @@
     </v-parallax>
     <v-content>
       <v-container fluid>
-        <MainItemList @remove="remove" :tranding="true">
-          <h2 slot="title">Hot Items:</h2>
+        <MainItemList class="trending-section category" @remove="remove" :tranding="true">
+          <h2 slot="title">Trending Now:</h2>
           <div slot="more" class="more-btn"></div>
         </MainItemList>
       </v-container>
       <v-container fluid>
-        <MainItemList @remove="remove" :category="'home'">
-          <h2 slot="title">Home category:</h2>
+        <MainItemList class="category" @remove="remove" :category="'home'">
+          <h2 slot="title">Home</h2>
           <div slot="more" class="more-btn"><button @click="goToMoreItems('home')">More items</button></div>
         </MainItemList>
-        <MainItemList @remove="remove" :category="'arts'">
-          <h2 slot="title">Arts category:</h2>
-           <div slot="more" class="more-btn"><button @click="goToMoreItems('arts')">More items</button></div>
-        </MainItemList>
-        <MainItemList @remove="remove" :category="'music'">
-          <h2 slot="title">Music category:</h2>
-           <div slot="more" class="more-btn"><button @click="goToMoreItems('music')">More items</button></div>
-        </MainItemList>
-        <MainItemList @remove="remove" :category="'sport'">
-          <h2 slot="title">Sport category:</h2>
+        <MainItemList class="category" @remove="remove" :category="'sport'">
+          <h2 slot="title">Sports</h2>
            <div slot="more" class="more-btn"><button @click="goToMoreItems('sport')">More items</button></div>
         </MainItemList>
-        <MainItemList @remove="remove" :category="'tech'">
-          <h2 slot="title">Tech category:</h2>
+        <MainItemList class="category" @remove="remove" :category="'tech'">
+          <h2 slot="title">Tech</h2>
            <div slot="more" class="more-btn"><button @click="goToMoreItems('tech')">More items</button></div>
+        </MainItemList>
+        <MainItemList class="category" @remove="remove" :category="'arts'">
+          <h2 slot="title">Arts</h2>
+           <div slot="more" class="more-btn"><button @click="goToMoreItems('arts')">More items</button></div>
+        </MainItemList>
+        <MainItemList class="category" @remove="remove" :category="'music'">
+          <h2 slot="title">Music</h2>
+           <div slot="more" class="more-btn"><button @click="goToMoreItems('music')">More items</button></div>
         </MainItemList>
       </v-container>
     </v-content>

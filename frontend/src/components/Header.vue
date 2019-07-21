@@ -7,7 +7,7 @@
     <div class="nav-bar flex">
       <div v-if="loggedInUser" class="user-menu">
         <v-icon @click="addItem">add</v-icon>
-        <ArenasMenu :loggedInUser="loggedInUser"> </ArenasMenu>
+        <ArenasMenu v-if="loggedInUser" :loggedInUser="loggedInUser"> </ArenasMenu>
         <v-avatar class="user-avatar" @click="goToUserProfile" size="60px">
           <img :src="loggedInUser.profileImg" />
         </v-avatar>
@@ -58,16 +58,20 @@ import Noty from 'noty';
 export default {
   
   created() {
-    // this.loggedInUser = this.$store.getters.loggedInUser;
-    // console.log('created headerp');
-    
-    if (!this.loggedInUser) {
+    //  if(this.loggedInUser) {
+      //  console.log('1',this.loggedInUser.arenas);
+       
+    //  }
+    // else if (!this.loggedInUser) {
+      
       this.$store
         .dispatch({
           type: "loadLoggedInUser",
           userId: JSON.parse(sessionStorage.loggedInUser)._id
+        }).then(user => {
+          this.$store.dispatch({type: "setLoggedInUser",userCreds: user});
         })
-    }
+    
   },
   data() {
     return {
@@ -94,9 +98,6 @@ export default {
       this.$store
         .dispatch({ type: "doLogin", userCred: this.user })
         .then(res => {
-          // this.loggedInUser = this.$store.getters.loggedInUser;
-          this.loggedInUser = this.$store.getters.loggedInUser;
-
           if (!this.loggedInUser) {
             this.$store
               .dispatch({
@@ -118,7 +119,6 @@ export default {
       this.$store
         .dispatch({ type: "doLogout" })
         .then((()=>{
-          this.loggedInUser = null
           this.$router.push('/')
         }));
     },

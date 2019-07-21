@@ -4,17 +4,21 @@
     <section v-if="ownerItem && owner">
       <div class="users-section">
         <div class="owner-section">
-          <img class="done " v-if="arena.isDone" src="../../public/img/deal.png" alt="">
+          <img class="done" v-if="arena.isDone" src="../../public/img/deal.png" alt />
           <button
             @click="closeDeal"
             class="close-deal-btn"
-            v-if="owner._id===loggedInUser._id && !arena.isDone">Close Deal</button>
+            v-if="owner._id===loggedInUser._id && !arena.isDone"
+          >Close Deal</button>
           <h2>Owner: {{owner.fullName}}</h2>
           <img class="owner-item" :src="ownerItem.imgUrl[0]" alt />
-          <div v-if="owner._id!==loggedInUser._id && suggestedItems" >
+          <div
+            class="suggested-items-container"
+            v-if="owner._id!==loggedInUser._id && suggestedItems"
+          >
             <h2 v-if="suggestedItems.length">You suggested :</h2>
-            <img class="suggested-items" v-for="item in suggestedItems" :src="item.imgUrl[0]" alt="">
-             </div>
+            <img class="suggested-item" v-for="item in suggestedItems" :src="item.imgUrl[0]" alt />
+          </div>
         </div>
         <div class="buyer-section">
           <div v-if="owner._id!==loggedInUser._id" class="user-items-container">
@@ -23,8 +27,12 @@
               <h2>Please Upload Items To Bargain</h2>
               <v-btn @click="addItem">Add Item</v-btn>
             </div>
-            <div class="img-container hvr-glow" v-for="item in userItems" @click="togglePickItem(item)">
-              <img :class="{active : item.isPicked , item}"  :src="item.imgUrl[0]" alt />
+            <div
+              class="img-container hvr-glow"
+              v-for="item in userItems"
+              @click="togglePickItem(item)"
+            >
+              <img :class="{active : item.isPicked , item}" :src="item.imgUrl[0]" alt />
               <img v-if="item.isPicked" class="selected" src="../../public/img/selected.png" alt />
             </div>
           </div>
@@ -46,7 +54,7 @@ import utilService from "../services/UtilsService.js";
 export default {
   created() {
     //  this.loggedInUser = JSON.parse(sessionStorage.loggedInUser)
-    this.loggedInUser = this.$store.getters.loggedInUser;
+    // this.loggedInUser = this.$store.getters.loggedInUser;
     if (!this.loggedInUser) {
       this.$store
         .dispatch({
@@ -68,7 +76,7 @@ export default {
   data() {
     return {
       pickedItems: [],
-      loggedInUser: null,
+      // loggedInUser: null,
       ownerItem: null,
       owner: null,
       userItems: [],
@@ -79,13 +87,18 @@ export default {
         owner: null,
         buyer: null,
         isDone: false,
-        mainItemImgUrl:''
+        mainItemImgUrl: ""
       }
     };
   },
-  computed: {},
+  computed: {
+    loggedInUser() {
+      return this.$store.getters.loggedInUser;
+    }
+  },
   methods: {
     initArena() {
+      
       this.$store
         .dispatch({ type: "getItemById", itemId: this.$route.query.id })
         .then(item => {
@@ -96,12 +109,12 @@ export default {
               this.owner = user;
               const arenaId = this.$route.query.arena;
               if (arenaId) {
-                this.arena.id = arenaId;//not needed
+                this.arena.id = arenaId; //not needed
                 const arena = this.owner.arenas.find(
                   currArena => currArena.id === arenaId
                 );
                 this.suggestedItems = arena.buyer.items;
-                this.pickedItems = arena.buyer.items; 
+                this.pickedItems = arena.buyer.items;
                 this.arena = arena;
               } else this.arena.id = utilService.makeId();
             })
@@ -125,23 +138,24 @@ export default {
       this.arena.isDone = true;
       this.saveArena();
       this.suggestedItems.forEach(item => {
-         const editedItem = { ...item };
-      editedItem.isPicked = false;
-      this.$store
-        .dispatch({ type: "saveItem", item: { ...editedItem } })
+        const editedItem = { ...item };
+        editedItem.isPicked = false;
+        this.$store.dispatch({ type: "saveItem", item: { ...editedItem } });
       });
     },
-    togglePickItem(item) { 
+    togglePickItem(item) {
       const editedItem = { ...item };
       editedItem.isPicked = !editedItem.isPicked;
       this.$store
         .dispatch({ type: "saveItem", item: { ...editedItem } })
         .then(() => {
           item.isPicked = !item.isPicked;
-          if(editedItem.isPicked) this.pickedItems.push(editedItem)
+          if (editedItem.isPicked) this.pickedItems.push(editedItem);
           else {
-            const idx = this.pickedItems.findIndex(currItem=>currItem._id===editedItem._id)
-            this.pickedItems.splice(idx , 1)
+            const idx = this.pickedItems.findIndex(
+              currItem => currItem._id === editedItem._id
+            );
+            this.pickedItems.splice(idx, 1);
           }
           this.saveArena();
         });
@@ -153,7 +167,7 @@ export default {
       arena.url = `arena?id=${this.ownerItem._id}&arena=${arena.id}`;
       arena.mainItemImgUrl = this.ownerItem.imgUrl[0];
       arena.owner = { id: this.owner._id, item: this.ownerItem._id };
-      if (this.suggestedItems) { 
+      if (this.suggestedItems) {
         arena.buyer = {
           fullName: this.loggedInUser.fullName,
           id: this.suggestedItems[0].ownerId,
@@ -208,7 +222,7 @@ export default {
   },
   watch: {
     $route: function(newVal, oldVal) {
-      this.initArena()
+      this.initArena();
     }
   }
 };

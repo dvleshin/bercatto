@@ -15,6 +15,8 @@ export default {
 
     },
     setLoggedInUser(state, { userCreds }) {
+      console.log('@@@');
+      
       state.loggedInUser = userCreds
     },
 
@@ -23,13 +25,8 @@ export default {
       state.users.splice(idx, 1);
     },
     updateUsers(state, { user }) {
-      // console.log('user is: ', user);
-      // console.log('users are: ', state.users);
-
-
       const idx = state.users.findIndex(currUser => currUser._id === user._id)
       state.users.splice(idx, 1, user);
-      console.log('after change: ', idx, state.users);
     },
     updateLoggedInUser(state, { loggedInUser }) {
       state.loggedInUser = loggedInUser
@@ -48,8 +45,12 @@ export default {
         console.log(err);
       }
     },
-    setLoggedInUser(context, { userCreds }) {
-      context.commit({ type: 'setLoggedInUser', userCreds })
+    async setLoggedInUser(context, { userCreds }) {
+      let id = context.state.loggedInUser._id
+        let loggedInUser = await userService.getById(id)
+        console.log('loggedin: ', loggedInUser);
+        context.commit({ type: 'updateLoggedInUser', loggedInUser })
+     
     },
     async doLogin(context, { userCred }) {
       try {
@@ -79,13 +80,15 @@ export default {
         console.log(err);
       }
     },
-    loadLoggedInUser(context, { userId }) {
-      let userCreds = UserService.getById(userId)
+    async loadLoggedInUser(context, { userId }) {
+      let userCreds = await UserService.getById(userId)
+      console.log('logged user: ',userCreds);
+      
       context.commit({ type: 'setLoggedInUser', userCreds })
 
     },
     getUserById(context, { userId }) {
-      return userService.getById(userId)
+      return Promise.resolve(userService.getById(userId))
     },
     getUserItems(context, { userId }) {
       return userService.getUserItems(userId)
@@ -99,7 +102,6 @@ export default {
       }
     },
     async updateUser(context, { user }) {
-      // console.log('got to update user');
       
       try {
         const savedUser = await userService.update(user)
@@ -107,7 +109,6 @@ export default {
         let id = context.state.loggedInUser._id
         let loggedInUser = await userService.getById(id)
         console.log('loggedin: ', loggedInUser);
-
         context.commit({ type: 'updateLoggedInUser', loggedInUser })
       } catch (err) {
         console.log(err);
