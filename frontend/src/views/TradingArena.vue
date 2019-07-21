@@ -140,14 +140,18 @@ export default {
     closeDeal() {
       this.arena.isDone = true;
       this.saveArena();
-      this.suggestedItems.forEach(item => {
-        const editedItem = { ...item };
-        editedItem.isPicked = false;
-        this.$store.dispatch({ type: "saveItem", item: { ...editedItem } });
-      });
+      // this.suggestedItems.forEach(item => {
+      //   const editedItem = { ...item };
+      //   editedItem.isPicked = false;
+      //   this.$store.dispatch({ type: "saveItem", item: { ...editedItem } });
+      // });
+      const editedOwnerItem = { ...this.ownerItem }
+       editedOwnerItem.isSold = true;
+         this.$store.dispatch({ type: "saveItem", item: { ...editedOwnerItem } })
+
+
     },
     togglePickItem(item) {
-      this.$router.push(`arena?id=${this.ownerItem._id}&arena=${this.arena.id}`)
       const editedItem = { ...item };
       editedItem.isPicked = !editedItem.isPicked;
       this.$store
@@ -221,7 +225,8 @@ export default {
               //  this.$router.push(arena.url)
             }});
         }); // -------------------------------------------------
-       
+             this.$router.push(`arena?id=${this.ownerItem._id}&arena=${this.arena.id}`)
+
     }
   },
   components: {
@@ -229,8 +234,8 @@ export default {
     ChatApp
   },
   watch: {
-    $route: function(newVal, oldVal) {
-      
+    '$route.fullPath': function(newVal, oldVal) {
+      console.log(newVal)
       this.initArena();
     }
   }

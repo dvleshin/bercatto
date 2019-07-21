@@ -1,5 +1,5 @@
 <template>
-  <section class="item">
+  <section v-if="!item.isSold" class="item">
     <img class="loader" v-if="!itemUser" src="../../public/img/loader.gif" alt />
     <div class="card" v-else>
       <div class="img-container">
