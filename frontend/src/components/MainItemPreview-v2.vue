@@ -21,10 +21,10 @@
       </div>
       <img src="../../public/img/trending.png" v-if="item.views>50" class="trending" />
       <v-icon
-        v-if="loggedInUserId&&loggedInUserId===item.ownerId"
-        class="delete"
-        @click="remove(item._id)"
-      >delete</v-icon>
+      v-if="loggedInUser&&loggedInUser._id===item.ownerId"
+      class="delete"
+      @click="remove(item._id)"
+    >remove</v-icon>
     </div>
   </section>
 </template>
@@ -34,15 +34,14 @@ export default {
   props: {
     item: Object
   },
-  created() {
-    if (sessionStorage.loggedInUser) {
-      this.loggedInUserId = JSON.parse(sessionStorage.loggedInUser)._id;
+ created() {
+     if (!this.loggedInUser) {
+      this.$store
+        .dispatch({
+          type: "loadLoggedInUser",
+          userId: JSON.parse(sessionStorage.loggedInUser)._id
+        })
     }
-    this.$store
-      .dispatch({ type: "getUserById", userId: this.item.ownerId })
-      .then(user => {
-        this.itemUser = user;
-      });
   },
   data() {
     return {
@@ -95,6 +94,10 @@ export default {
     }
   },
   computed: {
+    loggedInUser(){
+      
+      return this.$store.getters.loggedInUser
+    },
     txtToShow() {
       if (this.item.description.length <= 100) return this.item.description;
       return this.item.description.substr(0, 100) + "...";

@@ -1,12 +1,12 @@
 <template>
-  <section v-if="loggedInUser">
+  <section class="icon" v-if="loggedInUser">
     <v-menu offset-y>
       <template v-slot:activator="{ on }">
         <v-badge left color="red" transition>
             <template v-slot:badge>
               <span>{{activeArenas}}</span>
             </template>
-          <v-icon v-on="on" large color="grey lighten-1">tab</v-icon>
+          <v-icon v-on="on" large color="grey lighten-1">mail</v-icon>
         </v-badge>
       </template>
       <v-list v-if="loggedInUser.arenas.length">

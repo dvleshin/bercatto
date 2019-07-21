@@ -9,8 +9,8 @@ var dbConn = null;
 
 async function connect() {
     if (dbConn) return Promise.resolve(dbConn);
+
     // if (dbConn) return dbConn;
-    
     try {
         const client = await MongoClient.connect(config.dbURL, {
             useNewUrlParser: true
@@ -26,7 +26,7 @@ async function connect() {
         client.on('close', () => {
             console.log('MongoDB Disconnected');
             client.close()
-            dbConn = null;
+            dbConn = null;            
         })
 
         return db;
