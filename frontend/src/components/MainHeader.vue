@@ -114,6 +114,7 @@ export default {
         .dispatch({ type: "doLogout" })
         .then((()=>{
           this.loggedInUser = null
+          this.$router.push('/')
         }));
     },
     addItem() {

@@ -31,7 +31,7 @@
     <img src="../../public/img/trending.png" v-if="item.views>50" class="trending" />
 
     <v-icon
-      v-if="loggedInUserId&&loggedInUserId===item.ownerId"
+      v-if="loggedInUser&&loggedInUser._id===item.ownerId"
       class="delete"
       @click="remove(item._id)"
     >remove</v-icon>
@@ -43,21 +43,19 @@ import moment from "moment";
 export default {
   props: ["item"],
   created() {
-    if (sessionStorage.loggedInUser) {
-      this.loggedInUserId = JSON.parse(sessionStorage.loggedInUser)._id;
+     if (!this.loggedInUser) {
+      this.$store
+        .dispatch({
+          type: "loadLoggedInUser",
+          userId: JSON.parse(sessionStorage.loggedInUser)._id
+        })
     }
   },
   data() {
     return {
-<<<<<<< HEAD
-      moment,
-      loggedInUser:null
-    }
-=======
       moment: moment,
-      loggedInUserId: null
+      // loggedInUserId: null
     };
->>>>>>> db9ea6b8bb9a89ed9a5023c6dd1798eb7dc52c4f
   },
   methods: {
     humanTime(timestamp) {
@@ -73,7 +71,7 @@ export default {
       this.$router.push(`user/${this.item.ownerId}`);
     },
     goToArena() {
-      console.log('@@@');
+      // console.log('@@@');
       
       if (!sessionStorage.loggedInUser) {
         this.$noty.error("Please Login Or Signup", {
@@ -84,7 +82,7 @@ export default {
         });
         return;
       }
-      else if (this.loggedInUserId===this.item.ownerId) {
+      else if (loggedInUser_id===this.item.ownerId) {
         this.$noty.error("You Can't Trade Your Own Items! ", {
           killer: true,
           timeout: 3000,
@@ -98,6 +96,10 @@ export default {
     }
   },
   computed: {
+    loggedInUser(){
+      
+      return this.$store.getters.loggedInUser
+    },
     txtToShow() {
       if (this.item.description.length <= 100) return this.item.description;
       return this.item.description.substr(0, 100) + "...";

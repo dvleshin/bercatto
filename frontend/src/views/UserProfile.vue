@@ -12,25 +12,13 @@
 </template>
 
 <script>
-import Header from '../components/Header.vue'
+import Header from "../components/Header.vue";
 import UserItemList from "../components/UserItemList.vue";
 import UserReviews from "../components/UserReviews.vue";
 import UserCard from "../components/UserCard.vue";
 export default {
   created() {
-    console.log('@');
-    this.$store
-      .dispatch({ type: "getUserById", userId: this.$route.params.id })
-      .then(user => {
-        this.user = user;
-        
-      });
-    this.$store
-      .dispatch({ type: "getUserItems", userId: this.$route.params.id })
-      .then(items => {
-
-        this.userItems = items;
-      });
+   this.init()
   },
   data() {
     return {
@@ -39,7 +27,25 @@ export default {
     };
   },
   computed: {},
-  methods: {},
+  methods: {
+    init() {
+    this.$store
+      .dispatch({ type: "getUserById", userId: this.$route.params.id })
+      .then(user => {
+        this.user = user;
+      });
+    this.$store
+      .dispatch({ type: "getUserItems", userId: this.$route.params.id })
+      .then(items => {
+        this.userItems = items;
+      });
+    }
+  },
+  watch: {
+    $route: function(newVal, oldVal) {
+      this.init()
+    }
+  },
   components: {
     UserItemList,
     UserCard,

@@ -39,7 +39,7 @@ export default {
     }
   },
   computed: {
-   
+ 
     arenasUrls() {
       return this.loggedInUser.arenas.map(arena => arena.url);
     },

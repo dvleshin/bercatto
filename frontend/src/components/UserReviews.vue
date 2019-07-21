@@ -84,9 +84,7 @@ return moment(timestamp).fromNow()
       this.dialog = false;
       const editedUser = { ...this.user };
       this.review.createdAt = Date.now();
-      console.log(4);
       editedUser.reviews.push({...this.review});
-      console.log(5);
       this.$store.dispatch({ type: "updateUser", user: editedUser });
       this.review = {rating :3}
     }

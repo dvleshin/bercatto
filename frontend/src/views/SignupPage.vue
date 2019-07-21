@@ -14,7 +14,6 @@ import SignUp from "../components/signUp.vue"
 export default {
   created() {
     this.loggedInUser = this.$store.getters.loggedInUser;
-    console.log("SingUp page created:", this.loggedInUser);
     if (loggedInUser) this.$router.push("/");
   },
   data() {

@@ -59,21 +59,15 @@ export default {
   
   created() {
 
-    this.loggedInUser = this.$store.getters.loggedInUser;
-
+    // this.loggedInUser = this.$store.getters.loggedInUser;
+    // console.log('created headerp');
+    
     if (!this.loggedInUser) {
       this.$store
         .dispatch({
-          type: "getUserById",
+          type: "loadLoggedInUser",
           userId: JSON.parse(sessionStorage.loggedInUser)._id
         })
-        .then(user => {
-          this.loggedInUser = user;
-          this.$store.dispatch({
-            type: "setLoggedInUser",
-            userCreds: user
-          });
-        });
     }
   },
   data() {
@@ -82,13 +76,13 @@ export default {
         email: "admin3@admin.com",
         password: "1234"
       },
-      loggedInUser: null,
+      // loggedInUser: null,
       menu: false
     };
   },
   methods: {
      goToUserProfile() {
-      this.$router.push(`user/${this.loggedInUser._id}`);
+      this.$router.push(`/user/${this.loggedInUser._id}`);
     },
     seeArenas(idx) {
       this.$router.push(this.loggedInUser.arenas[idx].url);
@@ -126,6 +120,7 @@ export default {
         .dispatch({ type: "doLogout" })
         .then((()=>{
           this.loggedInUser = null
+          this.$router.push('/')
         }));
     },
     addItem() {
@@ -133,7 +128,9 @@ export default {
     }
   },
   computed: {
- 
+    loggedInUser(){
+      return this.$store.getters.loggedInUser
+    }
   },
   components: {
     Signup,

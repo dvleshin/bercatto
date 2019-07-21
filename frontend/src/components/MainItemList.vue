@@ -33,7 +33,9 @@ export default {
       this.$emit("remove", itemId);
     }
   },
-  computed: {},
+  computed: {
+   
+  },
   data() {
     return {
       items: [],

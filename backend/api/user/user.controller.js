@@ -1,11 +1,13 @@
 const userService = require('./user.service')
 
 async function getUser(req, res) {
+    // console.log('got to single')
     const user = await userService.getById(req.params.id)
     res.send(user)
 }
-  
+
 const getUsers = async (req, res) => {
+    // console.log('got to EVERYONE')
     const users = await userService.query()
     res.send(users)
 }

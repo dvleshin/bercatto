@@ -31,8 +31,8 @@ export default {
   },
   actions: {
     async loadItems(context, {filterBy}) {      
-      const items = await itemService.query(filterBy)
       try {
+        const items = await itemService.query(filterBy)
         context.commit({ type: 'setItems', items })
       }
       catch (err) {
@@ -40,17 +40,16 @@ export default {
       }
     },
     async getTrendingItems(context, {limit}) {
-      const items = await itemService.query({limit: limit, tranding: true, gt: 50, byViews: 1})      
       try {
-        console.log('getTrendingItems', items);
+        const items = await itemService.query({limit: limit, tranding: true, gt: 50, byViews: 1})      
         context.commit({ type: 'setTrendingItems', items })
       }
       catch (err) {console.log(err)}
 
     },
     async onFilter(context, {filterBy}){
-      const items = await itemService.query(filterBy)
       try {
+        const items = await itemService.query(filterBy)
         //console.log('Got filtered items', items); 
         context.commit({ type: 'setItems', items })
         context.commit({ type: 'setFilter', filterBy})
@@ -59,8 +58,8 @@ export default {
       }
     },
     async onSort(context, {filterBy}){
-      const items = await itemService.query(filterBy)
       try {
+        const items = await itemService.query(filterBy)
         context.commit({ type: 'setItems', items })
         context.commit({ type: 'setFilter', filterBy})
       } catch (err) {
@@ -76,8 +75,8 @@ export default {
       catch (err) { console.log(err) }
     },
     async saveItem(context, { item }) {
-      const savedItem = await itemService.save(item)
       try {
+        const savedItem = await itemService.save(item)
         context.commit({ type: 'saveItem', item: savedItem })
       }
       catch (err) {console.log(err)}

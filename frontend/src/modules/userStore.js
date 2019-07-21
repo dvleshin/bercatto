@@ -1,5 +1,6 @@
 import userService from '../services/UserService.js'
 import utilsService from '../services/UtilsService.js'
+import UserService from '../services/UserService.js';
 
 export default {
   state: {
@@ -8,90 +9,113 @@ export default {
     loggedInUser: userService.getLoggedinUser()
   },
   mutations: {
-    setUsers(state, {users}) {
+    setUsers(state, { users }) {
       state.users = users
+      console.log('finished loading users');
+
     },
-    setLoggedInUser(state, {userCreds}) {
+    setLoggedInUser(state, { userCreds }) {
       state.loggedInUser = userCreds
     },
 
-    deleteUser(state, {userId}) {
+    deleteUser(state, { userId }) {
       let idx = state.users.findIndex(user => user._id === userId)
       state.users.splice(idx, 1);
     },
-    updateUser(state, {user}) {
+    updateUsers(state, { user }) {
+      // console.log('user is: ', user);
+      // console.log('users are: ', state.users);
+
+
       const idx = state.users.findIndex(currUser => currUser._id === user._id)
       state.users.splice(idx, 1, user);
+      console.log('after change: ', idx, state.users);
     },
-    updateLoggedInUser(state){
+    updateLoggedInUser(state, { loggedInUser }) {
+      state.loggedInUser = loggedInUser
+    },
+
+    logOutUser(state) {
       state.loggedInUser = null
     }
   },
   actions: {
-    async doSignup(context, {userCred}) {
-      const user = await userService.save(userCred)
+    async doSignup(context, { userCred }) {
       try {
-        context.commit({type: 'setLoggedInUser', user})
+        const user = await userService.save(userCred)
+        context.commit({ type: 'setLoggedInUser', user })
       } catch (err) {
         console.log(err);
       }
     },
-    setLoggedInUser (context, {userCreds}) {
-      context.commit({type: 'setLoggedInUser', userCreds})
+    setLoggedInUser(context, { userCreds }) {
+      context.commit({ type: 'setLoggedInUser', userCreds })
     },
-    async doLogin(context, {userCred}) {
-      const userCreds = await userService.doLogin(userCred)      
+    async doLogin(context, { userCred }) {
       try {
-        context.commit({type: 'setLoggedInUser', userCreds})
-        
+        const userCreds = await userService.doLogin(userCred)
+        context.commit({ type: 'setLoggedInUser', userCreds })
+
       } catch (err) {
         console.log(err);
       }
     },
     async doLogout(context) {
-      const userLoggetOut = await userService.doLogout()
       try {
+        const userLoggetOut = await userService.doLogout()
         console.log('Logout Success:', userLoggetOut);
-        context.commit({type: 'updateLoggedInUser', userLoggetOut})
+        context.commit({ type: 'logOutUser', userLoggetOut })
       } catch (err) {
         console.log('Logout error:', err);
-        
+
       }
     },
 
-    async loadUsers(context, ) {
-      const users = await userService.query()
+    async loadUsers(context) {
       try {
-        context.commit({type: 'setUsers', users})
+        const users = await userService.query()
+        context.commit({ type: 'setUsers', users })
       } catch (err) {
         console.log(err);
       }
     },
-    getUserById(context, {userId}) {
+    loadLoggedInUser(context, { userId }) {
+      let userCreds = UserService.getById(userId)
+      context.commit({ type: 'setLoggedInUser', userCreds })
+
+    },
+    getUserById(context, { userId }) {
       return userService.getById(userId)
     },
-    getUserItems(context, {userId}) {
+    getUserItems(context, { userId }) {
       return userService.getUserItems(userId)
     },
-    async deleteUser(context, {userId}) {
-      await userService.remove(userId)
+    async deleteUser(context, { userId }) {
       try {
-        context.commit({type: 'deleteUser',userId})
+        await userService.remove(userId)
+        context.commit({ type: 'deleteUser', userId })
       } catch (err) {
         console.log(err);
       }
     },
-    async updateUser(context, {user}) {
-      const savedUser = await userService.update(user)
+    async updateUser(context, { user }) {
+      // console.log('got to update user');
+      
       try {
-        context.commit({type: 'updateUser', user: savedUser})
+        const savedUser = await userService.update(user)
+        context.commit({ type: 'updateUsers', user: savedUser })
+        let id = context.state.loggedInUser._id
+        let loggedInUser = await userService.getById(id)
+        console.log('loggedin: ', loggedInUser);
+
+        context.commit({ type: 'updateLoggedInUser', loggedInUser })
       } catch (err) {
         console.log(err);
       }
     },
-    async getCordsByName(context, {location}) {
-      const cords = await utilsService.getCordsByName(location)
+    async getCordsByName(context, { location }) {
       try {
+        const cords = await utilsService.getCordsByName(location)
         return cords
       } catch (err) {
         console.log(err);
@@ -104,7 +128,7 @@ export default {
       return state.users
     },
     loggedInUser(state) {
-      console.log('in getter, state is: ', state.loggedInUser);
+      console.log('in getter, state is: ', state.loggedInUser.arenas);
       return state.loggedInUser
     }
   },

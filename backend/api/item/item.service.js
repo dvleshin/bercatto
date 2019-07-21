@@ -73,7 +73,7 @@ async function remove(itemId) {
 }
 
 async function update(item) {
-    console.log('got to update#####');
+    // console.log('got to update#####');
 
     const collection = await dbService.getCollection(COLLECTION)
     try {

@@ -102,7 +102,6 @@ export default {
   computed: {},
   methods: {
     setItemView() {
-      console.log('ItemDetails:', this.item);
       
       this.item.views += 1 
       this.$store

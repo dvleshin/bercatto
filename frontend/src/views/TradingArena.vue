@@ -125,6 +125,12 @@ export default {
     closeDeal() {
       this.arena.isDone = true;
       this.saveArena();
+      this.suggestedItems.forEach(item => {
+         const editedItem = { ...item };
+      editedItem.isPicked = false;
+      this.$store
+        .dispatch({ type: "saveItem", item: { ...editedItem } })
+      });
     },
     togglePickItem(item) { 
       const editedItem = { ...item };
@@ -200,6 +206,11 @@ export default {
   },
   components: {
     Header
+  },
+  watch: {
+    $route: function(newVal, oldVal) {
+      this.initArena()
+    }
   }
 };
 </script>

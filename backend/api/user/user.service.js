@@ -38,6 +38,8 @@ async function getById(userId) {
     const collection = await dbService.getCollection(COLLECTION)
     try {
         const user = await collection.findOne({"_id":ObjectId(userId)}) 
+        console.log('got user: ',user.fullName);
+        
         return user
     } catch (err) {
         console.log(`ERROR: while finding user ${userId}`)
@@ -51,7 +53,7 @@ async function getUserItems(userId) {
     const collection = await dbService.getCollection('item')
     try {
         const items = await collection.find({"ownerId":userId}).toArray()
-        console.log('!!!',items);
+        // console.log('!!!',items);
         
         return items
         

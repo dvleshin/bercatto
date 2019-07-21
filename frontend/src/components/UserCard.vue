@@ -36,14 +36,12 @@
 <script>
 export default {
   created() {
-    console.log('kjh');
     
   },
   props: ["user"],
   methods: {},
   computed: {
     rating() {
-      console.log();
       
       if(this.user.reviews.length) {
       const rating = this.user.reviews.reduce((accumulator, review) => {

@@ -73,6 +73,13 @@ import MainHeader from '../components/MainHeader.vue'
 import Signup from "../components/SignUp-v2.vue";
 export default {
   created() {
+  this.$store.dispatch({type:'loadUsers'})
+    },
+
+    computed: {
+      loggedInUser() {
+        return this.$store.getters.loggedInUser
+      }
     },
   data() {
     return {
