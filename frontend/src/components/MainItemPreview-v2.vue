@@ -35,9 +35,10 @@ export default {
     item: Object
   },
  created() {
+   if(sessionStorage.loggedInUser) {
      if (!this.loggedInUser) {
       this.$store.dispatch({type: "loadLoggedInUser", userId: JSON.parse(sessionStorage.loggedInUser)._id})
-      }
+      }}
       this.$store.dispatch({ type: "getUserById", userId: this.item.ownerId })
       .then(user => {
         this.itemUser = user;
@@ -80,7 +81,7 @@ export default {
           layout: "topRight"
         });
         return;
-      } else if (this.loggedInUserId === this.item.ownerId) {
+      } else if (this.loggedInUser._id === this.item.ownerId) {
         this.$noty.error("You Can't Trade Your Own Items! ", {
           killer: true,
           timeout: 3000,

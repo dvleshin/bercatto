@@ -54,15 +54,15 @@ import Noty from 'noty';
 export default {
   
   created() {
-    this.loggedInUser = this.$store.getters.loggedInUser;
-    if (!this.loggedInUser) {
-      this.$store
-        .dispatch({type: "getUserById", userId: JSON.parse(sessionStorage.loggedInUser)._id})
-        .then(user => {
-          this.loggedInUser = user;
-          this.$store.dispatch({type: "setLoggedInUser", userCreds: user});
-        });
-    }
+    if(sessionStorage.loggedInUser) {
+     this.$store
+        .dispatch({
+          type: "loadLoggedInUser",
+          userId: JSON.parse(sessionStorage.loggedInUser)._id
+        }).then(user => {
+          this.$store.dispatch({type: "setLoggedInUser",userCreds: user});
+      console.log('2',this.loggedInUser);
+        })}
   },
   data() {
     return {
@@ -70,7 +70,7 @@ export default {
         email: "admin3@admin.com",
         password: "1234"
       },
-      loggedInUser: null,
+      // loggedInUser: null,
       menu: false
     };
   },
@@ -99,7 +99,7 @@ export default {
                 userId: JSON.parse(sessionStorage.loggedInUser)._id
               })
               .then(user => {
-                this.loggedInUser = user;
+                // this.loggedInUser = user;
                 this.$store.dispatch({
                   type: "setLoggedInUser",
                   userCreds: user
@@ -113,7 +113,7 @@ export default {
       this.$store
         .dispatch({ type: "doLogout" })
         .then((()=>{
-          this.loggedInUser = null
+          // this.loggedInUser = null
           this.$router.push('/')
         }));
     },
@@ -122,7 +122,9 @@ export default {
     }
   },
   computed: {
- 
+ loggedInUser() {
+   return this.$store.getters.loggedInUser
+ }
   },
   components: {
     Signup,
