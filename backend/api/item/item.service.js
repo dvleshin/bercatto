@@ -12,7 +12,7 @@ const COLLECTION = 'item'
 
 async function query(filterBy = {}) {
 
-    console.log('item service filterBy:', filterBy);
+    //console.log('item service filterBy:', filterBy);
 
     const filterCriteria = {};
     const sortCriteria = {}
@@ -26,8 +26,8 @@ async function query(filterBy = {}) {
     if (filterBy.limit) limit = +filterBy.limit
     if (filterBy.tranding) filterCriteria.tranding = filterBy.tranding
 
-    console.log('item service sortCriteria:', sortCriteria);
-    console.log('item service filterCriteria:', filterCriteria);
+    // console.log('item service sortCriteria:', sortCriteria);
+    // console.log('item service filterCriteria:', filterCriteria);
 
 
     const collection = await dbService.getCollection(COLLECTION)
@@ -36,9 +36,7 @@ async function query(filterBy = {}) {
             const items = await collection.find({views: {$gt: +filterBy.gt}}).sort(sortCriteria).limit(limit).toArray();
             return items
         } else {
-            const items = await collection.find(filterCriteria).sort(sortCriteria).limit(limit).toArray();
-            console.log(items);
-            
+            const items = await collection.find(filterCriteria).sort(sortCriteria).limit(limit).toArray();            
             return items
         }
     } catch (err) {
@@ -50,9 +48,7 @@ async function query(filterBy = {}) {
 async function getById(itemId) {
     const collection = await dbService.getCollection(COLLECTION)
     try {
-        const item = await collection.findOne({
-            "_id": ObjectId(itemId)
-        })
+        const item = await collection.findOne({"_id": ObjectId(itemId)})
         return item
     } catch (err) {
         console.log(`ERROR: while finding user ${itemId}`)

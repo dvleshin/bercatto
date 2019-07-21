@@ -1,6 +1,7 @@
 <template>
   <section>
     <Header></Header>
+    <UserCard></UserCard>
     <div class="edit-form">
       <h1>{{item._id ? 'Edit Item' : 'Add Item'}}</h1>
       <div>
@@ -30,7 +31,8 @@
 
 <script>
 import Header from '../components/Header.vue'
-import UploadImages from "../components/UploadImages.vue";
+import UploadImages from "../components/UploadImages.vue"
+import UserCard from '../components/UserCard.vue'
 export default {
   created() {
     const itemId = this.$route.params.id;
@@ -39,6 +41,7 @@ export default {
         .dispatch({ type: "getItemById", itemId: itemId })
         .then(item => {
           this.item = JSON.parse(JSON.stringify(item));
+          
         });
     }
   },
@@ -103,7 +106,8 @@ export default {
   },
   components: {
     UploadImages,
-    Header
+    Header,
+    UserCard,
   }
 };
 </script>
