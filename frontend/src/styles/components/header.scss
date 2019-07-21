@@ -1,4 +1,4 @@
- .form {
+.form {
     flex-direction: column;
     justify-content: flex-start;
     padding: 20px;
@@ -57,7 +57,7 @@
  }
 
  .logo {
-    font-family: 'Arciform';
+    font-family: 'Arciform', sans-serif;
     font-size: 35px;
     color: #fff;
     cursor: pointer;

@@ -1,3 +1,5 @@
+@import '../basics/typography.scss';
+
 .v-input {
     margin-top: 40px;
     width: 400px;
@@ -36,6 +38,10 @@
     outline: 0;
 }
 
+h2 {
+    font-family: 'Roboto Regular', sans-serif;
+}
+
 .trending-section {
     border: 1px solid red;
     border-radius: 30px;
@@ -44,5 +50,5 @@
 }
 
 .category {
-padding: 20px;
+    padding: 20px;
 }

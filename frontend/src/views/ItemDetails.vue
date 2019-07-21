@@ -1,47 +1,47 @@
 <template>
   <div>
     <Header></Header>
-    <section v-if="item">
-      <div class="item-title">
-        <h1>{{item.name}}</h1>
-      </div>
-      <button @click="test">test</button>
-      <div class="item-details">
-        <div class="item-container">
-          <v-toolbar color="cyan" dark tabs height="0">
-            <template v-slot:extension>
-              <v-tabs v-model="tab" color="cyan" grow>
-                <v-tabs-slider color="yellow"></v-tabs-slider>
-                <v-tab v-for="(tab, idx) in tabs" :key="idx">
-                  <span>{{ tab.label }}</span>
-                  <v-icon>{{ tab.icon }}</v-icon>
-                </v-tab>
-              </v-tabs>
-            </template>
-          </v-toolbar>
-
-          <v-tabs-items v-model="tab">
-            <v-tab-item v-for="(tab, idx) in tabs" :key="idx">
-              <v-card flat>
-                <component :is="tab.comp" :comp-data="tab.data"></component>
-              </v-card>
-            </v-tab-item>
-          </v-tabs-items>
-          {{item.description}}
+    <section v-if="user" class="item-section">
+      <div class="item">
+        <div class="item-title">
+          <h1>{{item.name}}</h1>
         </div>
-        <div clas="user-container" v-if="user">
-          <div class="v-card-profile">
-            <v-avatar slot="offset" class="mx-auto d-block" size="130">
-              <img :src="user.profileImg" />
-            </v-avatar>
-            <v-card-text class="text-xs-center">
-              <h6 class="category text-gray font-weight-thin mb-3">{{user.userName}}</h6>
-              <h4 class="card-title font-weight-light">{{user.fullName}}</h4>
-            </v-card-text>
+        <div class="item-details">
+          <div class="item-container">
+            <v-toolbar color="cyan" dark tabs height="0">
+              <template v-slot:extension>
+                <v-tabs v-model="tab" color="cyan" grow>
+                  <v-tabs-slider color="yellow"></v-tabs-slider>
+                  <v-tab v-for="(tab, idx) in tabs" :key="idx">
+                    <span>{{ tab.label }}</span>
+                    <v-icon>{{ tab.icon }}</v-icon>
+                  </v-tab>
+                </v-tabs>
+              </template>
+            </v-toolbar>
+            <v-tabs-items v-model="tab">
+              <v-tab-item v-for="(tab, idx) in tabs" :key="idx">
+                <v-card flat>
+                  <component :is="tab.comp" :comp-data="tab.data"></component>
+                </v-card>
+              </v-tab-item>
+            </v-tabs-items>
+            <div class="desc">
+              <p>Description:</p>
+              <p>{{item.description}}</p>
+              <ul>
+                <li><span>Tags:</span> {{showTags}}</li>
+                <li><span>Category:</span> {{item.category}}</li>
+                <li><span>Added:</span> {{humanTime(item.uploadedAt)}}</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-      <UserCard></UserCard>
+      <div class="user-area">
+        <UserCard :user="user"></UserCard>
+        <button class="back" @click="goBack">Back to main</button>
+      </div>
     </section>
   </div>
 </template>
@@ -50,13 +50,11 @@
 import Header from "../components/Header.vue";
 import UserMap from "../components/UserMap.vue";
 import ImagesCarousel from "../components/ImagesCarousel.vue";
-import UserCard from "../components/UserCard.vue"
+import UserCard from "../components/UserCard.vue";
+import moment from "moment";
 
-import io from "socket.io-client";
-const socket = io("http://localhost:3000");
 export default {
   created() {
-   
     this.$store
       .dispatch({ type: "getItemById", itemId: this.$route.params.id })
       .then(item => {
@@ -104,18 +102,32 @@ export default {
   components: {
     UserMap,
     ImagesCarousel,
-    Header
+    Header,
+    UserCard
   },
-  computed: {},
+  computed: {
+    showTags(){
+      return this.item.tags.join(', ')
+    }
+  },
   methods: {
-    test() {
-      socket.emit("chat msg", msg, toyId);
+    humanTime(timestamp) {
+      let oneDay = Date.now() + 1 * 24 * 60 * 60 * 1000;
+
+      if (oneDay > timestamp) {
+        return moment(timestamp).fromNow();
+      } else {
+        return moment(timestamp).format("LL");
+      }
     },
     setItemView() {
       this.item.views += 1;
       this.$store
         .dispatch({ type: "saveItem", item: { ...this.item } })
         .then(() => {});
+    },
+    goBack(){
+      this.$router.go(-1)
     }
   }
 };
