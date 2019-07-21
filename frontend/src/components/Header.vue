@@ -139,7 +139,7 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../styles/lib/vuejs-noty.css";
 @import "../styles/components/header.scss";
 </style>
