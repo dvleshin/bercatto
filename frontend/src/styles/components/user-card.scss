@@ -1,0 +1,45 @@
+@import '../setup/_functions.scss';
+@import '../setup/_variables.scss';
+
+.user-card {
+    font-family: 'Roboto', sans-serif;
+    color: $gray4;
+    background-color: #fff;
+    position: relative;
+    border: rem(1px) solid #e5e5e5;
+    border-radius: rem(5px);
+    width: 480px;
+    height: 490px;
+    display: inline-table;
+    margin-bottom: rem(20px);
+    box-shadow: 0px 1px 10px 1px rgba(224, 224, 224, 0.5);
+    margin-right: 15px;
+}
+.img-container img {
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    object-fit: fill;
+    height: 300px;
+    width: 300px;
+    border: rem(1px) solid #e5e5e5;
+    border-radius: rem(5px);
+    box-shadow: 0px rem(2px) rem(9px) rem(2px) rgba(224, 224, 224, 0.7);
+    cursor: pointer;
+}
+.content-container {
+    position: absolute;
+    padding-left: rem(10px);
+    padding-right: rem(10px);
+    top: 300px;
+    width: 100%;
+
+}
+.user-name {
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: normal;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 17px;
+}

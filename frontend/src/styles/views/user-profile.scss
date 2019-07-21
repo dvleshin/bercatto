@@ -1,14 +1,15 @@
 .user-profile {
     display: flex;
+    max-width: 1260px;
+    margin: 0 auto;
+    margin-top: 40px;
 }
 
-
-.user-item-list {
-    flex: 3;
-}
-
-.user-info{
+.user-info {
     display: flex;
     flex-direction: column;
     flex: 2;
+}
+.user-reviews {
+    margin-right: 15px;
 }

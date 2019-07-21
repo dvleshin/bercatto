@@ -3,9 +3,9 @@
     <v-menu offset-y>
       <template v-slot:activator="{ on }">
         <v-badge left color="red" transition>
-          <template v-slot:badge>
-            <span>{{activeArenas}}</span>
-          </template>
+            <template v-slot:badge>
+              <span>{{activeArenas}}</span>
+            </template>
           <v-icon v-on="on" large color="grey lighten-1">tab</v-icon>
         </v-badge>
       </template>
@@ -39,7 +39,6 @@ export default {
     }
   },
   computed: {
-   
     arenasUrls() {
       return this.loggedInUser.arenas.map(arena => arena.url);
     },
@@ -47,7 +46,7 @@ export default {
       return this.loggedInUser.arenas.filter(arena => !arena.isDone).length;
     },
     arenas() {
-      const arenas = [...this.loggedInUser.arenas]
+      const arenas = [...this.loggedInUser.arenas];
       return arenas.sort((a, b) => {
         if (a.isDone) {
           return 1;
