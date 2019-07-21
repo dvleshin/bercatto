@@ -466,3 +466,9 @@ Sun, 21 Jul 2019 14:59:38 GMT - Debug - auth.route - new user created: {"adress"
 =======
 Sun, 21 Jul 2019 13:14:44 GMT - Info - Server is running on port: 3000
 >>>>>>> 5ec80dd3c66667bd06dc19be47278bc346380a61
+
+Sun, 21 Jul 2019 15:43:31 GMT - Info - Server is running on port: 3000
+Sun, 21 Jul 2019 15:43:53 GMT - Info - Server is running on port: 3000
+Sun, 21 Jul 2019 15:45:05 GMT - Info - Server is running on port: 3000
+Sun, 21 Jul 2019 15:53:47 GMT - Debug - auth.service - signup with email: admin7@admin.com and 1234
+Sun, 21 Jul 2019 15:53:48 GMT - Debug - auth.route - new user created: {"adress":{"country":"Israel","city":"Bat Yam"},"fullName":"Nelson Nichols","email":"admin7@admin.com","isAdmin":false,"profileImg":"http://res.cloudinary.com/dbcg46m3l/image/upload/v1563724422/barcatto/1563724421848.jpg","reviews":[],"arenas":[],"_id":"5d348a8b3b8cbcab0253f812"}
