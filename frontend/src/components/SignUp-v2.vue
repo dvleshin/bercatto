@@ -54,17 +54,21 @@
                 ></v-text-field>
               </v-flex>
               <v-btn
-            :loading="loading"
-            :disabled="loading"
-            color="blue-grey"
-            class="white--text"
-            @click="loader = 'loading3'"
-          >
-            Upload Image
-            <v-icon right dark>cloud_upload</v-icon>
-          </v-btn>
-          <v-btn @click="onSignUp">SignUp</v-btn>
+                :loading="loading"
+                :disabled="loading"
+                color="blue-grey"
+                class="white--text"
+                @click="pickFile"
+              >
+                Upload Image
+                <v-icon right dark>cloud_upload</v-icon>
+              </v-btn>
+              <input @change="handleUploadImage" multiple ref="image" hidden type="file" />
+              <v-btn @click="onSignUp">SignUp</v-btn>
             </v-layout>
+            <div class="user-image-container">
+              <img v-if="uploadedImgs" :src="this.uploadedImgs.url" class="user-photo" />
+            </div>
           </v-container>
           <v-spacer></v-spacer>
           <small>*indicates required field</small>
@@ -80,10 +84,10 @@
 </template>
 
 <script>
-import Swal from 'sweetalert';
+import Swal from "sweetalert";
 export default {
   props: {
-    close: String,
+    close: String
   },
   data() {
     return {
@@ -102,75 +106,103 @@ export default {
         reviews: [],
         arenas: []
       },
+      uploadedImgs: null,
+      showImgLoading: false,
+      loading: false,
       rules: {
         required: value => !!value || "Required.",
         min: v => v.length >= 4 || "Min 4 characters"
       },
       loader: null,
       loading: false,
-      show1: false,
+      show1: false
     };
   },
   methods: {
-    onSignUp(){
-      this.$store.dispatch({ type: "doSignup", userCred: this.user }).then(() => {
-        this.dialog = false
-        Swal.fire({
-          position: "top-end",
-          type: "success",
-          title: "Welcome! you have signed up successfully.",
-          showConfirmButton: true,
-          timer: 2000
+    pickFile() {
+      this.$refs.image.click();
+    },
+    handleUploadImage(ev) {
+      this.loading = true;
+      const file = ev.target.files;
+      if (file === undefined) return console.log(`error! I can't this file`);
+      this.$store
+        .dispatch({ type: "uploadImgs", imgs: file })
+        .then(uploadedImgs => {
+          this.uploadedImgs = uploadedImgs[0];
+          this.user.profileImg = this.uploadedImgs.url;
+          console.log("user image in sing up:", this.user.profileImg);
+          this.loading = false;
         });
-      }); 
+    },
+    onSignUp() {
+      this.$store
+        .dispatch({ type: "doSignup", userCred: this.user })
+        .then(() => {
+          this.dialog = false;
+          Swal.fire({
+            position: "top-end",
+            type: "success",
+            title: "Welcome! you have signed up successfully.",
+            showConfirmButton: true,
+            timer: 2000
+          });
+        });
     }
   },
   watch: {
-      loader () {
-        const l = this.loader
-        this[l] = !this[l]
+    loader() {
+      const l = this.loader;
+      this[l] = !this[l];
 
-        setTimeout(() => (this[l] = false), 3000)
-        this.loader = null
-      }
+      setTimeout(() => (this[l] = false), 3000);
+      this.loader = null;
     }
+  }
 };
 </script>
 <style lang="css" scoped>
-  .custom-loader {
-    animation: loader 1s infinite;
-    display: flex;
+.user-image-container {
+  text-align: center;
+}
+.user-photo {
+  width: 100px;
+  height: 100px;
+}
+.custom-loader {
+  animation: loader 1s infinite;
+  display: flex;
+}
+@-moz-keyframes loader {
+  from {
+    transform: rotate(0);
   }
-  @-moz-keyframes loader {
-    from {
-      transform: rotate(0);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(360deg);
   }
-  @-webkit-keyframes loader {
-    from {
-      transform: rotate(0);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+}
+@-webkit-keyframes loader {
+  from {
+    transform: rotate(0);
   }
-  @-o-keyframes loader {
-    from {
-      transform: rotate(0);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(360deg);
   }
-  @keyframes loader {
-    from {
-      transform: rotate(0);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+}
+@-o-keyframes loader {
+  from {
+    transform: rotate(0);
   }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loader {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 </style>

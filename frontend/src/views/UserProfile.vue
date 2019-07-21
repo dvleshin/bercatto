@@ -3,10 +3,10 @@
     <Header></Header>
     <section v-if="user" class="user-profile">
       <div class="user-info">
-        <UserCard class="user-card" :user="user"></UserCard>
+        <UserCard :user="user"></UserCard>
         <UserReviews class="user-reviews" :user="user"></UserReviews>
       </div>
-      <UserItemList class="user-item-list" :items="userItems"></UserItemList>
+      <UserItemList :items="userItems"></UserItemList>
     </section>
   </div>
 </template>

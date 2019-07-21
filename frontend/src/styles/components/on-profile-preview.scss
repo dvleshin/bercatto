@@ -1,24 +1,36 @@
+@import '../setup/_functions.scss';
+@import '../setup/_variables.scss';
+
 .item {
     display: flex;
-    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid $clr5;
+    border-radius: rem(5px);
+}
+.item:hover {
+    border: 1px solid $clr4;
+    cursor: pointer;
+    background-color: $clr7;
 }
 
 .item img {
     height: 115px;
     width: 115px;
-}
-
-
-.item .info-container {
-    margin: 16px;
+    border-radius: rem(5px);
+    margin-right: 10px;
 }
 
 .item:hover > img {
-   opacity: 0.8;
+    filter: brightness(80%);
 }
 
 
 
 .item .info-container h1 {
     padding-bottom: 14px;
+    font-size: 20px;
+}
+.item .info-container p {
+    font-size: 16px;
 }

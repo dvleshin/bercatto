@@ -80,10 +80,6 @@ export default {
         let src =img.url
         this.item.imgUrl.push(src)   
       })
-      
-
-
-
     },
     saveItem() {
       this.item.uploadedAt = Date.now();
