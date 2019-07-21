@@ -8,13 +8,12 @@
           <button
             @click="closeDeal"
             class="close-deal-btn"
-            v-if="owner._id===loggedInUser._id && !arena.isDone"
-          >Close Deal</button>
+            v-if="owner._id===loggedInUser._id && !arena.isDone">Close Deal</button>
           <h2>Owner: {{owner.fullName}}</h2>
-          <img :src="ownerItem.imgUrl[0]" alt />
+          <img class="owner-item" :src="ownerItem.imgUrl[0]" alt />
           <div v-if="owner._id!==loggedInUser._id && suggestedItems" >
-            <h2>You suggested :</h2>
-            <img v-for="item in suggestedItems" :src="item.imgUrl[0]" alt="">
+            <h2 v-if="suggestedItems.length">You suggested :</h2>
+            <img class="suggested-items" v-for="item in suggestedItems" :src="item.imgUrl[0]" alt="">
              </div>
         </div>
         <div class="buyer-section">
@@ -25,13 +24,13 @@
               <v-btn @click="addItem">Add Item</v-btn>
             </div>
             <div class="img-container hvr-glow" v-for="item in userItems" @click="togglePickItem(item)">
-              <img :class="{active : item.isPicked}"  :src="item.imgUrl[0]" alt />
+              <img :class="{active : item.isPicked , item}"  :src="item.imgUrl[0]" alt />
               <img v-if="item.isPicked" class="selected" src="../../public/img/selected.png" alt />
             </div>
           </div>
           <div v-else class="user-items-container">
             <h2>Buyer: {{this.arena.buyer.fullName}}</h2>
-            <img v-for="item in suggestedItems" :src="item.imgUrl[0]" alt />
+            <img class="item" v-for="item in suggestedItems" :src="item.imgUrl[0]" alt />
           </div>
         </div>
       </div>

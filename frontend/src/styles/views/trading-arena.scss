@@ -1,5 +1,6 @@
-img {
+.item , .suggested-items {
     height: 200px;
+    width: 200px;
 }
 
 section {
@@ -23,9 +24,18 @@ section {
     flex: 1; 
 }
 
+h2 {
+    width: 100%;
+}
+
+.owner-item {
+    height: 200px;
+}
+
 .user-items-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     
 
 }
@@ -48,6 +58,8 @@ section {
 
 .img-container {
     position: relative;
+    display: flex;
+ 
     
 }
 
@@ -67,6 +79,8 @@ section {
     filter: grayscale(200%) blur(3px) opacity(80%);
     
 }
+
+
 
 
 // -------------------------------------------------------------

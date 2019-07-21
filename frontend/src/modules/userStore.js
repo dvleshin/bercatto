@@ -128,7 +128,6 @@ export default {
       return state.users
     },
     loggedInUser(state) {
-      console.log('in getter, state is: ', state.loggedInUser.arenas);
       return state.loggedInUser
     }
   },
