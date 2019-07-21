@@ -58,7 +58,6 @@ import Noty from 'noty';
 export default {
   
   created() {
-
     // this.loggedInUser = this.$store.getters.loggedInUser;
     // console.log('created headerp');
     
