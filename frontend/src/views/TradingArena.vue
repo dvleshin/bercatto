@@ -42,7 +42,9 @@
           </div>
         </div>
       </div>
-      <div class="chat"></div>
+      <div class="chat">
+        <ChatApp> </ChatApp>
+      </div>
     </section>
   </div>
 </template>
@@ -50,6 +52,7 @@
 
 <script>
 import Header from "../components/Header.vue";
+import ChatApp from "../components/ChatApp.vue";
 import utilService from "../services/UtilsService.js";
 export default {
   created() {
@@ -144,6 +147,7 @@ export default {
       });
     },
     togglePickItem(item) {
+      this.$router.push(`arena?id=${this.ownerItem._id}&arena=${this.arena.id}`)
       const editedItem = { ...item };
       editedItem.isPicked = !editedItem.isPicked;
       this.$store
@@ -213,15 +217,20 @@ export default {
           }
           this.$store
             .dispatch({ type: "updateUser", user: newBuyer })
-            .then(() => {});
+            .then(() => {()=>{
+              //  this.$router.push(arena.url)
+            }});
         }); // -------------------------------------------------
+       
     }
   },
   components: {
-    Header
+    Header,
+    ChatApp
   },
   watch: {
     $route: function(newVal, oldVal) {
+      
       this.initArena();
     }
   }
