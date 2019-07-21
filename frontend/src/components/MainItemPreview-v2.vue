@@ -36,12 +36,12 @@ export default {
   },
  created() {
      if (!this.loggedInUser) {
-      this.$store
-        .dispatch({
-          type: "loadLoggedInUser",
-          userId: JSON.parse(sessionStorage.loggedInUser)._id
-        })
-    }
+      this.$store.dispatch({type: "loadLoggedInUser", userId: JSON.parse(sessionStorage.loggedInUser)._id})
+      }
+      this.$store.dispatch({ type: "getUserById", userId: this.item.ownerId })
+      .then(user => {
+        this.itemUser = user;
+      });
   },
   data() {
     return {

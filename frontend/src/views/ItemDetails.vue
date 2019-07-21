@@ -41,6 +41,7 @@
           </div>
         </div>
       </div>
+      <UserCard></UserCard>
     </section>
   </div>
 </template>
@@ -49,6 +50,7 @@
 import Header from "../components/Header.vue";
 import UserMap from "../components/UserMap.vue";
 import ImagesCarousel from "../components/ImagesCarousel.vue";
+import UserCard from "../components/UserCard.vue"
 
 import io from "socket.io-client";
 const socket = io("http://localhost:3000");

@@ -12,7 +12,7 @@ const COLLECTION = 'item'
 
 async function query(filterBy = {}) {
 
-    //console.log('item service filterBy:', filterBy);
+    console.log('item service filterBy:', filterBy);
 
     const filterCriteria = {};
     const sortCriteria = {}
@@ -26,8 +26,8 @@ async function query(filterBy = {}) {
     if (filterBy.limit) limit = +filterBy.limit
     if (filterBy.tranding) filterCriteria.tranding = filterBy.tranding
 
-    // console.log('item service sortCriteria:', sortCriteria);
-    // console.log('item service filterCriteria:', filterCriteria);
+    console.log('item service sortCriteria:', sortCriteria);
+    console.log('item service filterCriteria:', filterCriteria);
 
 
     const collection = await dbService.getCollection(COLLECTION)
