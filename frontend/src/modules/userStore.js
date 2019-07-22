@@ -11,11 +11,10 @@ export default {
   mutations: {
     setUsers(state, { users }) {
       state.users = users
-      console.log('finished loading users');
 
     },
     setLoggedInUser(state, { userCreds }) {
-      console.log('@@@');
+      
       
       state.loggedInUser = userCreds
     },
@@ -48,7 +47,6 @@ export default {
     async setLoggedInUser(context, { userCreds }) {
       let id = context.state.loggedInUser._id
         let loggedInUser = await userService.getById(id)
-        console.log('loggedin: ', loggedInUser);
         context.commit({ type: 'updateLoggedInUser', loggedInUser })
      
     },
@@ -82,7 +80,6 @@ export default {
     },
     async loadLoggedInUser(context, { userId }) {
       let userCreds = await UserService.getById(userId)
-      console.log('logged user: ',userCreds);
       
       context.commit({ type: 'setLoggedInUser', userCreds })
 
@@ -108,7 +105,6 @@ export default {
         context.commit({ type: 'updateUsers', user: savedUser })
         let id = context.state.loggedInUser._id
         let loggedInUser = await userService.getById(id)
-        console.log('loggedin: ', loggedInUser);
         context.commit({ type: 'updateLoggedInUser', loggedInUser })
       } catch (err) {
         console.log(err);

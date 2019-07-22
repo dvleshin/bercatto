@@ -2,7 +2,7 @@
   <div class="flex">
     <div class="main-navbar-user flex">
       <div v-if="loggedInUser" class="user-menu">
-        <v-icon @click="addItem">add</v-icon>
+        <v-icon class="add-item" @click="addItem">add</v-icon>
         <ArenasMenu :loggedInUser="loggedInUser"> </ArenasMenu>
         <v-avatar class="user-avatar" @click="goToUserProfile" size="60px">
           <img :src="loggedInUser.profileImg" />
@@ -61,7 +61,6 @@ export default {
           userId: JSON.parse(sessionStorage.loggedInUser)._id
         }).then(user => {
           this.$store.dispatch({type: "setLoggedInUser",userCreds: user});
-      console.log('2',this.loggedInUser);
         })}
   },
   data() {

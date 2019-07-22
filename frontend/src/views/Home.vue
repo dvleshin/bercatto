@@ -16,7 +16,7 @@
           </div>
         </div>
         <h1 class="display-2">Don't throw it away, Replace it.</h1>
-        <h4 class="subheading">Barter, bargain and swap unique items</h4>
+        <span class="description">Barter, bargain and swap unique items</span>
         <h4 class="subheading">
           <v-text-field
             class="search"

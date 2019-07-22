@@ -24,8 +24,9 @@ function setup(http) {
         });
 
         socket.on('chat msg', (msg) => {
-            console.log('message: ' + msg);
-            io.to(room.id).emit('chat newMsg', msg);
+            console.log('message: ' + msg.txt);
+            // io.to().emit('chat newMsg', msg);
+            io.emit('chat newMsg', msg);
         });
     });
 }

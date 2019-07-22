@@ -12,7 +12,6 @@ export default {
   props: ["item"],
   methods: {
     goToItem(id) {
-      console.log(id);
       this.$router.push("/item/" + id);
     }
   },

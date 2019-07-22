@@ -64,7 +64,6 @@ export default {
   methods: {},
   computed: {
     rating() {
-      console.log();
 
       if (this.user.reviews.length) {
         const rating = this.user.reviews.reduce((accumulator, review) => {
