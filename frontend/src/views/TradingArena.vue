@@ -17,7 +17,7 @@
             v-if="owner._id!==loggedInUser._id && suggestedItems"
           >
             <h2 v-if="suggestedItems.length">You suggested :</h2>
-            <img class="suggested-item" v-for="item in suggestedItems" :src="item.imgUrl[0]" alt />
+            <img class="suggested-item animated fadeIn" v-for="item in suggestedItems" :src="item.imgUrl[0]" alt />
           </div>
         </div>
         <div class="buyer-section">
