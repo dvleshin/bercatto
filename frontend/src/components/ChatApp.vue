@@ -30,7 +30,6 @@ export default {
   created() {
     socket.on("chat newMsg", msg => {
       this.msgs.push(msg);
-      console.log(this.messages);
     });
     socket.on("chat history", msgs => {
       this.msgs = msgs;
