@@ -61,7 +61,6 @@ export default {
           userId: JSON.parse(sessionStorage.loggedInUser)._id
         }).then(user => {
           this.$store.dispatch({type: "setLoggedInUser",userCreds: user});
-      console.log('2',this.loggedInUser);
         })}
   },
   data() {

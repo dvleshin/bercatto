@@ -11,11 +11,10 @@ export default {
   mutations: {
     setUsers(state, { users }) {
       state.users = users
-      console.log('finished loading users');
 
     },
     setLoggedInUser(state, { userCreds }) {
-      console.log('@@@');
+      
       
       state.loggedInUser = userCreds
     },
