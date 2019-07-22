@@ -1,27 +1,71 @@
-.item , .suggested-item {
-    height: 200px;
-    width: 200px;
+@import '../setup/functions.scss';
+@import '../setup/_variables.scss';
+
+.item,
+.suggested-item {
+    height: rem(100px);
+    width: rem(100px);
+}
+
+.suggested-item {
+    border-radius: rem(5px);
 }
 
 section {
     display: flex;
+    max-width: rem(1260px);
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
 }
 
 .users-section {
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     flex: 2;
 }
 
-.owner-section , .buyer-section {
-    border: 1px solid black;
-    min-height: 300px;
-   
+.owner-section,
+.buyer-section {
+    //border: 1px solid black;
+    min-height: rem(500px);
+}
+
+.owner-arena-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.owner-arena-area-items {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.suggested-items-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: rem(10px);
+    margin-right: rem(20px);
+    padding: rem(10px);
+
+}
+
+.suggested-items-container :first-child {
+    grid-column: 1 / -1;
+}
+
+.barter-arrow {
+    display: flex;
+    align-items: center;
+}
+.barter-arrow img {
+    width: 100px;
 }
 
 .chat {
-    border: 1px solid black; 
-    flex: 1; 
+    border: 1px solid black;
+    flex: 1;
 }
 
 h2 {
@@ -29,23 +73,29 @@ h2 {
 }
 
 .owner-item {
-    height: 200px;
+    height: rem(200px);
+    border-radius: rem(5px);
 }
+
+.owner-title {
+    margin-bottom: rem(10px);
+}
+
 
 .user-items-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    
-
 }
+
+
 
 .user-items-container img {
-    height: 200px;
-    margin:10px;
+    height: 100px;
+    margin: 10px;
 }
 
-.close-deal-btn{
+.close-deal-btn {
     height: 50px;
     width: 80px;
     background-color: green;
@@ -59,13 +109,13 @@ h2 {
 .img-container {
     position: relative;
     display: flex;
- 
-    
+
+
 }
 
 .done {
     position: absolute;
-    height:77%;
+    height: 77%;
     left: 22%;
     z-index: 1000;
 }
@@ -78,7 +128,7 @@ h2 {
 
 .active {
     filter: grayscale(200%) blur(3px) opacity(80%);
-    
+
 }
 
 
@@ -95,11 +145,18 @@ h2 {
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
     transition-duration: 0.3s;
     transition-property: box-shadow;
-  }
-  .hvr-glow:hover, .hvr-glow:focus, .hvr-glow:active {
+}
+
+.hvr-glow:hover,
+.hvr-glow:focus,
+.hvr-glow:active {
     box-shadow: 0 0 14px rgba(0, 0, 0, 0.6);
-  }
+}
 
-
-
- 
+.hr {
+    margin-top: rem(25px);
+    margin-bottom: rem(25px);
+    height: 1px;
+    color: $clr4;
+    width: 80%
+}
