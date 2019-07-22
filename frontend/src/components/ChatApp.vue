@@ -28,10 +28,13 @@ const socket = io("http://localhost:3000");
 export default {
 
   created() {
+    const arenaId = 'xxx'    
+    socket.emit("chat join", arenaId);
     socket.on("chat newMsg", msg => {
+      
       this.msgs.push(msg);
     });
-    socket.on("chat history", msgs => {
+    socket.on("chat history", msgs => {      
       this.msgs = msgs;
     });
 
@@ -46,6 +49,8 @@ data() {
 
 methods: {
    sendMsg() {
+     console.log('df');
+     
       const msg = { txt: this.msgTxt };
       socket.emit("chat msg", msg, 12);
       this.msgTxt = "";

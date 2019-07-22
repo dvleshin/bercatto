@@ -87,7 +87,6 @@ export default {
     saveItem() {
       this.item.uploadedAt = Date.now();
       this.item.isPicked = false;
-      this.item.isAdmin = false;
       this.item.tags = this.item.tags.split(',')
       this.item.ownerId = JSON.parse(sessionStorage.loggedInUser)._id;
       this.item.value = +this.item.value;

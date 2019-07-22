@@ -88,8 +88,7 @@ export default {
       this.$store
         .dispatch({ type: "doLogin", userCred: this.user })
         .then(res => {
-          // this.loggedInUser = this.$store.getters.loggedInUser;
-          this.loggedInUser = this.$store.getters.loggedInUser;
+         
 
           if (!this.loggedInUser) {
             this.$store

@@ -14,8 +14,6 @@ export default {
 
     },
     setLoggedInUser(state, { userCreds }) {
-      
-      
       state.loggedInUser = userCreds
     },
 
@@ -54,7 +52,6 @@ export default {
       try {
         const userCreds = await userService.doLogin(userCred)
         context.commit({ type: 'setLoggedInUser', userCreds })
-
       } catch (err) {
         console.log(err);
       }

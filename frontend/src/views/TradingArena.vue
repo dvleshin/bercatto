@@ -60,13 +60,17 @@
 
 
 <script>
+import io from "socket.io-client";
+const socket = io("http://localhost:3000");
 import Header from "../components/Header.vue";
 import ChatApp from "../components/ChatApp.vue";
 import utilService from "../services/UtilsService.js";
 export default {
   created() {
-    //  this.loggedInUser = JSON.parse(sessionStorage.loggedInUser)
-    // this.loggedInUser = this.$store.getters.loggedInUser;
+    
+socket.on("arena itemSelected", () => {
+    this.initArena();
+  });
     if (!this.loggedInUser) {
       this.$store
         .dispatch({
@@ -74,7 +78,6 @@ export default {
           userId: JSON.parse(sessionStorage.loggedInUser)._id
         })
         .then(user => {
-          this.loggedInUser = user;
           this.$store.dispatch({
             type: "setLoggedInUser",
             userCreds: user
@@ -88,7 +91,6 @@ export default {
   data() {
     return {
       pickedItems: [],
-      // loggedInUser: null,
       ownerItem: null,
       owner: null,
       userItems: [],
@@ -120,13 +122,13 @@ export default {
               this.owner = user;
               const arenaId = this.$route.query.arena;
               if (arenaId) {
-                this.arena.id = arenaId; //not needed
                 const arena = this.owner.arenas.find(
                   currArena => currArena.id === arenaId
                 );
                 this.suggestedItems = arena.buyer.items;
                 this.pickedItems = arena.buyer.items;
                 this.arena = arena;
+                
               } else this.arena.id = utilService.makeId();
             })
             .then(
@@ -177,7 +179,6 @@ export default {
     saveArena() {
       const arena = { ...this.arena };
       if (!arena.id) arena.id = utilService.makeId();
-      // this.arena.id = arena.id;
       arena.url = `arena?id=${this.ownerItem._id}&arena=${arena.id}`;
       arena.mainItemImgUrl = this.ownerItem.imgUrl[0];
       arena.owner = { id: this.owner._id, item: this.ownerItem._id };
@@ -229,13 +230,13 @@ export default {
             .dispatch({ type: "updateUser", user: newBuyer })
             .then(() => {
               () => {
-                //  this.$router.push(arena.url)
               };
             });
         }); // -------------------------------------------------
       this.$router.push(
         `arena?id=${this.ownerItem._id}&arena=${this.arena.id}`
       );
+      socket.emit("arena itemSelected");
     }
   },
   components: {
