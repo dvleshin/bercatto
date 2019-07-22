@@ -10,20 +10,25 @@
             class="close-deal-btn"
             v-if="owner._id===loggedInUser._id && !arena.isDone"
           >Close Deal</button>
-          <h2>Owner: {{owner.fullName}}</h2>
-          <img class="owner-item" :src="ownerItem.imgUrl[0]" alt />
-          <div
-            class="suggested-items-container"
-            v-if="owner._id!==loggedInUser._id && suggestedItems"
-          >
-            <h2 v-if="suggestedItems.length">You suggested :</h2>
-            <img
-              class="suggested-item animated fadeIn"
-              v-for="item in suggestedItems"
-              :src="item.imgUrl[0]"
-            />
+          <div class="owner-arena-area">
+            <div class="owner-arena-area-items">
+              <div>
+                <h2 class="owner-title">Owner: {{owner.fullName}}</h2>
+                <img class="owner-item" :src="ownerItem.imgUrl[0]" alt />
+              </div>
+              <div class="barter-arrow" v-if="owner._id!==loggedInUser._id && suggestedItems">
+                <img src="../../public/img/arrows.png">
+              </div>
+              <div>
+                  <div class="suggested-items-container" v-if="owner._id!==loggedInUser._id && suggestedItems">
+                    <h2 v-if="suggestedItems.length">You suggested:</h2>
+                    <img class="suggested-item animated fadeIn" v-for="item in suggestedItems" :src="item.imgUrl[0]" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <center><hr class="hr"></center>
         <div class="buyer-section">
           <div v-if="owner._id!==loggedInUser._id" class="user-items-container">
             <h2>Buyer: {{this.loggedInUser.fullName}}</h2>
