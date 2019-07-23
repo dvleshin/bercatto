@@ -6,7 +6,7 @@
         Live chat with {{owner._id==loggedInUser._id ? this.arena.buyer.fullName: this.owner.fullName}}
         <span>▼</span>
       </div>
-      <div class="chat" :class="{hide: toggleChat}" @keyup.esc="onToggleChat">
+      <div class="chat" :class="{hide: toggleChat, chat ,animated ,fadeIn ,faster}" @keyup.esc="onToggleChat">
         <div class="chat-header">
           <div>Chat with {{owner._id==loggedInUser._id ? this.arena.buyer.fullName: this.owner.fullName}}</div>
           <div @click="onToggleChat">
@@ -28,19 +28,18 @@
           <div class="owner-arena-area">
             <div class="owner-arena-area-items">
               <div>
-                <h2 class="owner-title">Owner: {{owner.fullName}}</h2>
+                <h2 class="owner-title">{{owner.fullName}} suggested:</h2>
                 <img class="owner-item" :src="ownerItem.imgUrl[0]" alt />
               </div>
-              <div class="barter-arrow" v-if="owner._id!==loggedInUser._id && suggestedItems">
+              <div class="barter-arrow">
                 <img src="../../public/img/arrows.png" />
               </div>
               <div>
-                <h2 v-if="!suggestedItems">Try Your Luck, Pick One Of Your Items And Start Bargain!</h2>
+                <!-- <h2 v-if="!suggestedItems">Try Your Luck, Pick One Of Your Items And Start Bargain!</h2> -->
                 <div
                   class="suggested-items-container"
                   v-if="owner._id!==loggedInUser._id && suggestedItems"
                 >
-                  <h2 v-if="suggestedItems.length">You suggested:</h2>
                   <img
                     class="suggested-item animated fadeIn"
                     v-for="item in suggestedItems"
@@ -56,16 +55,13 @@
         </center>
         <div class="buyer-section">
           <div v-if="owner._id!==loggedInUser._id" class="user-items-container">
-            <h2>Buyer: {{this.loggedInUser.fullName}}</h2>
+            <h2>Your items to suggest:</h2>
             <div v-if="!userItems.length">
               <h2>Please Upload Items To Bargain</h2>
               <v-btn @click="addItem">Add Item</v-btn>
             </div>
-            <div
-              class="img-container hvr-glow"
-              v-for="item in userItems"
-              @click="togglePickItem(item)"
-            >
+            <div class="img-container hvr-glow" v-for="item in userItems" @click="togglePickItem(item)">
+
               <img :class="{active : item.isPicked , item}" :src="item.imgUrl[0]" alt />
               <img v-if="item.isPicked" class="selected" src="../../public/img/selected.png" alt />
             </div>

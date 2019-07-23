@@ -19,7 +19,7 @@
 
 section {
     display: flex;
-    max-width: rem(1260px);
+    max-width: rem(960px);
     margin: 0 auto;
     font-family: 'Roboto', sans-serif;
 }
@@ -35,6 +35,10 @@ section {
 .owner-section {
     //border: 1px solid black;
     min-height: rem(500px);
+    border: 1px solid $clr1;
+    padding: rem(20px);
+    border-radius: rem(5px);
+    box-shadow: 0px rem(13px) rem(23px) -12px rgba(0, 0, 0, 0.5);
 }
 
 .owner-arena-area {
@@ -52,16 +56,14 @@ section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: rem(10px);
-    margin-right: rem(20px);
-    padding: rem(10px);
-
 }
 
-.suggested-items-container :first-child {
-    grid-column: 1 / -1;
-}
+// .suggested-items-container :first-child {
+//     grid-column: 1 / -1;
+// }
 
 .barter-arrow {
+    min-height: rem(500px);
     display: flex;
     align-items: center;
 }
@@ -135,14 +137,16 @@ h2 {
     margin-bottom: rem(10px);
 }
 
+.user-items {
+    margin-right: rem(20px);
+    width: 190px;
+}
 
 .user-items-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-
-
 
 .user-items-container img {
     height: 100px;
