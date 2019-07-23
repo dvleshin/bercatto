@@ -19,14 +19,14 @@ section {
 }
 
 .users-section {
+    max-height: 100vh;
     padding-top: 20px;
     display: flex;
     flex-direction: column;
     flex: 2;
 }
 
-.owner-section,
-.buyer-section {
+.owner-section {
     //border: 1px solid black;
     min-height: rem(500px);
 }
@@ -64,8 +64,12 @@ section {
 }
 
 .chat {
+    position: absolute;
+    top: 80;
+    right: 50%;
     border: 1px solid black;
     flex: 1;
+    background-color: #fff;
 }
 
 h2 {

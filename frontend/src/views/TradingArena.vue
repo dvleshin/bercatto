@@ -4,7 +4,7 @@
     <section v-if="ownerItem && owner">
       <div class="users-section">
         <div class="owner-section">
-          <img class="done" v-if="arena.isDone" src="../../public/img/deal.png" alt />
+          <img class="done" v-if="arena.isDone" src="../../public/img/deal.png"/>
           <button
             @click="closeDeal"
             class="close-deal-btn"
