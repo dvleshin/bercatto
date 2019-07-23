@@ -20,7 +20,7 @@ section {
 
 .users-section {
     max-height: 100vh;
-    padding-top: 20px;
+    padding-top: rem(20px);
     display: flex;
     flex-direction: column;
     flex: 2;
@@ -59,17 +59,61 @@ section {
     display: flex;
     align-items: center;
 }
+
 .barter-arrow img {
-    width: 100px;
+    width: rem(100px);
+}
+
+.chat-area {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    height: rem(25px);
+}
+
+.open-chat {
+    cursor: pointer;
+    border-right: 1px solid $btn2;
+    border-left: 1px solid $btn2;
+    border-bottom: 1px solid $btn2;
+    border-radius: 0 0 rem(5px) rem(5px);
+    padding: 0 rem(10px) rem(5px) rem(10px);
+    background-color: $btn1;
+    color: $clr7;
+    font-weight: 700;
+    box-shadow: 0px rem(13px) rem(23px) -12px rgba(0, 0, 0, 0.5);
+}
+
+.chat-area span {
+    color: $clr7;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $btn1;
+    height: 25px;
+    color: $clr7;
+    padding: 5px;
+    font-weight: 700;
+    box-shadow: 0px 5px 12px 6px rgba(0,0,0,0.07);
 }
 
 .chat {
-    position: absolute;
-    top: 80;
-    right: 50%;
-    border: 1px solid black;
-    flex: 1;
     background-color: #fff;
+    position: absolute;
+    z-index: 1000;
+    width: 400px;
+    border-right: 1px solid $btn2;
+    border-left: 1px solid $btn2;
+    border-bottom: 1px solid $btn2;
+    border-radius: 0 0 5px 5px;
 }
 
 h2 {

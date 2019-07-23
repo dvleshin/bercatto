@@ -11,12 +11,16 @@ section {
     margin-top: 0;
   }
   .chat-list {
+    position: relative;
     height: 300px;
     overflow: auto;
   }
   .chat-list ul {
+    position: absolute;
+    bottom: 0px;
     list-style-type: none;
     padding-inline-start: 0;
+    overflow: auto;
   }
   .chat-list ul li {
     padding: 5px;

@@ -1,6 +1,16 @@
 <template>
   <div>
     <Header></Header>
+    <div class="chat-area">
+      <div @click="onToggleChat" v-if="toggleChat" class="open-chat">Live chat with {{owner._id==loggedInUser._id ? this.arena.buyer.fullName: this.owner.fullName}} <span>▼</span></div>
+        <div class="chat" v-if="!toggleChat" @keyup.esc="onToggleChat">
+          <div class="chat-header">
+            <div>Chat with {{owner._id==loggedInUser._id ? this.arena.buyer.fullName: this.owner.fullName}}</div>
+            <div @click="onToggleChat"><span>▲</span></div>
+          </div>
+          <ChatApp></ChatApp>
+        </div>
+      </div>
     <section v-if="ownerItem && owner">
       <div class="users-section">
         <div class="owner-section">
@@ -59,9 +69,6 @@
             <img v-if="!item.isSold" class="item" v-for="item in suggestedItems" :src="item.imgUrl[0]" alt />
           </div>
         </div>
-      </div>
-      <div class="chat">
-        <ChatApp></ChatApp>
       </div>
     </section>
   </div>
@@ -123,7 +130,8 @@ export default {
         buyer: null,
         isDone: false,
         mainItemImgUrl: ""
-      }
+      },
+      toggleChat: true,
     };
   },
   computed: {
@@ -256,6 +264,9 @@ export default {
         `arena?id=${this.ownerItem._id}&arena=${this.arena.id}`
       );
       socket.emit("arena itemSelected");
+    },
+    onToggleChat(){
+      this.toggleChat = !this.toggleChat
     }
   },
 

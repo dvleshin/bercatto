@@ -26,7 +26,7 @@
             :append-icon-cb="search"
             solo
             style="border-radius: 30px"
-            placeholder="Search..."
+            placeholder="Search items for bargain..."
             autofocus
           ></v-text-field>
         </h4>
@@ -37,7 +37,7 @@
       <v-container fluid>
         <MainItemList class="trending-section category" @remove="remove" :tranding="true">
           <h2 slot="title">Trending Now:</h2>
-          <div slot="more" class="more-btn"></div>
+          <div slot="more"></div>
         </MainItemList>
       </v-container>
       <v-container fluid>
