@@ -1,13 +1,13 @@
 <template>
   <section>
     <div class="chat-list">
-       <ul id="messages">
-         <li v-for="msg in msgs">{{msg.txt}} </li>
-       </ul>
+      <ul id="messages">
+        <li v-for="msg in msgs">{{msg.txt}}</li>
+      </ul>
     </div>
     <!-- <template v-if="isTyping">
       <span class="typing-msg">typing...</span>
-    </template> -->
+    </template>-->
     <div class="form">
       <form>
         <v-text-field v-model="msgTxt" id="txt" placeholder="Your message..."></v-text-field>
@@ -24,9 +24,7 @@
 import io from "socket.io-client";
 const socket = io("http://localhost:3000");
 
-
 export default {
-
   created() {
     const arenaId = this.$route.query.arena   
     socket.emit("chat join", arenaId);
@@ -40,12 +38,12 @@ export default {
 
   },
 
-data() {
-  return {
-    msgs:[],
-    msgTxt: ''
-  } 
-},
+  data() {
+    return {
+      msgs: [],
+      msgTxt: ""
+    };
+  },
 
 methods: {
    sendMsg() {

@@ -18,7 +18,7 @@
           <span>Condition: {{item.condition}}</span>
           <span>Added: {{humanTime(item.uploadedAt)}}</span>
         </div>
-        <button @click="goToArena(item.Id)" class="arena-btn">Go to Arena</button>
+        <button @click="goToArena(item.Id)" class="arena-btn">Barter it</button>
       </div>
       <img src="../../public/img/trending.png" v-if="item.views>50" class="trending" />
       <v-icon

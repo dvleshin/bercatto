@@ -11,7 +11,6 @@ export default {
   mutations: {
     setUsers(state, { users }) {
       state.users = users
-
     },
 
     deleteUser(state, { userId }) {
@@ -39,7 +38,7 @@ export default {
         const user = await userService.save(userCred)
         context.commit({ type: 'setLoggedInUser', user })
       } catch (err) {
-        console.log(err);
+        console.log('Signup error:', err);
       }
     },
     async setLoggedInUser(context) {
@@ -58,7 +57,7 @@ export default {
         const userCreds = await userService.doLogin(userCred)
         context.commit({ type: 'setLoggedInUser', userCreds })
       } catch (err) {
-        console.log(err);
+        console.log('Login error:', err);
       }
     },
     async doLogout(context) {
@@ -68,7 +67,6 @@ export default {
         context.commit({ type: 'logOutUser', userLoggetOut })
       } catch (err) {
         console.log('Logout error:', err);
-
       }
     },
 
@@ -77,7 +75,7 @@ export default {
         const users = await userService.query()
         context.commit({ type: 'setUsers', users })
       } catch (err) {
-        console.log(err);
+        console.log('Loading users error:', err);
       }
     },
     getUserById(context, { userId }) {
@@ -86,12 +84,13 @@ export default {
     getUserItems(context, { userId }) {
       return userService.getUserItems(userId)
     },
+
     async deleteUser(context, { userId }) {
       try {
         await userService.remove(userId)
         context.commit({ type: 'deleteUser', userId })
       } catch (err) {
-        console.log(err);
+        console.log('Can\'t delete user. Error:', err);
       }
     },
     async updateUser(context, { user }) {
@@ -103,7 +102,7 @@ export default {
         let loggedInUser = await userService.getById(id)
         context.commit({ type: 'updateLoggedInUser', loggedInUser })
       } catch (err) {
-        console.log(err);
+        console.log('Update user error:', err);
       }
     },
     async getCordsByName(context, { location }) {
@@ -111,7 +110,7 @@ export default {
         const cords = await utilsService.getCordsByName(location)
         return cords
       } catch (err) {
-        console.log(err);
+        console.log('Geting cords error:', err);
       }
     },
 

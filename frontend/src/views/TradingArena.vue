@@ -1,10 +1,20 @@
 <template>
   <div>
     <Header></Header>
+    <div class="chat-area">
+      <div @click="onToggleChat" v-if="toggleChat" class="open-chat">Live chat with {{owner._id==loggedInUser._id ? this.arena.buyer.fullName: this.owner.fullName}} <span>▼</span></div>
+        <div class="chat" v-if="!toggleChat" @keyup.esc="onToggleChat">
+          <div class="chat-header">
+            <div>Chat with {{owner._id==loggedInUser._id ? this.arena.buyer.fullName: this.owner.fullName}}</div>
+            <div @click="onToggleChat"><span>▲</span></div>
+          </div>
+          <ChatApp></ChatApp>
+        </div>
+      </div>
     <section v-if="ownerItem && owner">
       <div class="users-section">
         <div class="owner-section">
-          <img class="done" v-if="arena.isDone" src="../../public/img/deal.png" alt />
+          <img class="done" v-if="arena.isDone" src="../../public/img/deal.png"/>
           <button
             @click="closeDeal"
             class="close-deal-btn"
@@ -60,9 +70,6 @@
           </div>
         </div>
       </div>
-      <div class="chat">
-        <ChatApp></ChatApp>
-      </div>
     </section>
   </div>
 </template>
@@ -111,7 +118,8 @@ export default {
         buyer: null,
         isDone: false,
         mainItemImgUrl: ""
-      }
+      },
+      toggleChat: true,
     };
   },
   computed: {
@@ -243,7 +251,10 @@ export default {
       this.$router.push(
         `arena?id=${this.ownerItem._id}&arena=${this.arena.id}`
       );
-      socket.emit("arena itemSelected" , this.arena.id);
+      socket.emit("arena itemSelected", this.arena.id);
+    },
+    onToggleChat(){
+      this.toggleChat = !this.toggleChat
     }
   },
 

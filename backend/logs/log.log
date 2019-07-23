@@ -480,6 +480,10 @@ Mon, 22 Jul 2019 08:09:28 GMT - Info - Server is running on port: 3000
 Mon, 22 Jul 2019 08:09:32 GMT - Info - Server is running on port: 3000
 Mon, 22 Jul 2019 08:09:36 GMT - Info - Server is running on port: 3000
 Mon, 22 Jul 2019 08:13:49 GMT - Info - Server is running on port: 3000
+<<<<<<< HEAD
+Mon, 22 Jul 2019 09:34:48 GMT - Info - Server is running on port: 3000
+Mon, 22 Jul 2019 11:11:38 GMT - Info - Server is running on port: 3000
+=======
 Mon, 22 Jul 2019 15:42:50 GMT - Info - Server is running on port: 3000
 Mon, 22 Jul 2019 15:43:37 GMT - Info - Server is running on port: 3000
 Mon, 22 Jul 2019 15:52:15 GMT - Info - Server is running on port: 3000
@@ -490,5 +494,9 @@ Mon, 22 Jul 2019 16:31:30 GMT - Info - Server is running on port: 3000
 Tue, 23 Jul 2019 06:17:03 GMT - Info - Server is running on port: 3000
 Tue, 23 Jul 2019 06:17:12 GMT - Info - Server is running on port: 3000
 Tue, 23 Jul 2019 06:18:55 GMT - Info - Server is running on port: 3000
+<<<<<<< HEAD
 Tue, 23 Jul 2019 09:30:10 GMT - Info - Server is running on port: 3000
 Tue, 23 Jul 2019 11:53:22 GMT - Info - Server is running on port: 3000
+=======
+>>>>>>> ac4a40ba2703ecf92fe5caf046daec8109aa040a
+>>>>>>> 327d9a7d8c011c37bb172ad7e08a4abdfff117cd
