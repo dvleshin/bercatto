@@ -63,18 +63,3 @@ destroyed() {
 </script>
 <style lang="scss" scoped src="../styles/components/chat-app.scss">
 </style>
-
-
-{
-userOneId
-userTwoId
-arenaId
-msgs[
-  {
-    from
-    to
-    at
-    txt
-  }
-]
-}

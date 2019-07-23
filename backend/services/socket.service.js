@@ -1,14 +1,19 @@
 
 const socketIO = require('socket.io');
 const roomService = require('./room-service');
+const messageService = require('./message.service');
 
 var io;
 var activeUsersCount = 0;
 
 function setup(http) {
     io = socketIO(http);
-    io.on('connection', function (socket) {
+    io.on('connection', async function (socket) {
         console.log('a user connected');
+        const msgs = await messageService.getById('QgPkZv')
+            console.log('Messages:', msgs);
+            
+
         var room;
         activeUsersCount++;
 

@@ -3,7 +3,7 @@
     <Header></Header>
     <div class="chat-area">
       <div @click="onToggleChat" v-if="toggleChat" class="open-chat">Live chat with {{owner._id==loggedInUser._id ? this.arena.buyer.fullName: this.owner.fullName}} <span>▼</span></div>
-        <div class="chat" v-if="!toggleChat" @keyup.esc="onToggleChat">
+        <div class="chat animated fadeIn faster" v-if="!toggleChat" @keyup.esc="onToggleChat">
           <div class="chat-header">
             <div>Chat with {{owner._id==loggedInUser._id ? this.arena.buyer.fullName: this.owner.fullName}}</div>
             <div @click="onToggleChat"><span>▲</span></div>
