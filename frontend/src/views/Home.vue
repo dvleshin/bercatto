@@ -15,7 +15,7 @@
             <MainHeader></MainHeader>
           </div>
         </div>
-        <h1 class="display-2">Don't throw it away, Replace it.</h1>
+        <h1 class="display-2 brand">Don't throw it away, Replace it.</h1>
         <span class="description">Barter, bargain and swap unique items</span>
         <h4 class="subheading">
           <v-text-field

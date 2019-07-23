@@ -57,14 +57,13 @@ const socket = io("http://localhost:3000");
 export default {
   
   created() {
-    console.log(this.$route.path);
     
  socket.on("arena itemSelected", () => {
       this.$store.dispatch({type:'setLoggedInUser'})
  })
 
 
-    if(!this.loggedInUser) {
+    
     this.$store
         .dispatch({
           type: "loadLoggedInUser",
@@ -72,7 +71,7 @@ export default {
         }).then(user => {
           this.$store.dispatch({type: "setLoggedInUser"});
         })
-    }
+    
   },
   data() {
     return {
@@ -116,6 +115,10 @@ export default {
  loggedInUser() {
    return this.$store.getters.loggedInUser
  }
+  },
+
+  destroyed() {
+     socket.removeListener('arena itemSelected')
   },
   components: {
     Signup,

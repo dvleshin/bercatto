@@ -2,19 +2,24 @@
   <div>
     <Header></Header>
     <div class="chat-area">
-      <div @click="onToggleChat" v-if="toggleChat" class="open-chat">Live chat with {{owner._id==loggedInUser._id ? this.arena.buyer.fullName: this.owner.fullName}} <span>▼</span></div>
-        <div class="chat" v-if="!toggleChat" @keyup.esc="onToggleChat">
-          <div class="chat-header">
-            <div>Chat with {{owner._id==loggedInUser._id ? this.arena.buyer.fullName: this.owner.fullName}}</div>
-            <div @click="onToggleChat"><span>▲</span></div>
-          </div>
-          <ChatApp></ChatApp>
-        </div>
+      <div @click="onToggleChat" v-if="toggleChat" class="open-chat">
+        Live chat with {{owner._id==loggedInUser._id ? this.arena.buyer.fullName: this.owner.fullName}}
+        <span>▼</span>
       </div>
+      <div class="chat" :class="{hide: toggleChat}" @keyup.esc="onToggleChat">
+        <div class="chat-header">
+          <div>Chat with {{owner._id==loggedInUser._id ? this.arena.buyer.fullName: this.owner.fullName}}</div>
+          <div @click="onToggleChat">
+            <span>▲</span>
+          </div>
+        </div>
+        <ChatApp></ChatApp>
+      </div>
+    </div>
     <section v-if="ownerItem && owner">
       <div class="users-section">
         <div class="owner-section">
-          <img class="done" v-if="arena.isDone" src="../../public/img/deal.png"/>
+          <img class="done" v-if="arena.isDone" src="../../public/img/deal.png" />
           <button
             @click="closeDeal"
             class="close-deal-btn"
@@ -30,6 +35,7 @@
                 <img src="../../public/img/arrows.png" />
               </div>
               <div>
+                <h2 v-if="!suggestedItems">Try Your Luck, Pick One Of Your Items And Start Bargain!</h2>
                 <div
                   class="suggested-items-container"
                   v-if="owner._id!==loggedInUser._id && suggestedItems"
@@ -66,7 +72,13 @@
           </div>
           <div v-else class="user-items-container">
             <h2>Buyer: {{this.arena.buyer.fullName}}</h2>
-            <img v-if="!item.isSold" class="item" v-for="item in suggestedItems" :src="item.imgUrl[0]" alt />
+            <img
+              v-if="!item.isSold"
+              class="item"
+              v-for="item in suggestedItems"
+              :src="item.imgUrl[0]"
+              alt
+            />
           </div>
         </div>
       </div>
@@ -83,12 +95,11 @@ import ChatApp from "../components/ChatApp.vue";
 import utilService from "../services/UtilsService.js";
 export default {
   created() {
-    socket.on("arena itemSelected", (arenaId) => {
+    socket.on("arena itemSelected", arenaId => {
       console.log(arenaId);
-      
+
       this.initArena();
     });
-   
 
     if (!this.loggedInUser) {
       this.$store
@@ -97,7 +108,7 @@ export default {
           userId: JSON.parse(sessionStorage.loggedInUser)._id
         })
         .then(user => {
-          this.$store.dispatch({type: "setLoggedInUser"});
+          this.$store.dispatch({ type: "setLoggedInUser" });
         })
         .then(() => {
           this.initArena();
@@ -119,7 +130,7 @@ export default {
         isDone: false,
         mainItemImgUrl: ""
       },
-      toggleChat: true,
+      toggleChat: true
     };
   },
   computed: {
@@ -253,14 +264,13 @@ export default {
       );
       socket.emit("arena itemSelected", this.arena.id);
     },
-    onToggleChat(){
-      this.toggleChat = !this.toggleChat
+    onToggleChat() {
+      this.toggleChat = !this.toggleChat;
     }
   },
 
   destroyed() {
-       socket.removeListener('arena itemSelected')
-       
+    socket.removeListener("arena itemSelected");
   },
   components: {
     Header,

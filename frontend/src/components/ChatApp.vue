@@ -26,15 +26,17 @@ const socket = io("http://localhost:3000");
 
 export default {
   created() {
+    
     const arenaId = this.$route.query.arena   
-    socket.emit("chat join", arenaId);
+    socket.emit("chat join",this.loggedInUser.fullName ,arenaId);
     socket.on("chat newMsg", msg => {
+      console.log(this.msgs);
+      
       this.msgs.push(msg);
     });
     socket.on("chat history", msgs => {      
       this.msgs = msgs;
     });
-    socket.emit("chat join", loggedInUser._id, this.currUser[0].userName);
 
   },
 
@@ -47,8 +49,9 @@ export default {
 
 methods: {
    sendMsg() {
+     const arenaId = this.$route.query.arena 
       const msg = { txt: this.msgTxt };
-      socket.emit("chat msg", msg);
+      socket.emit("chat msg", msg );
       this.msgTxt = "";
     },
 },

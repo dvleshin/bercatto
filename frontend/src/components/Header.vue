@@ -118,6 +118,9 @@ export default {
       return this.$store.getters.loggedInUser
     }
   },
+  destroyed() {
+     socket.removeListener('arena itemSelected')
+  },
   components: {
     Signup,
     ArenasMenu
