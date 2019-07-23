@@ -1,5 +1,5 @@
 <template>
-  <section class="item">
+  <section v-if="!item.isSold" class="item">
     <v-card max-width="300">
       <v-img
         @click.stop="seeItem"
@@ -35,7 +35,6 @@
       class="delete"
       @click="remove(item._id)"
     >remove</v-icon>
-    <!--v-if user is the owner -->
   </section>
 </template>
 <script>
@@ -54,7 +53,6 @@ export default {
   data() {
     return {
       moment: moment,
-      // loggedInUserId: null
     };
   },
   methods: {

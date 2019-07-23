@@ -30,8 +30,8 @@ function setup(http) {
             // io.to().emit('chat newMsg', msg);
             io.emit('chat newMsg', msg);
         });
-        socket.on('arena itemSelected', () => {
-            io.emit('arena itemSelected');
+        socket.on('arena itemSelected', (arenaId) => {
+            io.emit('arena itemSelected',arenaId);
         });
     });
 }

@@ -76,19 +76,10 @@ import ChatApp from "../components/ChatApp.vue";
 import utilService from "../services/UtilsService.js";
 export default {
   created() {
-    socket.on("arena itemSelected", () => {
+    socket.on("arena itemSelected", (arenaId) => {
+      console.log(arenaId);
+      
       this.initArena();
-      // this.$store
-      //   .dispatch({
-      //     type: "getUserById",
-      //     userId: JSON.parse(sessionStorage.loggedInUser)._id
-      //   })
-      //   .then(user => {
-      //     this.$store.dispatch({
-      //       type: "setLoggedInUser",
-      //       userCreds: user
-      //     });
-      //   });
     });
    
 
@@ -99,10 +90,7 @@ export default {
           userId: JSON.parse(sessionStorage.loggedInUser)._id
         })
         .then(user => {
-          this.$store.dispatch({
-            type: "setLoggedInUser",
-            userCreds: user
-          });
+          this.$store.dispatch({type: "setLoggedInUser"});
         })
         .then(() => {
           this.initArena();
@@ -255,7 +243,7 @@ export default {
       this.$router.push(
         `arena?id=${this.ownerItem._id}&arena=${this.arena.id}`
       );
-      socket.emit("arena itemSelected");
+      socket.emit("arena itemSelected" , this.arena.id);
     }
   },
 
@@ -269,7 +257,6 @@ export default {
   },
   watch: {
     "$route.fullPath": function(newVal, oldVal) {
-      console.log(newVal);
       this.initArena();
     }
   }

@@ -13,9 +13,6 @@ export default {
       state.users = users
 
     },
-    setLoggedInUser(state, { userCreds }) {
-      state.loggedInUser = userCreds
-    },
 
     deleteUser(state, { userId }) {
       let idx = state.users.findIndex(user => user._id === userId)
@@ -24,6 +21,9 @@ export default {
     updateUsers(state, { user }) {
       const idx = state.users.findIndex(currUser => currUser._id === user._id)
       state.users.splice(idx, 1, user);
+    },
+    setLoggedInUser(state, { userCreds }) {
+      state.loggedInUser = userCreds
     },
     updateLoggedInUser(state, { loggedInUser }) {
       state.loggedInUser = loggedInUser
@@ -42,11 +42,16 @@ export default {
         console.log(err);
       }
     },
-    async setLoggedInUser(context, { userCreds }) {
+    async setLoggedInUser(context) {
       let id = context.state.loggedInUser._id
-        let loggedInUser = await userService.getById(id)
-        context.commit({ type: 'updateLoggedInUser', loggedInUser })
-     
+      let loggedInUser = await userService.getById(id)
+      context.commit({ type: 'updateLoggedInUser', loggedInUser })
+
+    },
+    async loadLoggedInUser(context, { userId }) {
+      let userCreds = await UserService.getById(userId)
+      context.commit({ type: 'setLoggedInUser', userCreds })
+
     },
     async doLogin(context, { userCred }) {
       try {
@@ -75,12 +80,6 @@ export default {
         console.log(err);
       }
     },
-    async loadLoggedInUser(context, { userId }) {
-      let userCreds = await UserService.getById(userId)
-      
-      context.commit({ type: 'setLoggedInUser', userCreds })
-
-    },
     getUserById(context, { userId }) {
       return Promise.resolve(userService.getById(userId))
     },
@@ -96,7 +95,7 @@ export default {
       }
     },
     async updateUser(context, { user }) {
-      
+
       try {
         const savedUser = await userService.update(user)
         context.commit({ type: 'updateUsers', user: savedUser })

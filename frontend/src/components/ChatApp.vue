@@ -28,7 +28,7 @@ const socket = io("http://localhost:3000");
 export default {
 
   created() {
-    const arenaId = 'xxx'    
+    const arenaId = this.$route.query.arena   
     socket.emit("chat join", arenaId);
     socket.on("chat newMsg", msg => {
       this.msgs.push(msg);
@@ -36,6 +36,7 @@ export default {
     socket.on("chat history", msgs => {      
       this.msgs = msgs;
     });
+    socket.emit("chat join", loggedInUser._id, this.currUser[0].userName);
 
   },
 
@@ -48,8 +49,6 @@ data() {
 
 methods: {
    sendMsg() {
-    
-     
       const msg = { txt: this.msgTxt };
       socket.emit("chat msg", msg);
       this.msgTxt = "";
@@ -61,6 +60,11 @@ destroyed() {
   socket.removeListener('chat history')
 },
 
+computed: {
+  loggedInUser() {
+    return this.$store.getters.loggedInUser
+  }
+},
 }
 
 </script>

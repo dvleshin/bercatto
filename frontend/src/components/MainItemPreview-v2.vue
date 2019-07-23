@@ -1,6 +1,6 @@
 <template>
   <!-- <section v-if="!item.isSold" class="item"> -->
-  <section class="item">
+  <section v-if="!item.isSold" class="item">
     <img class="loader" v-if="!itemUser" src="../../public/img/loader.gif" alt />
     <div class="card" v-else>
       <div class="img-container">
@@ -72,9 +72,8 @@ export default {
       this.$router.push(`user/${this.item.ownerId}`);
     },
     goToArena() {
-      // console.log("@@@");
 
-      if (!sessionStorage.loggedInUser) {
+      if (!this.loggedInUser) {
         this.$noty.error("Please Login Or Signup", {
           killer: true,
           timeout: 3000,
