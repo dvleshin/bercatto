@@ -20,7 +20,7 @@ function setup(http) {
         socket.on('chat join', (arenaId) => {
             socket.emit('chat history', [{txt: arenaId}]);
 
-            // room = roomService.placeInRoom(user)
+            // room = roomService.placeInRoom(arenaId)
             // console.log('Placed', user, 'in room:', room);
             // socket.join(room.id);
         });

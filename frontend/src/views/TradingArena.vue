@@ -17,18 +17,27 @@
                 <img class="owner-item" :src="ownerItem.imgUrl[0]" alt />
               </div>
               <div class="barter-arrow" v-if="owner._id!==loggedInUser._id && suggestedItems">
-                <img src="../../public/img/arrows.png">
+                <img src="../../public/img/arrows.png" />
               </div>
               <div>
-                  <div class="suggested-items-container" v-if="owner._id!==loggedInUser._id && suggestedItems">
-                    <h2 v-if="suggestedItems.length">You suggested:</h2>
-                    <img class="suggested-item animated fadeIn" v-for="item in suggestedItems" :src="item.imgUrl[0]" />
+                <div
+                  class="suggested-items-container"
+                  v-if="owner._id!==loggedInUser._id && suggestedItems"
+                >
+                  <h2 v-if="suggestedItems.length">You suggested:</h2>
+                  <img
+                    class="suggested-item animated fadeIn"
+                    v-for="item in suggestedItems"
+                    :src="item.imgUrl[0]"
+                  />
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <center><hr class="hr"></center>
+        <center>
+          <hr class="hr" />
+        </center>
         <div class="buyer-section">
           <div v-if="owner._id!==loggedInUser._id" class="user-items-container">
             <h2>Buyer: {{this.loggedInUser.fullName}}</h2>
@@ -47,7 +56,7 @@
           </div>
           <div v-else class="user-items-container">
             <h2>Buyer: {{this.arena.buyer.fullName}}</h2>
-            <img class="item" v-for="item in suggestedItems" :src="item.imgUrl[0]" alt />
+            <img v-if="!item.isSold" class="item" v-for="item in suggestedItems" :src="item.imgUrl[0]" alt />
           </div>
         </div>
       </div>
@@ -67,10 +76,22 @@ import ChatApp from "../components/ChatApp.vue";
 import utilService from "../services/UtilsService.js";
 export default {
   created() {
-    
-socket.on("arena itemSelected", () => {
-    this.initArena();
-  });
+    socket.on("arena itemSelected", () => {
+      this.initArena();
+      // this.$store
+      //   .dispatch({
+      //     type: "getUserById",
+      //     userId: JSON.parse(sessionStorage.loggedInUser)._id
+      //   })
+      //   .then(user => {
+      //     this.$store.dispatch({
+      //       type: "setLoggedInUser",
+      //       userCreds: user
+      //     });
+      //   });
+    });
+   
+
     if (!this.loggedInUser) {
       this.$store
         .dispatch({
@@ -128,7 +149,6 @@ socket.on("arena itemSelected", () => {
                 this.suggestedItems = arena.buyer.items;
                 this.pickedItems = arena.buyer.items;
                 this.arena = arena;
-                
               } else this.arena.id = utilService.makeId();
             })
             .then(
@@ -150,11 +170,11 @@ socket.on("arena itemSelected", () => {
     closeDeal() {
       this.arena.isDone = true;
       this.saveArena();
-      // this.suggestedItems.forEach(item => {
-      //   const editedItem = { ...item };
-      //   editedItem.isPicked = false;
-      //   this.$store.dispatch({ type: "saveItem", item: { ...editedItem } });
-      // });
+      this.suggestedItems.forEach(item => {
+        const editedItem = { ...item };
+        editedItem.isSold = true;
+        this.$store.dispatch({ type: "saveItem", item: { ...editedItem } });
+      });
       const editedOwnerItem = { ...this.ownerItem };
       editedOwnerItem.isSold = true;
       this.$store.dispatch({ type: "saveItem", item: { ...editedOwnerItem } });
@@ -184,7 +204,7 @@ socket.on("arena itemSelected", () => {
       arena.owner = { id: this.owner._id, item: this.ownerItem._id };
       if (this.suggestedItems) {
         arena.buyer = {
-          fullName: this.loggedInUser.fullName,
+          fullName: this.arena.buyer.fullName,
           id: this.suggestedItems[0].ownerId,
           items: this.pickedItems
         };
@@ -229,8 +249,7 @@ socket.on("arena itemSelected", () => {
           this.$store
             .dispatch({ type: "updateUser", user: newBuyer })
             .then(() => {
-              () => {
-              };
+              () => {};
             });
         }); // -------------------------------------------------
       this.$router.push(
@@ -238,6 +257,11 @@ socket.on("arena itemSelected", () => {
       );
       socket.emit("arena itemSelected");
     }
+  },
+
+  destroyed() {
+       socket.removeListener('arena itemSelected')
+       
   },
   components: {
     Header,

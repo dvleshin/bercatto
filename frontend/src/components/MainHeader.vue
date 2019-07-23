@@ -54,14 +54,13 @@ import Noty from 'noty';
 export default {
   
   created() {
-    if(sessionStorage.loggedInUser) {
-     this.$store
+    this.$store
         .dispatch({
           type: "loadLoggedInUser",
           userId: JSON.parse(sessionStorage.loggedInUser)._id
         }).then(user => {
           this.$store.dispatch({type: "setLoggedInUser",userCreds: user});
-        })}
+        })
   },
   data() {
     return {
@@ -69,7 +68,6 @@ export default {
         email: "admin3@admin.com",
         password: "1234"
       },
-      // loggedInUser: null,
       menu: false
     };
   },
@@ -97,7 +95,6 @@ export default {
                 userId: JSON.parse(sessionStorage.loggedInUser)._id
               })
               .then(user => {
-                // this.loggedInUser = user;
                 this.$store.dispatch({
                   type: "setLoggedInUser",
                   userCreds: user
@@ -111,7 +108,6 @@ export default {
       this.$store
         .dispatch({ type: "doLogout" })
         .then((()=>{
-          // this.loggedInUser = null
           this.$router.push('/')
         }));
     },

@@ -31,7 +31,6 @@ export default {
     const arenaId = 'xxx'    
     socket.emit("chat join", arenaId);
     socket.on("chat newMsg", msg => {
-      
       this.msgs.push(msg);
     });
     socket.on("chat history", msgs => {      
@@ -49,18 +48,36 @@ data() {
 
 methods: {
    sendMsg() {
-     console.log('df');
+    
      
       const msg = { txt: this.msgTxt };
-      socket.emit("chat msg", msg, 12);
+      socket.emit("chat msg", msg);
       this.msgTxt = "";
     },
 },
 
-
+destroyed() {
+  socket.removeListener('chat newMsg')
+  socket.removeListener('chat history')
+},
 
 }
 
 </script>
 <style lang="scss" scoped src="../styles/components/chat-app.scss">
 </style>
+
+
+{
+userOneId
+userTwoId
+arenaId
+msgs[
+  {
+    from
+    to
+    at
+    txt
+  }
+]
+}
