@@ -54,7 +54,6 @@ export default {
       try {
         const userCreds = await userService.doLogin(userCred)
         context.commit({ type: 'setLoggedInUser', userCreds })
-
       } catch (err) {
         console.log('Login error:', err);
       }

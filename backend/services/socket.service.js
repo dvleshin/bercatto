@@ -17,16 +17,21 @@ function setup(http) {
             activeUsersCount--;
         });
 
-        socket.on('chat join', (user) => {
-            room = roomService.placeInRoom(user)
-            console.log('Placed', user, 'in room:', room);
-            socket.join(room.id);
+        socket.on('chat join', (arenaId) => {
+            socket.emit('chat history', [{txt: arenaId}]);
+
+            // room = roomService.placeInRoom(arenaId)
+            // console.log('Placed', user, 'in room:', room);
+            // socket.join(room.id);
         });
 
         socket.on('chat msg', (msg) => {
             console.log('message: ' + msg.txt);
             // io.to().emit('chat newMsg', msg);
             io.emit('chat newMsg', msg);
+        });
+        socket.on('arena itemSelected', () => {
+            io.emit('arena itemSelected');
         });
     });
 }
@@ -35,3 +40,5 @@ module.exports = {
     setup ,
     io
 }
+
+

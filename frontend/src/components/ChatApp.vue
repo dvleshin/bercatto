@@ -26,11 +26,12 @@ const socket = io("http://localhost:3000");
 
 export default {
   created() {
+    const arenaId = 'xxx'    
+    socket.emit("chat join", arenaId);
     socket.on("chat newMsg", msg => {
       this.msgs.push(msg);
-      console.log(this.messages);
     });
-    socket.on("chat history", msgs => {
+    socket.on("chat history", msgs => {      
       this.msgs = msgs;
     });
   },
@@ -42,14 +43,38 @@ export default {
     };
   },
 
-  methods: {
-    sendMsg() {
+methods: {
+   sendMsg() {
+    
+     
       const msg = { txt: this.msgTxt };
-      socket.emit("chat msg", msg, 12);
+      socket.emit("chat msg", msg);
       this.msgTxt = "";
-    }
-  }
-};
+    },
+},
+
+destroyed() {
+  socket.removeListener('chat newMsg')
+  socket.removeListener('chat history')
+},
+
+}
+
 </script>
 <style lang="scss" scoped src="../styles/components/chat-app.scss">
 </style>
+
+
+{
+userOneId
+userTwoId
+arenaId
+msgs[
+  {
+    from
+    to
+    at
+    txt
+  }
+]
+}

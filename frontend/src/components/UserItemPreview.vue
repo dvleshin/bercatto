@@ -1,5 +1,5 @@
 <template>
-  <div class="item" @click="goToItem(item._id)">
+  <div v-if="!item.isSold" class="item" @click="goToItem(item._id)">
     <img :src="item.imgUrl[0]">
     <div class="info-container">
       <h1>{{item.name}}</h1>
