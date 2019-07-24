@@ -56,11 +56,8 @@ section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: rem(10px);
+    justify-items: center;
 }
-
-// .suggested-items-container :first-child {
-//     grid-column: 1 / -1;
-// }
 
 .barter-arrow {
     min-height: rem(500px);
@@ -139,7 +136,7 @@ h2 {
 
 .user-items {
     margin-right: rem(20px);
-    width: 190px;
+    width: 250px;
 }
 
 .user-items-container {

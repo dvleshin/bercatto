@@ -28,18 +28,15 @@
           <div class="owner-arena-area">
             <div class="owner-arena-area-items">
               <div>
-                <h2 class="owner-title">{{owner.fullName}} suggested:</h2>
+                <h2 class="owner-title">{{owner._id===loggedInUser._id ? "You suggested": this.owner.fullName + " suggested:"}}</h2>
                 <img class="owner-item" :src="ownerItem.imgUrl[0]" alt />
               </div>
               <div class="barter-arrow">
                 <img src="../../public/img/arrows.png" />
               </div>
-              <div>
-                <!-- <h2 v-if="!suggestedItems">Try Your Luck, Pick One Of Your Items And Start Bargain!</h2> -->
-                <div
-                  class="suggested-items-container"
-                  v-if="owner._id!==loggedInUser._id && suggestedItems"
-                >
+              <div class="user-items" v-if="owner._id!==loggedInUser._id && suggestedItems">
+                  <h2 class="owner-title">You suggested:</h2>
+                <div class="suggested-items-container" v-if="owner._id!==loggedInUser._id && suggestedItems">
                   <img
                     class="suggested-item animated fadeIn"
                     v-for="item in suggestedItems"
@@ -47,6 +44,12 @@
                   />
                 </div>
               </div>
+              <div v-if="owner._id===loggedInUser._id" class="user-items">
+                  <h2 class="owner-title">{{this.arena.buyer.fullName}} suggested:</h2>
+                  <div class="suggested-items-container">
+                      <img v-if="!item.isSold" class="suggested-item animated fadeIn" v-for="item in suggestedItems" :src="item.imgUrl[0]"/>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
@@ -61,20 +64,9 @@
               <v-btn @click="addItem">Add Item</v-btn>
             </div>
             <div class="img-container hvr-glow" v-for="item in userItems" @click="togglePickItem(item)">
-
               <img :class="{active : item.isPicked , item}" :src="item.imgUrl[0]" alt />
               <img v-if="item.isPicked" class="selected" src="../../public/img/selected.png" alt />
             </div>
-          </div>
-          <div v-else class="user-items-container">
-            <h2>Buyer: {{this.arena.buyer.fullName}}</h2>
-            <img
-              v-if="!item.isSold"
-              class="item"
-              v-for="item in suggestedItems"
-              :src="item.imgUrl[0]"
-              alt
-            />
           </div>
         </div>
       </div>
