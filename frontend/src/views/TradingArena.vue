@@ -6,7 +6,7 @@
         Live chat with {{owner._id==loggedInUser._id ? this.arena.buyer.fullName: this.owner.fullName}}
         <span>▼</span>
       </div>
-      <div class="chat" :class="{hide: toggleChat, chat ,animated ,fadeIn ,faster}" @keyup.esc="onToggleChat">
+      <div class="chat animated fadeIn faster" :class="{hide: toggleChat}" @keyup.esc="onToggleChat">
         <div class="chat-header">
           <div>Chat with {{owner._id==loggedInUser._id ? this.arena.buyer.fullName: this.owner.fullName}}</div>
           <div @click="onToggleChat">
@@ -34,7 +34,7 @@
               <div class="barter-arrow">
                 <img src="../../public/img/arrows.png" />
               </div>
-              <div class="user-items" v-if="owner._id!==loggedInUser._id && suggestedItems">
+              <div class="user-items" v-if="owner._id!==loggedInUser._id || !suggestedItems">
                   <h2 class="owner-title">You suggested:</h2>
                 <div class="suggested-items-container" v-if="owner._id!==loggedInUser._id && suggestedItems">
                   <img
