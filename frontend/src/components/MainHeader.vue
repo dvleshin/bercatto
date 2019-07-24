@@ -51,16 +51,27 @@ import userService from "../services/UserService.js";
 import Signup from "../components/SignUp-v2.vue";
 import ArenasMenu from "../components/ArenasMenu.vue";
 import Noty from 'noty';
+import io from "socket.io-client";
+const socket = io("http://localhost:3000");
+
 export default {
   
   created() {
+    
+ socket.on("arena itemSelected", () => {
+      this.$store.dispatch({type:'setLoggedInUser'})
+ })
+
+
+    
     this.$store
         .dispatch({
           type: "loadLoggedInUser",
           userId: JSON.parse(sessionStorage.loggedInUser)._id
         }).then(user => {
-          this.$store.dispatch({type: "setLoggedInUser",userCreds: user});
+          this.$store.dispatch({type: "setLoggedInUser"});
         })
+    
   },
   data() {
     return {
@@ -86,21 +97,6 @@ export default {
       this.$store
         .dispatch({ type: "doLogin", userCred: this.user })
         .then(res => {
-         
-
-          if (!this.loggedInUser) {
-            this.$store
-              .dispatch({
-                type: "getUserById",
-                userId: JSON.parse(sessionStorage.loggedInUser)._id
-              })
-              .then(user => {
-                this.$store.dispatch({
-                  type: "setLoggedInUser",
-                  userCreds: user
-                });
-              });
-          }
           console.log("Login successful");
         });
     },
@@ -119,6 +115,10 @@ export default {
  loggedInUser() {
    return this.$store.getters.loggedInUser
  }
+  },
+
+  destroyed() {
+     socket.removeListener('arena itemSelected')
   },
   components: {
     Signup,

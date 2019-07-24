@@ -1,6 +1,12 @@
 @import '../setup/functions.scss';
 @import '../setup/_variables.scss';
 
+
+.hide {
+    display: none;
+}
+
+
 .item,
 .suggested-item {
     height: rem(100px);
