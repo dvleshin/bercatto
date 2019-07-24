@@ -22,7 +22,8 @@
 
 <script>
 import io from "socket.io-client";
-const socket = io("http://localhost:3000");
+import socketService from '../services/SocketService.js'
+const socket = io(socketService.BASE_URL);
 
 export default {
   created() {

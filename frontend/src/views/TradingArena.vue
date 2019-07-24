@@ -77,10 +77,12 @@
 
 <script>
 import io from "socket.io-client";
-const socket = io("http://localhost:3000");
+import socketService from '../services/SocketService.js'
+const socket = io(socketService.BASE_URL);
 import Header from "../components/Header.vue";
 import ChatApp from "../components/ChatApp.vue";
 import utilService from "../services/UtilsService.js";
+
 export default {
   created() {
     socket.on("arena itemSelected", arenaId => {
