@@ -58,10 +58,15 @@ export default {
   
   created() {
     
- socket.on("arena itemSelected", () => {
-      this.$store.dispatch({type:'setLoggedInUser'})
+  socket.on("arena itemSelected", () => {
+      this.$store
+        .dispatch({
+          type: "loadLoggedInUser",
+          userId: JSON.parse(sessionStorage.loggedInUser)._id
+        }).then(user => {
+          this.$store.dispatch({type: "setLoggedInUser"});
+        })
  })
-
 
     
     this.$store
