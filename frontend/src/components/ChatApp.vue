@@ -51,7 +51,7 @@ export default {
 methods: {
    sendMsg() {
      const arenaId = this.$route.query.arena 
-      const msg = { txt: this.msgTxt };
+      const msg = { txt: `${this.loggedInUser.fullName}: ${this.msgTxt}` };
       socket.emit("chat msg", msg );
       this.msgTxt = "";
     },
