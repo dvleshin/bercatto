@@ -9,7 +9,7 @@ module.exports = {
 const COLLECTION = 'messages'
 
 async function getById(arenaId) {
-    console.log('Got here', arenaId);
+    //console.log('Got here', arenaId);
 
     const collection = await dbService.getCollection(COLLECTION)
     try {

@@ -9,8 +9,8 @@
 
 .item,
 .suggested-item {
-    height: rem(100px);
-    width: rem(100px);
+    height: rem(150px);
+    width: rem(150px);
 }
 
 .suggested-item {
@@ -170,10 +170,7 @@ h2 {
 }
 
 .done {
-    position: absolute;
-    height: 77%;
-    left: 22%;
-    z-index: 1000;
+    width: rem(150px);
 }
 
 .img-container .selected {

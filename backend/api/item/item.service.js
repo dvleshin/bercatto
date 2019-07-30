@@ -59,9 +59,7 @@ async function getById(itemId) {
 async function remove(itemId) {
     const collection = await dbService.getCollection(COLLECTION)
     try {
-        await collection.deleteOne({
-            "_id": ObjectId(itemId)
-        })
+        await collection.deleteOne({"_id": ObjectId(itemId)})
     } catch (err) {
         console.log(`ERROR: cannot remove user ${itemId}`)
         throw err;
@@ -69,19 +67,14 @@ async function remove(itemId) {
 }
 
 async function update(item) {
-    // console.log('got to update#####');
 
     const collection = await dbService.getCollection(COLLECTION)
     try {
-        console.log(item);
+        //console.log(item);
 
         const itemId = item._id
         delete item._id
-        await collection.replaceOne({
-            "_id": ObjectId(itemId)
-        }, {
-            $set: item
-        })
+        await collection.replaceOne({"_id": ObjectId(itemId)}, {$set: item})
         item._id = itemId
         return item
     } catch (err) {
@@ -91,14 +84,13 @@ async function update(item) {
 }
 
 async function add(item) {
-    console.log('got to add*****');
 
     const collection = await dbService.getCollection(COLLECTION)
     try {
         await collection.insertOne(item);
         return item;
     } catch (err) {
-        console.log(`ERROR: cannot insert user`)
+        console.log(`ERROR: cannot insert item`)
         throw err;
     }
 }
