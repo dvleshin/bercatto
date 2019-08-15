@@ -19,7 +19,6 @@
     <section v-if="ownerItem && owner">
       <div class="users-section">
         <div class="owner-section">
-          <img class="done" v-if="arena.isDone" src="../../public/img/deal.png" />
           <button
             @click="closeDeal"
             class="close-deal-btn"
@@ -28,11 +27,12 @@
           <div class="owner-arena-area">
             <div class="owner-arena-area-items">
               <div>
-                <h2 class="owner-title">{{owner._id===loggedInUser._id ? "You suggested": this.owner.fullName + " suggested:"}}</h2>
+                <h2 class="owner-title">{{owner._id===loggedInUser._id ? "You suggested:": this.owner.fullName + " suggested:"}}</h2>
                 <img class="owner-item" :src="ownerItem.imgUrl[0]" alt />
               </div>
               <div class="barter-arrow">
-                <img src="../../public/img/arrows.png" />
+                <img src="../../public/img/arrows.png" v-if="!arena.isDone" />
+                <img src="../../public/img/deal.png" v-if="arena.isDone" class="done"/>
               </div>
               <div class="user-items" v-if="owner._id!==loggedInUser._id || !suggestedItems">
                   <h2 class="owner-title">You suggested:</h2>

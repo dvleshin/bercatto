@@ -11,7 +11,7 @@ function setup(http) {
     io.on('connection', async function (socket) {
         console.log('a user connected');
         const msgs = await messageService.getById('QgPkZv')
-            console.log('Messages:', msgs);
+            //console.log('Messages:', msgs);
             
 
         var room;

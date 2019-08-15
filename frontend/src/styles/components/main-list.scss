@@ -10,4 +10,6 @@
     grid-template-columns: repeat(auto-fill, 300px);
     grid-row-gap: rem(15px);
     margin-top: rem(20px);
+    justify-items: center;
+    justify-self: center;
 }
