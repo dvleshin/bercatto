@@ -1,11 +1,12 @@
 <template>
   <div>
     <Header></Header>
-    <section class="search-container">
-      <div class="main-container">
+    <section class="search-container flex ">
+      <div class="main-container flex row">
         <FilterSection class="filter-section" @filterBy="onFilter" :searchBy="filterBy.category"></FilterSection>
-        <SortSection @sortBy="onSort"></SortSection>
-        <SearchItemList class="item-list" @remove="remove" :searchItems="itemsToShow"></SearchItemList>
+        <SearchItemList class="item-list" @remove="remove" :searchItems="itemsToShow">
+          <SortSection @sortBy="onSort"></SortSection>
+        </SearchItemList>
       </div>
     </section>
   </div>

@@ -1,6 +1,6 @@
 <template>
-  <section>
-    sort by
+  <section class="flex row sort-sections">
+    <span class="sort-label">Sort by:</span>
     <v-select
       :items="views"
       v-model="byViews"
@@ -18,7 +18,6 @@
       v-model="byName"
       label="Name"
       @input="emitSortBy(byName === 'A-Z' ? {byName: 1}:{byName: -1})"
-      
     ></v-select>
   </section>
 </template>
@@ -45,3 +44,5 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped src="../styles/components/sort-section.scss">
+</style>

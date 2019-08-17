@@ -3,3 +3,4 @@ node_modules
 /frontend/node_modules/
 /backend/.git/
 /backend/node_modules/
+/backend/public/

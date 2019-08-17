@@ -1,5 +1,6 @@
 <template>
   <section class="main-container">
+    <slot></slot>
     <div class="cards-container">
       <MainItemPreview @remove="remove" v-for="item in searchItems" :item="item" :key="item._id"></MainItemPreview>
     </div>

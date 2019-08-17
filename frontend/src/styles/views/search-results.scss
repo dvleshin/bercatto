@@ -1,19 +1,36 @@
+@import '../basics/_layout.scss';
+@import '../basics/_helpers.scss';
+@import '../setup/_functions.scss';
+@import '../setup/_variables.scss';
+
 .main-container {
-    display: flex;
-    padding: 15px;
-    flex-direction: row;
+    padding: rem(15px);
+}
+
+.search-container {
+    max-width: 1215px;
+    margin: 0 auto;
 }
 
 .item-list {
     flex-grow: 2;
-    margin-top: 0;
-    width: 150px;
-    flex-wrap: wrap;
 }
+
 .filter-section {
-    flex-grow: 1;
+    width: rem(250px);
+    margin-top: rem(90px);
 }
 
 h1 {
     flex-grow: 2;
+}
+
+.sort-sections {
+    margin-left: 50%;
+}
+
+.sort-sections .sort-label {
+    font-size: 19px;
+    width: 100px;
+    margin-top: rem(21px);
 }

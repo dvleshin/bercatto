@@ -25,6 +25,7 @@ async function query(filterBy = {}) {
     if (filterBy.byName) sortCriteria.name = +filterBy.byName
     if (filterBy.limit) limit = +filterBy.limit
     if (filterBy.tranding) filterCriteria.tranding = filterBy.tranding
+    filterCriteria.isSold= false
 
     // console.log('item service sortCriteria:', sortCriteria);
     // console.log('item service filterCriteria:', filterCriteria);
@@ -33,7 +34,7 @@ async function query(filterBy = {}) {
     const collection = await dbService.getCollection(COLLECTION)
     try {
         if (filterCriteria.tranding === 'true') {
-            const items = await collection.find({views: {$gt: +filterBy.gt}}).sort(sortCriteria).limit(limit).toArray();
+            const items = await collection.find({views: {$gt: +filterBy.gt} , isSold:false}).sort(sortCriteria).limit(limit).toArray();
             return items
         } else {
             const items = await collection.find(filterCriteria).sort(sortCriteria).limit(limit).toArray();            
