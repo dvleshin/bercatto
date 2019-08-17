@@ -26,7 +26,7 @@
             :append-icon-cb="search"
             solo
             style="border-radius: 30px"
-            placeholder="Search items for bargain..."
+            placeholder="Browse categories..."
             autofocus
           ></v-text-field>
         </h4>
